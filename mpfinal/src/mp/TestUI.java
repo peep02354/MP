@@ -5,7 +5,6 @@
  */
 package mp;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.sql.*;
@@ -393,21 +392,27 @@ public class TestUI extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane1.setBorder(null);
-
         select_table.setAutoCreateRowSorter(true);
         select_table.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
         select_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Test1", "Test1", "Test1", "Test1"},
-                {"Test2", "Test2", "Test2", "Test2"},
+                {"", "", "", ""},
+                {"", "", "", ""},
                 {null, null, null, null},
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "OE/OEM No.", "OE/OEM Name", "Capital Price", "Retail Price"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         select_table.setGridColor(new java.awt.Color(255, 255, 255));
         select_table.setIntercellSpacing(new java.awt.Dimension(5, 5));
         select_table.setSelectionBackground(new java.awt.Color(231, 231, 231));
@@ -1439,7 +1444,7 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JTextField part_name;
     private static javax.swing.JButton search_btn;
     private static javax.swing.JPanel search_menu_btn;
-    private javax.swing.JTable select_table;
+    javax.swing.JTable select_table;
     private static javax.swing.JPanel showMenu;
     private javax.swing.JPanel sidepane;
     // End of variables declaration//GEN-END:variables
