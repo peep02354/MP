@@ -1,28 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mp;
 
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.sql.*;
+import javax.swing.JTable;
 
-
-/**
- *
- * @author USER
- */
 public class TestUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TestUI
-     */
     final static String DBURL = "jdbc:ucanaccess://D:/CS/MP/finalLast3.accdb"; //change your msaccess file here
     Statement stmt = null;
     ResultSet result = null;
     int xx,xy;
+    static SelectMethod sm = new SelectMethod();
+    static InsertMethod im = new InsertMethod();
+     
     public TestUI() {
         initComponents();
     }
@@ -394,25 +385,6 @@ public class TestUI extends javax.swing.JFrame {
 
         select_table.setAutoCreateRowSorter(true);
         select_table.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        select_table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"", "", "", ""},
-                {"", "", "", ""},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "OE/OEM No.", "OE/OEM Name", "Capital Price", "Retail Price"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
         select_table.setGridColor(new java.awt.Color(255, 255, 255));
         select_table.setIntercellSpacing(new java.awt.Dimension(5, 5));
         select_table.setSelectionBackground(new java.awt.Color(231, 231, 231));
@@ -1132,6 +1104,8 @@ public class TestUI extends javax.swing.JFrame {
                 showMenu.setVisible(false);
             }
         });
+        
+        sm.all();
     }
     public static void addOe(String oe, String name, String bc,String comp, double c, double d, double g, double r,String body,String engine,String model) {
         try (Connection conn = DriverManager.getConnection(DBURL)) {
@@ -1444,7 +1418,7 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JTextField part_name;
     private static javax.swing.JButton search_btn;
     private static javax.swing.JPanel search_menu_btn;
-    javax.swing.JTable select_table;
+    public static javax.swing.JTable select_table;
     private static javax.swing.JPanel showMenu;
     private javax.swing.JPanel sidepane;
     // End of variables declaration//GEN-END:variables
