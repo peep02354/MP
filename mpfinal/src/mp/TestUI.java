@@ -51,7 +51,7 @@ public class TestUI extends javax.swing.JFrame {
         });
         
         //for testing
-        sm.all();
+        //sm.all();
     }
     
     
@@ -387,6 +387,12 @@ public class TestUI extends javax.swing.JFrame {
         jLable8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLable8.setText("Barcode");
 
+        oe_no.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oe_noActionPerformed(evt);
+            }
+        });
+
         engine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 engineActionPerformed(evt);
@@ -435,6 +441,11 @@ public class TestUI extends javax.swing.JFrame {
         search_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 search_btnMouseClicked(evt);
+            }
+        });
+        search_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_btnActionPerformed(evt);
             }
         });
 
@@ -1110,6 +1121,15 @@ public class TestUI extends javax.swing.JFrame {
                   );
     }//GEN-LAST:event_InsertOem_btnActionPerformed
 
+    private void oe_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oe_noActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oe_noActionPerformed
+
+    private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
+        // TODO add your handling code here:
+        sm.selectPart();
+    }//GEN-LAST:event_search_btnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1352,11 +1372,11 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JPanel InsertOem;
     private javax.swing.JButton InsertOem_btn;
     private javax.swing.JPanel SearchMenu;
-    private javax.swing.JTextField barcode;
+    static javax.swing.JTextField barcode;
     private javax.swing.JPanel bg;
-    private javax.swing.JTextField body;
-    private javax.swing.JTextField company;
-    private javax.swing.JTextField engine;
+    static javax.swing.JTextField body;
+    static javax.swing.JTextField company;
+    static javax.swing.JTextField engine;
     private static javax.swing.JPanel insert_oe_btn;
     private static javax.swing.JPanel insert_oem_btn;
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -1419,10 +1439,10 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel logo;
-    private javax.swing.JTextField model;
-    private javax.swing.JTextField oe_no;
-    private javax.swing.JTextField oem_no;
-    private javax.swing.JTextField part_name;
+    static javax.swing.JTextField model;
+    static javax.swing.JTextField oe_no;
+    static javax.swing.JTextField oem_no;
+    static javax.swing.JTextField part_name;
     private static javax.swing.JButton search_btn;
     private static javax.swing.JPanel search_menu_btn;
     public static javax.swing.JTable select_table;
