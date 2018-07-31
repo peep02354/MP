@@ -13,7 +13,7 @@ public class TestUI extends javax.swing.JFrame {
     int xx,xy;
     static SelectMethod sm = new SelectMethod();
     static InsertMethod im = new InsertMethod();
-     
+    
     public TestUI() {
         initComponents();
     }

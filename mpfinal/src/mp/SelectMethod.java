@@ -14,6 +14,7 @@ public class SelectMethod {
     public static DefaultTableModel clearTable() {
         TestUI.select_table.setModel(new DefaultTableModel());
         DefaultTableModel model = (DefaultTableModel) TestUI.select_table.getModel();
+        TestUI.select_table.setDefaultEditor(Object.class, null);
         model.addColumn("OE/OEM No.");
         model.addColumn("OE/OEM Name");
         model.addColumn("Capital Price");
