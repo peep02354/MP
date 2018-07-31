@@ -3,7 +3,6 @@ package mp;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.sql.*;
-import javax.swing.JTable;
 
 public class TestUI extends javax.swing.JFrame {
 
@@ -49,7 +48,7 @@ public class TestUI extends javax.swing.JFrame {
                 showMenu.setVisible(false);
             }
         });
-        
+        //sm.clearTable();
         //for testing
         //sm.all();
     }
@@ -1018,7 +1017,7 @@ public class TestUI extends javax.swing.JFrame {
 
     private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
         // TODO add your handling code here:
-        selectPart();
+        
 
     }//GEN-LAST:event_search_btnMouseClicked
 
@@ -1107,7 +1106,7 @@ public class TestUI extends javax.swing.JFrame {
 
     private void InsertOe_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOe_btnActionPerformed
         // TODO add your handling code here:
-        addOe(jTextField9.getText(), jTextField11.getText(), jTextField27.getText(),
+        im.addOe(jTextField9.getText(), jTextField11.getText(), jTextField27.getText(),
                   jTextField18.getText(), Double.parseDouble(jTextField13.getText()), Double.parseDouble(jTextField15.getText()),
                  Double.parseDouble(jTextField16.getText()), Double.parseDouble(jTextField17.getText()), jTextField10.getText(), 
                   jTextField12.getText(), jTextField14.getText());
@@ -1115,7 +1114,7 @@ public class TestUI extends javax.swing.JFrame {
 
     private void InsertOem_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOem_btnActionPerformed
         // TODO add your handling code here:
-        addOem(jTextField19.getText(), jTextField21.getText(), jTextField23.getText(),
+        im.addOem(jTextField19.getText(), jTextField21.getText(), jTextField23.getText(),
                   jTextField20.getText(), jTextField28.getText(), Double.parseDouble(jTextField22.getText()),
                  Double.parseDouble(jTextField24.getText()), Double.parseDouble(jTextField26.getText()), Double.parseDouble(jTextField25.getText()) 
                   );
@@ -1133,7 +1132,7 @@ public class TestUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
+    /*
     public static void addOe(String oe, String name, String bc,String comp, double c, double d, double g, double r,String body,String engine,String model) {
         try (Connection conn = DriverManager.getConnection(DBURL)) {
             String sql = "insert into oe (oe_no,oe_name,barcode,company,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?)";
@@ -1320,7 +1319,7 @@ public class TestUI extends javax.swing.JFrame {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-    }
+    }*/
 
     public static String toPrice(String in) {
         String price = "";
