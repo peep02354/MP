@@ -20,7 +20,7 @@ public class TestUI extends javax.swing.JFrame {
     /**
      * Creates new form TestUI
      */
-    final static String DBURL = "jdbc:ucanaccess://D://finalLast3.accdb"; //change your msaccess file here
+    final static String DBURL = "jdbc:ucanaccess://D:/CS/MP/finalLast3.accdb"; //change your msaccess file here
     Statement stmt = null;
     ResultSet result = null;
     int xx,xy;

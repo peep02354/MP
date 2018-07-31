@@ -9,11 +9,6 @@ public class MP {
     Statement stmt = null;
     ResultSet result = null;
 
-    public static void main(String[] args) {
-        //addModel("123","model");
-        System.out.println(toPrice("00.019"));
-    }
-
     //add oe product
     public static void addOe(String oe, String name, String bc, String qr, String comp, double c, double d, double g, double r) {
         try (Connection conn = DriverManager.getConnection(DBURL)) {
