@@ -8,6 +8,8 @@ package mp;
 import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
+import java.sql.*;
+
 
 /**
  *
@@ -18,6 +20,9 @@ public class TestUI extends javax.swing.JFrame {
     /**
      * Creates new form TestUI
      */
+    final static String DBURL = "jdbc:ucanaccess://D://finalLast3.accdb"; //change your msaccess file here
+    Statement stmt = null;
+    ResultSet result = null;
     int xx,xy;
     public TestUI() {
         initComponents();
@@ -32,6 +37,8 @@ public class TestUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         bg = new javax.swing.JPanel();
         sidepane = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -92,6 +99,8 @@ public class TestUI extends javax.swing.JFrame {
         jTextField17 = new javax.swing.JTextField();
         jTextField18 = new javax.swing.JTextField();
         InsertOe_btn = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        jTextField27 = new javax.swing.JTextField();
         InsertOem = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -110,6 +119,10 @@ public class TestUI extends javax.swing.JFrame {
         jTextField25 = new javax.swing.JTextField();
         jTextField26 = new javax.swing.JTextField();
         InsertOem_btn = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jTextField28 = new javax.swing.JTextField();
+
+        jScrollPane2.setViewportView(jEditorPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -297,7 +310,7 @@ public class TestUI extends javax.swing.JFrame {
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel14)
-                .addGap(0, 151, Short.MAX_VALUE))
+                .addGap(0, 152, Short.MAX_VALUE))
         );
         Button3Layout.setVerticalGroup(
             Button3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -590,6 +603,9 @@ public class TestUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel26.setText("Barcode");
+
         javax.swing.GroupLayout InsertOeLayout = new javax.swing.GroupLayout(InsertOe);
         InsertOe.setLayout(InsertOeLayout);
         InsertOeLayout.setHorizontalGroup(
@@ -630,12 +646,17 @@ public class TestUI extends javax.swing.JFrame {
                         .addGap(1, 1, 1)))
                 .addGap(25, 25, 25)
                 .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(InsertOeLayout.createSequentialGroup()
+                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel26)
+                        .addGap(27, 27, 27)
+                        .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(371, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         InsertOeLayout.setVerticalGroup(
             InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -647,7 +668,9 @@ public class TestUI extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel26)
+                            .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37)
                         .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
@@ -677,7 +700,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(InsertOe_btn)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         showMenu.add(InsertOe, "card3");
@@ -757,6 +780,16 @@ public class TestUI extends javax.swing.JFrame {
         });
 
         InsertOem_btn.setText("Insert");
+        InsertOem_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertOem_btnActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel27.setText("OE No.");
+
+        jTextField28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout InsertOemLayout = new javax.swing.GroupLayout(InsertOem);
         InsertOem.setLayout(InsertOemLayout);
@@ -792,11 +825,16 @@ public class TestUI extends javax.swing.JFrame {
                                 .addComponent(jLabel22)))
                         .addGap(18, 18, 18)
                         .addGroup(InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(InsertOemLayout.createSequentialGroup()
+                                .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(jLabel27)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
         InsertOemLayout.setVerticalGroup(
             InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -806,7 +844,9 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jLabel22)
                     .addComponent(jLabel18)
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27)
+                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(58, 58, 58)
                 .addGroup(InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
@@ -827,7 +867,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addComponent(InsertOem_btn)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         showMenu.add(InsertOem, "card4");
@@ -950,6 +990,7 @@ public class TestUI extends javax.swing.JFrame {
 
     private void Search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_btnMouseClicked
         // TODO add your handling code here:
+        selectPart();
 
     }//GEN-LAST:event_Search_btnMouseClicked
 
@@ -1038,7 +1079,19 @@ public class TestUI extends javax.swing.JFrame {
 
     private void InsertOe_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOe_btnActionPerformed
         // TODO add your handling code here:
+        addOe(jTextField9.getText(), jTextField11.getText(), jTextField27.getText(),
+                  jTextField18.getText(), Double.parseDouble(jTextField13.getText()), Double.parseDouble(jTextField15.getText()),
+                 Double.parseDouble(jTextField16.getText()), Double.parseDouble(jTextField17.getText()), jTextField10.getText(), 
+                  jTextField12.getText(), jTextField14.getText());
     }//GEN-LAST:event_InsertOe_btnActionPerformed
+
+    private void InsertOem_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOem_btnActionPerformed
+        // TODO add your handling code here:
+        addOem(jTextField19.getText(), jTextField21.getText(), jTextField23.getText(),
+                  jTextField20.getText(), jTextField28.getText(), Double.parseDouble(jTextField22.getText()),
+                 Double.parseDouble(jTextField24.getText()), Double.parseDouble(jTextField26.getText()), Double.parseDouble(jTextField25.getText()) 
+                  );
+    }//GEN-LAST:event_InsertOem_btnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1075,7 +1128,225 @@ public class TestUI extends javax.swing.JFrame {
             }
         });
     }
-    
+    public static void addOe(String oe, String name, String bc,String comp, double c, double d, double g, double r,String body,String engine,String model) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            String sql = "insert into oe (oe_no,oe_name,barcode,company,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement p = conn.prepareStatement(sql);
+            p.setString(1, oe);
+            p.setString(2, name);
+            p.setString(3, bc);
+            p.setString(4, comp);
+            p.setDouble(5, c);
+            p.setDouble(6, d);
+            p.setDouble(7, g);
+            p.setDouble(8, r);
+            p.executeUpdate();
+            addBody(oe, body);
+            addEngine(oe, engine);
+            addModel(oe, model);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //add oem product
+    public static void addOem(String oem, String name, String bc,String comp, String oe, double c, double d, double g, double r) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            String sql = "insert into oem (oem_no,oem_name,barcode,oe_no,company,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement p = conn.prepareStatement(sql);
+            p.setString(1, oem);
+            p.setString(2, name);
+            p.setString(3, bc);
+            p.setString(4, comp);
+            p.setString(5, oe);
+            p.setDouble(6, c);
+            p.setDouble(7, d);
+            p.setDouble(8, g);
+            p.setDouble(9, r);
+            p.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //add model of oe
+    public static void addModel(String oe, String model) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            String sql = "insert into oe_model (oe_no,model) values(?, ?)";
+            PreparedStatement p = conn.prepareStatement(sql);
+            p.setString(1, oe);
+            p.setString(2, model);
+            p.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //add body of oe
+    public static void addBody(String oe, String body) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            String sql = "insert into oe_body (oe_no, body) values(?, ?)";
+            PreparedStatement p = conn.prepareStatement(sql);
+            p.setString(1, oe);
+            p.setString(2, body);
+            p.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //add engine of oe
+    public static void addEngine(String oe, String engine) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            String sql = "insert into oe_engine (oe_no,engine) values(?, ?)";
+            PreparedStatement p = conn.prepareStatement(sql);
+            p.setString(1, oe);
+            p.setString(2, engine);
+            p.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //select all of product
+    public static void selectPart() {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            PreparedStatement p = conn.prepareStatement("select OE_NO,OE_NAME,company,C_PRICE,D_PRICE,G_PRICE,R_PRICE from OE");
+            ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getDouble(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getString(7));
+            }
+            p = conn.prepareCall("select OEM_NO,OEM_NAME,company,C_PRICE,D_PRICE,G_PRICE,R_PRICE from OEM");
+            rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getDouble(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getString(7));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    //select part from engine
+    public static void selectPartEngine(String engine) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
+                    + "from OE, OE_Engine"
+                    + "where OE.OE_NO = OE_Engine.OE_NO and OE_Engine.Engine =" + engine);
+            ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
+            }
+            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
+                    + "from OEM, OE_Engine"
+                    + "where OEM.OE_NO = OE_Engine.OE_NO and OE_Engine.Engine =" + engine);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    //select part from model
+    public static void selectPartModel(String model) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
+                    + "from OE, OE_Model"
+                    + "where OE.OE_NO = OE_Model.OE_NO and OE_Model.Model =" + model);
+            ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
+            }
+
+            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
+                    + "from OEM, OE_Model"
+                    + "where OEM.OE_NO = OE_Model.OE_NO and OE_Model.Model =" + model);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    //select part from body
+    public static void selectPartBody(String body) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
+                    + "from OE, OE_BODY"
+                    + "where OE.OE_NO = OE_Body.OE_NO and OE_BODY.body =" + body);
+            ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
+            }
+
+            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
+                    + "from OEM, OE_BODY"
+                    + "where OEM.OE_NO = OE_Body.OE_NO and OE_BODY.Body =" + body);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void selectPartCompany(String comp) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.company,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
+                    + "from OE"
+                    + "where OE.company = " + comp);
+            ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getDouble(7));
+            }
+
+            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,company,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
+                    + "from OEM"
+                    + "where OEM.company = " + comp);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getDouble(7));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static String toPrice(String in) {
+        String price = "";
+        String[] a = new String[2];
+        boolean isDot = false;
+        for (int i = 0; i < in.length(); i++) {
+            if (in.charAt(i) == '.') {
+                a[0] = in.substring(0, i);
+                a[1] = in.substring(i + 1);
+                isDot = true;
+            }
+        }
+        if (!isDot) {
+            a[0] = in;
+        }
+        a[0] = "" + Integer.parseInt(a[0]);
+        while (a[0].length() != 0) {
+            int mod = a[0].length() % 3;
+            if (mod == 0) {
+                mod = 3;
+            }
+            price = price + a[0].substring(0, mod);
+            if (a[0].length() > 3) {
+                price += ",";
+            }
+            a[0] = a[0].substring(mod);
+        }
+        if (a[1] == null) {
+            a[1] = "00";
+        }
+        return price + "." + a[1].substring(0,2);
+    }
     private static void onClick(JPanel panel) {
        panel.setBackground(new Color(204,204,204));
        showMenu.setVisible(true);
@@ -1085,18 +1356,13 @@ public class TestUI extends javax.swing.JFrame {
        panel.setBackground(Color.white);
     }
 
-    /*public void showSearchUI(){
-       SearchUI searchUI = new SearchUI();
-       showMenu.add(searchUI,"SearchUI");
-       card.show(showMenu,"SearchUI");
-    }*/
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Button1;
-    private javax.swing.JPanel Button2;
+    private static javax.swing.JPanel Button1;
+    private static javax.swing.JPanel Button2;
     private static javax.swing.JPanel Button3;
-    private javax.swing.JPanel Indicator1;
-    private javax.swing.JPanel Indicator2;
+    private static javax.swing.JPanel Indicator1;
+    private static javax.swing.JPanel Indicator2;
     private static javax.swing.JPanel Indicator3;
     private javax.swing.JPanel InsertOe;
     private javax.swing.JButton InsertOe_btn;
@@ -1106,6 +1372,7 @@ public class TestUI extends javax.swing.JFrame {
     private static javax.swing.JButton Search_btn;
     private javax.swing.JPanel bg;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1124,6 +1391,8 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1140,6 +1409,7 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLable8;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
@@ -1160,6 +1430,8 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField26;
+    private javax.swing.JTextField jTextField27;
+    private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -1172,3 +1444,4 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JPanel sidepane;
     // End of variables declaration//GEN-END:variables
 }
+
