@@ -5,9 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.HashMap;
 import javax.swing.table.DefaultTableModel;
 import static mp.TestUI.DBURL;
 
@@ -16,7 +14,6 @@ public class SelectMethod {
     public static DefaultTableModel clearTable() {
         TestUI.select_table.setModel(new DefaultTableModel());
         DefaultTableModel model = (DefaultTableModel) TestUI.select_table.getModel();
-        //model.setRowCount(1);
         TestUI.select_table.setDefaultEditor(Object.class, null);
         model.addColumn("OE/OEM No.");
         model.addColumn("OE/OEM Name");
@@ -61,33 +58,33 @@ public class SelectMethod {
             String where = "";
             String realWhere = "";
             String from = "from oe";
-            ArrayList<String> arr = new ArrayList<String>();
+            ArrayList<String> arr = new ArrayList<>();
             if (!TestUI.oe_no.getText().equals("")) {
-                where += " and oe.oe_no = ?";
-                arr.add(TestUI.oe_no.getText());
+                where += " and oe.oe_no like ?";
+                arr.add("%"+TestUI.oe_no.getText()+"%");
             }
             if (!TestUI.part_name.getText().equals("")) {
-                where += " and oe.oe_name = ?";
-                arr.add(TestUI.part_name.getText());
+                where += " and oe.oe_name like ?";
+                arr.add("%"+TestUI.part_name.getText()+"%");
             }
             if (!TestUI.company.getText().equals("")) {
-                where += " and oe.company = ?";
-                arr.add(TestUI.company.getText());
+                where += " and oe.company like ?";
+                arr.add("%"+TestUI.company.getText()+"%");
             }
             if (!TestUI.body.getText().equals("")) {
-                where += " and body = ? and oe.oe_no = oe_body.oe_no";
+                where += " and body like ? and oe.oe_no = oe_body.oe_no";
                 from += ", oe_body";
-                arr.add(TestUI.body.getText());
+                arr.add("%"+TestUI.body.getText()+"%");
             }
             if (!TestUI.engine.getText().equals("")) {
-                where += " and engine = ? and oe.oe_no = oe_engine.oe_no";
+                where += " and engine like ? and oe.oe_no = oe_engine.oe_no";
                 from += ", oe_engine";
-                arr.add(TestUI.engine.getText());
+                arr.add("%"+TestUI.engine.getText()+"%");
             }
             if (!TestUI.model.getText().equals("")) {
-                where += " and model = ? and oe.oe_no = oe_model.oe_no";
+                where += " and model like ? and oe.oe_no = oe_model.oe_no";
                 from += ", oe_model";
-                arr.add(TestUI.model.getText());
+                arr.add("%"+TestUI.model.getText()+"%");
             }
             if (!where.equals("")) {
                 realWhere = "where true" + where;
@@ -109,35 +106,35 @@ public class SelectMethod {
             realWhere = "";
             from = "from oem";
             if (!TestUI.oem_no.getText().equals("")){
-                where += " and oem.oem_no = ?";
-                arr.add(TestUI.oem_no.getText());
+                where += " and oem.oem_no like ?";
+                arr.add("%"+TestUI.oem_no.getText()+"%");
             }
             if (!TestUI.oe_no.getText().equals("")) {
-                where += " and oem.oe_no = ?";
-                arr.add(TestUI.oe_no.getText());
+                where += " and oem.oe_no like ?";
+                arr.add("%"+TestUI.oe_no.getText()+"%");
             }
             if (!TestUI.part_name.getText().equals("")) {
-                where += " and oem.oem_name = ?";
-                arr.add(TestUI.part_name.getText());
+                where += " and oem.oem_name like ?";
+                arr.add("%"+TestUI.part_name.getText()+"%");
             }
             if (!TestUI.company.getText().equals("")) {
-                where += " and oem.company = ?";
-                arr.add(TestUI.company.getText());
+                where += " and oem.company like ?";
+                arr.add("%"+TestUI.company.getText()+"%");
             }
             if (!TestUI.body.getText().equals("")) {
-                where += " and body = ? and oem.oe_no = oe_body.oe_no";
+                where += " and body like ? and oem.oe_no = oe_body.oe_no";
                 from += ", oe_body";
-                arr.add(TestUI.body.getText());
+                arr.add("%"+TestUI.body.getText()+"%");
             }
             if (!TestUI.engine.getText().equals("")) {
-                where += " and engine = ? and oem.oe_no = oe_engine.oe_no";
+                where += " and engine like ? and oem.oe_no = oe_engine.oe_no";
                 from += ", oe_engine";
-                arr.add(TestUI.engine.getText());
+                arr.add("%"+TestUI.engine.getText()+"%");
             }
             if (!TestUI.model.getText().equals("")) {
-                where += " and model = ? and oem.oe_no = oe_model.oe_no";
+                where += " and model like ? and oem.oe_no = oe_model.oe_no";
                 from += ", oe_model";
-                arr.add(TestUI.model.getText());
+                arr.add("%"+TestUI.model.getText()+"%");
             }
             if (!where.equals("")) {
                 realWhere = "where true" + where;
