@@ -105,9 +105,10 @@ public class SelectMethod {
             where = "";
             realWhere = "";
             from = "from oem";
-            if (!TestUI.oem_no.getText().equals("")){
-                where += " and oem.oem_no like ?";
-                arr.add("%"+TestUI.oem_no.getText()+"%");
+            if (!TestUI.oe_no.getText().equals("")){
+                where += " and oem.oem_no like ? or oem.oe_no like ?";
+                arr.add("%"+TestUI.oe_no.getText()+"%");
+                arr.add("%"+TestUI.oe_no.getText()+"%");
             }
             if (!TestUI.oe_no.getText().equals("")) {
                 where += " and oem.oe_no like ?";
