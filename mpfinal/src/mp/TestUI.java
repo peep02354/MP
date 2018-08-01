@@ -47,6 +47,7 @@ public class TestUI extends javax.swing.JFrame {
             public void run() {
                 new TestUI().setVisible(true);
                 showMenu.setVisible(false);
+                select_table.setVisible(true);
             }
         });
         //sm.clearTable();
