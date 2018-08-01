@@ -153,8 +153,8 @@ public class TestUI extends javax.swing.JFrame {
         InsertOem_btn = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         oem_oe_no = new javax.swing.JTextField();
-        jLabel32 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
 
         jScrollPane2.setViewportView(jEditorPane1);
 
@@ -214,11 +214,13 @@ public class TestUI extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+            .addComponent(logo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 190, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(logo, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         sidepane.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 190));
@@ -379,7 +381,7 @@ public class TestUI extends javax.swing.JFrame {
 
         sidepane.add(insert_oe_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 270, -1));
 
-        bg.add(sidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 640));
+        bg.add(sidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 600));
 
         showMenu.setBackground(new java.awt.Color(153, 0, 51));
         showMenu.setLayout(new java.awt.CardLayout());
@@ -702,7 +704,7 @@ public class TestUI extends javax.swing.JFrame {
             .addGroup(InsertOeLayout.createSequentialGroup()
                 .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InsertOeLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(69, 69, 69)
                         .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -739,7 +741,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(InsertOe_btn)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
 
         showMenu.add(InsertOe, "card3");
@@ -926,6 +928,16 @@ public class TestUI extends javax.swing.JFrame {
 
         bg.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 30, 890, 608));
 
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mp/180802020003-k0nQ.png"))); // NOI18N
+        jLabel28.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel28MouseClicked(evt);
+            }
+        });
+        bg.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 10, -1, 20));
+
         jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mp/180802015948-8x40.png"))); // NOI18N
         jLabel32.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -935,15 +947,6 @@ public class TestUI extends javax.swing.JFrame {
             }
         });
         bg.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 10, -1, -1));
-
-        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mp/180802020003-k0nQ.png"))); // NOI18N
-        jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel28MouseClicked(evt);
-            }
-        });
-        bg.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 10, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
