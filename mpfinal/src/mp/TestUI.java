@@ -154,6 +154,7 @@ public class TestUI extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         oem_oe_no = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
 
         jScrollPane2.setViewportView(jEditorPane1);
 
@@ -176,6 +177,7 @@ public class TestUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1169, 608));
+        setUndecorated(true);
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setMaximumSize(new java.awt.Dimension(1169, 608));
@@ -925,13 +927,23 @@ public class TestUI extends javax.swing.JFrame {
         bg.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 30, 890, 608));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel32.setText("X");
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mp/180802015948-8x40.png"))); // NOI18N
+        jLabel32.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel32.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel32MouseClicked(evt);
             }
         });
-        bg.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 0, -1, -1));
+        bg.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 10, -1, -1));
+
+        jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mp/180802020003-k0nQ.png"))); // NOI18N
+        jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel28MouseClicked(evt);
+            }
+        });
+        bg.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 10, -1, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -1185,6 +1197,11 @@ public class TestUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jLabel32MouseClicked
+
+    private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
+        // TODO add your handling code here:
+        this.setState(TestUI.ICONIFIED);
+    }//GEN-LAST:event_jLabel28MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1457,6 +1474,7 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel31;
