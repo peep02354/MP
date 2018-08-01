@@ -1,28 +1,62 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package mp;
 
-import java.awt.CardLayout;
 import java.awt.Color;
 import javax.swing.JPanel;
+import java.sql.*;
 
-/**
- *
- * @author USER
- */
 public class TestUI extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TestUI
-     */
+    final static String DBURL = "jdbc:ucanaccess://D:/CS/MP/finalLast3.accdb"; //change your msaccess file here
+    Statement stmt = null;
+    ResultSet result = null;
     int xx,xy;
+    static SelectMethod sm = new SelectMethod();
+    static InsertMethod im = new InsertMethod();
+    
     public TestUI() {
         initComponents();
     }
+    
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(TestUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(TestUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(TestUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(TestUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new TestUI().setVisible(true);
+                showMenu.setVisible(false);
+            }
+        });
+        //sm.clearTable();
+        //for testing
+        //sm.all();
+    }
+    
+    
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,19 +66,21 @@ public class TestUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
         bg = new javax.swing.JPanel();
         sidepane = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         logo = new javax.swing.JLabel();
-        Button1 = new javax.swing.JPanel();
+        search_menu_btn = new javax.swing.JPanel();
         Indicator1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        Button2 = new javax.swing.JPanel();
+        insert_oem_btn = new javax.swing.JPanel();
         Indicator2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        Button3 = new javax.swing.JPanel();
+        insert_oe_btn = new javax.swing.JPanel();
         Indicator3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -59,17 +95,17 @@ public class TestUI extends javax.swing.JFrame {
         jLable6 = new javax.swing.JLabel();
         jLable7 = new javax.swing.JLabel();
         jLable8 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        oem_no = new javax.swing.JTextField();
+        oe_no = new javax.swing.JTextField();
+        engine = new javax.swing.JTextField();
+        part_name = new javax.swing.JTextField();
+        body = new javax.swing.JTextField();
+        company = new javax.swing.JTextField();
+        barcode = new javax.swing.JTextField();
+        model = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        Search_btn = new javax.swing.JButton();
+        select_table = new javax.swing.JTable();
+        search_btn = new javax.swing.JButton();
         InsertOe = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -92,6 +128,8 @@ public class TestUI extends javax.swing.JFrame {
         jTextField17 = new javax.swing.JTextField();
         jTextField18 = new javax.swing.JTextField();
         InsertOe_btn = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        jTextField27 = new javax.swing.JTextField();
         InsertOem = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -110,6 +148,10 @@ public class TestUI extends javax.swing.JFrame {
         jTextField25 = new javax.swing.JTextField();
         jTextField26 = new javax.swing.JTextField();
         InsertOem_btn = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jTextField28 = new javax.swing.JTextField();
+
+        jScrollPane2.setViewportView(jEditorPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -157,10 +199,10 @@ public class TestUI extends javax.swing.JFrame {
 
         sidepane.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 190));
 
-        Button1.setBackground(new java.awt.Color(255, 255, 255));
-        Button1.addMouseListener(new java.awt.event.MouseAdapter() {
+        search_menu_btn.setBackground(new java.awt.Color(255, 255, 255));
+        search_menu_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Button1MouseClicked(evt);
+                search_menu_btnMouseClicked(evt);
             }
         });
 
@@ -183,11 +225,11 @@ public class TestUI extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mp/3.png"))); // NOI18N
 
-        javax.swing.GroupLayout Button1Layout = new javax.swing.GroupLayout(Button1);
-        Button1.setLayout(Button1Layout);
-        Button1Layout.setHorizontalGroup(
-            Button1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Button1Layout.createSequentialGroup()
+        javax.swing.GroupLayout search_menu_btnLayout = new javax.swing.GroupLayout(search_menu_btn);
+        search_menu_btn.setLayout(search_menu_btnLayout);
+        search_menu_btnLayout.setHorizontalGroup(
+            search_menu_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(search_menu_btnLayout.createSequentialGroup()
                 .addComponent(Indicator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
@@ -195,24 +237,24 @@ public class TestUI extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(0, 168, Short.MAX_VALUE))
         );
-        Button1Layout.setVerticalGroup(
-            Button1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        search_menu_btnLayout.setVerticalGroup(
+            search_menu_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Indicator1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, search_menu_btnLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, search_menu_btnLayout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
-        sidepane.add(Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 270, -1));
+        sidepane.add(search_menu_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 270, -1));
 
-        Button2.setBackground(new java.awt.Color(255, 255, 255));
-        Button2.addMouseListener(new java.awt.event.MouseAdapter() {
+        insert_oem_btn.setBackground(new java.awt.Color(255, 255, 255));
+        insert_oem_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Button2MouseClicked(evt);
+                insert_oem_btnMouseClicked(evt);
             }
         });
 
@@ -235,11 +277,11 @@ public class TestUI extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mp/180722140507-32p7.png"))); // NOI18N
 
-        javax.swing.GroupLayout Button2Layout = new javax.swing.GroupLayout(Button2);
-        Button2.setLayout(Button2Layout);
-        Button2Layout.setHorizontalGroup(
-            Button2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Button2Layout.createSequentialGroup()
+        javax.swing.GroupLayout insert_oem_btnLayout = new javax.swing.GroupLayout(insert_oem_btn);
+        insert_oem_btn.setLayout(insert_oem_btnLayout);
+        insert_oem_btnLayout.setHorizontalGroup(
+            insert_oem_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(insert_oem_btnLayout.createSequentialGroup()
                 .addComponent(Indicator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -247,24 +289,24 @@ public class TestUI extends javax.swing.JFrame {
                 .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 134, Short.MAX_VALUE))
         );
-        Button2Layout.setVerticalGroup(
-            Button2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        insert_oem_btnLayout.setVerticalGroup(
+            insert_oem_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Indicator2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insert_oem_btnLayout.createSequentialGroup()
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 10, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insert_oem_btnLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        sidepane.add(Button2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 270, 50));
+        sidepane.add(insert_oem_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 270, 50));
 
-        Button3.setBackground(new java.awt.Color(255, 255, 255));
-        Button3.addMouseListener(new java.awt.event.MouseAdapter() {
+        insert_oe_btn.setBackground(new java.awt.Color(255, 255, 255));
+        insert_oe_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Button3MouseClicked(evt);
+                insert_oe_btnMouseClicked(evt);
             }
         });
 
@@ -287,31 +329,31 @@ public class TestUI extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mp/180722140507-32p7.png"))); // NOI18N
 
-        javax.swing.GroupLayout Button3Layout = new javax.swing.GroupLayout(Button3);
-        Button3.setLayout(Button3Layout);
-        Button3Layout.setHorizontalGroup(
-            Button3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Button3Layout.createSequentialGroup()
+        javax.swing.GroupLayout insert_oe_btnLayout = new javax.swing.GroupLayout(insert_oe_btn);
+        insert_oe_btn.setLayout(insert_oe_btnLayout);
+        insert_oe_btnLayout.setHorizontalGroup(
+            insert_oe_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(insert_oe_btnLayout.createSequentialGroup()
                 .addComponent(Indicator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel14)
-                .addGap(0, 151, Short.MAX_VALUE))
+                .addGap(0, 152, Short.MAX_VALUE))
         );
-        Button3Layout.setVerticalGroup(
-            Button3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        insert_oe_btnLayout.setVerticalGroup(
+            insert_oe_btnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(Indicator3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insert_oe_btnLayout.createSequentialGroup()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 11, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Button3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, insert_oe_btnLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        sidepane.add(Button3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 270, -1));
+        sidepane.add(insert_oe_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 270, -1));
 
         bg.add(sidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 269, 608));
 
@@ -344,67 +386,65 @@ public class TestUI extends javax.swing.JFrame {
         jLable8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLable8.setText("Barcode");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        oe_no.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                oe_noActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        engine.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                engineActionPerformed(evt);
             }
         });
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        part_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                part_nameActionPerformed(evt);
             }
         });
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        body.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                bodyActionPerformed(evt);
             }
         });
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        company.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                companyActionPerformed(evt);
             }
         });
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        barcode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                barcodeActionPerformed(evt);
             }
         });
 
-        jScrollPane1.setBorder(null);
-
-        jTable1.setAutoCreateRowSorter(true);
-        jTable1.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {"Test1", "Test1", "Test1", "Test1"},
-                {"Test2", "Test2", "Test2", "Test2"},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        model.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modelActionPerformed(evt);
             }
-        ));
-        jTable1.setGridColor(new java.awt.Color(255, 255, 255));
-        jTable1.setIntercellSpacing(new java.awt.Dimension(5, 5));
-        jTable1.setSelectionBackground(new java.awt.Color(231, 231, 231));
-        jTable1.setSelectionForeground(new java.awt.Color(0, 0, 0));
-        jScrollPane1.setViewportView(jTable1);
+        });
 
-        Search_btn.setText("Search");
-        Search_btn.addMouseListener(new java.awt.event.MouseAdapter() {
+        select_table.setAutoCreateRowSorter(true);
+        select_table.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        select_table.setGridColor(new java.awt.Color(255, 255, 255));
+        select_table.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        select_table.setSelectionBackground(new java.awt.Color(231, 231, 231));
+        select_table.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        jScrollPane1.setViewportView(select_table);
+
+        search_btn.setText("Search");
+        search_btn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Search_btnMouseClicked(evt);
+                search_btnMouseClicked(evt);
+            }
+        });
+        search_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                search_btnActionPerformed(evt);
             }
         });
 
@@ -429,30 +469,30 @@ public class TestUI extends javax.swing.JFrame {
                         .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(SearchMenuLayout.createSequentialGroup()
                                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(oem_no, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(97, 97, 97)
                                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLable5)
                                     .addComponent(jLable6)))
                             .addGroup(SearchMenuLayout.createSequentialGroup()
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLable7))))
                     .addGroup(SearchMenuLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Search_btn)
+                            .addComponent(search_btn)
                             .addGroup(SearchMenuLayout.createSequentialGroup()
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(engine, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLable8)))))
                 .addGap(18, 18, 18)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(369, Short.MAX_VALUE))
         );
         SearchMenuLayout.setVerticalGroup(
@@ -461,29 +501,29 @@ public class TestUI extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oem_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(55, 55, 55)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(engine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
-                .addComponent(Search_btn)
+                .addComponent(search_btn)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
                 .addContainerGap())
@@ -590,6 +630,9 @@ public class TestUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel26.setText("Barcode");
+
         javax.swing.GroupLayout InsertOeLayout = new javax.swing.GroupLayout(InsertOe);
         InsertOe.setLayout(InsertOeLayout);
         InsertOeLayout.setHorizontalGroup(
@@ -630,12 +673,17 @@ public class TestUI extends javax.swing.JFrame {
                         .addGap(1, 1, 1)))
                 .addGap(25, 25, 25)
                 .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(InsertOeLayout.createSequentialGroup()
+                        .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel26)
+                        .addGap(27, 27, 27)
+                        .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(371, Short.MAX_VALUE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         InsertOeLayout.setVerticalGroup(
             InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -647,7 +695,9 @@ public class TestUI extends javax.swing.JFrame {
                             .addComponent(jLabel5)
                             .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel26)
+                            .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37)
                         .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
@@ -677,7 +727,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(InsertOe_btn)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         showMenu.add(InsertOe, "card3");
@@ -757,6 +807,16 @@ public class TestUI extends javax.swing.JFrame {
         });
 
         InsertOem_btn.setText("Insert");
+        InsertOem_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertOem_btnActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel27.setText("OE No.");
+
+        jTextField28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout InsertOemLayout = new javax.swing.GroupLayout(InsertOem);
         InsertOem.setLayout(InsertOemLayout);
@@ -792,11 +852,16 @@ public class TestUI extends javax.swing.JFrame {
                                 .addComponent(jLabel22)))
                         .addGap(18, 18, 18)
                         .addGroup(InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(InsertOemLayout.createSequentialGroup()
+                                .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(jLabel27)
+                                .addGap(18, 18, 18)
+                                .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(396, Short.MAX_VALUE))
+                .addContainerGap(214, Short.MAX_VALUE))
         );
         InsertOemLayout.setVerticalGroup(
             InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -806,7 +871,9 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jLabel22)
                     .addComponent(jLabel18)
                     .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27)
+                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(58, 58, 58)
                 .addGroup(InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
@@ -827,7 +894,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addComponent(InsertOem_btn)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         showMenu.add(InsertOem, "card4");
@@ -878,11 +945,11 @@ public class TestUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sidepaneMouseDragged
 
-    private void Button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button2MouseClicked
+    private void insert_oem_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insert_oem_btnMouseClicked
         // TODO add your handling code here:
-        onClick(Button2);
-        onLeaveClick(Button1);
-        onLeaveClick(Button3);
+        onClick(insert_oem_btn);
+        onLeaveClick(search_menu_btn);
+        onLeaveClick(insert_oe_btn);
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(true);
@@ -891,13 +958,13 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.add(InsertOem);
         showMenu.repaint();
         showMenu.revalidate();
-    }//GEN-LAST:event_Button2MouseClicked
+    }//GEN-LAST:event_insert_oem_btnMouseClicked
 
-    private void Button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button1MouseClicked
+    private void search_menu_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_menu_btnMouseClicked
         // TODO add your handling code here:
-        onClick(Button1);
-        onLeaveClick(Button2);
-        onLeaveClick(Button3);
+        onClick(search_menu_btn);
+        onLeaveClick(insert_oem_btn);
+        onLeaveClick(insert_oe_btn);
         //indicators
         Indicator1.setOpaque(true);
         Indicator2.setOpaque(false);
@@ -906,14 +973,14 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.add(SearchMenu);
         showMenu.repaint();
         showMenu.revalidate();
-    }//GEN-LAST:event_Button1MouseClicked
+    }//GEN-LAST:event_search_menu_btnMouseClicked
 
-    private void Button3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Button3MouseClicked
+    private void insert_oe_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insert_oe_btnMouseClicked
         // TODO add your handling code here:
              // TODO add your handling code here:
-        onClick(Button3);
-        onLeaveClick(Button2);
-        onLeaveClick(Button1);
+        onClick(insert_oe_btn);
+        onLeaveClick(insert_oem_btn);
+        onLeaveClick(search_menu_btn);
         //indicators
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
@@ -922,36 +989,37 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.add(InsertOe);
         showMenu.repaint();
         showMenu.revalidate();
-    }//GEN-LAST:event_Button3MouseClicked
+    }//GEN-LAST:event_insert_oe_btnMouseClicked
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void engineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_engineActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void part_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_part_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_part_nameActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void bodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_bodyActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void companyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_companyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_companyActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void barcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barcodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_barcodeActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void modelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_modelActionPerformed
 
-    private void Search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Search_btnMouseClicked
+    private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
         // TODO add your handling code here:
+        
 
-    }//GEN-LAST:event_Search_btnMouseClicked
+    }//GEN-LAST:event_search_btnMouseClicked
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
@@ -996,9 +1064,9 @@ public class TestUI extends javax.swing.JFrame {
     private void logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoMouseClicked
         // TODO add your handling code here:
         showMenu.setVisible(false);
-        onLeaveClick(Button1);
-        onLeaveClick(Button2);
-        onLeaveClick(Button3);
+        onLeaveClick(search_menu_btn);
+        onLeaveClick(insert_oem_btn);
+        onLeaveClick(insert_oe_btn);
         Indicator1.setOpaque(false);
         Indicator2.setOpaque(false);
         Indicator3.setOpaque(false);
@@ -1038,44 +1106,252 @@ public class TestUI extends javax.swing.JFrame {
 
     private void InsertOe_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOe_btnActionPerformed
         // TODO add your handling code here:
+        im.addOe(jTextField9.getText(), jTextField11.getText(), jTextField27.getText(),
+                  jTextField18.getText(), Double.parseDouble(jTextField13.getText()), Double.parseDouble(jTextField15.getText()),
+                 Double.parseDouble(jTextField16.getText()), Double.parseDouble(jTextField17.getText()), jTextField10.getText(), 
+                  jTextField12.getText(), jTextField14.getText());
     }//GEN-LAST:event_InsertOe_btnActionPerformed
+
+    private void InsertOem_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOem_btnActionPerformed
+        // TODO add your handling code here:
+        im.addOem(jTextField19.getText(), jTextField21.getText(), jTextField23.getText(),
+                  jTextField20.getText(), jTextField28.getText(), Double.parseDouble(jTextField22.getText()),
+                 Double.parseDouble(jTextField24.getText()), Double.parseDouble(jTextField26.getText()), Double.parseDouble(jTextField25.getText()) 
+                  );
+    }//GEN-LAST:event_InsertOem_btnActionPerformed
+
+    private void oe_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oe_noActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oe_noActionPerformed
+
+    private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
+        // TODO add your handling code here:
+        sm.selectPart();
+    }//GEN-LAST:event_search_btnActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TestUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TestUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TestUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TestUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+    /*
+    public static void addOe(String oe, String name, String bc,String comp, double c, double d, double g, double r,String body,String engine,String model) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            String sql = "insert into oe (oe_no,oe_name,barcode,company,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement p = conn.prepareStatement(sql);
+            p.setString(1, oe);
+            p.setString(2, name);
+            p.setString(3, bc);
+            p.setString(4, comp);
+            p.setDouble(5, c);
+            p.setDouble(6, d);
+            p.setDouble(7, g);
+            p.setDouble(8, r);
+            p.executeUpdate();
+            addBody(oe, body);
+            addEngine(oe, engine);
+            addModel(oe, model);
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TestUI().setVisible(true);
-                showMenu.setVisible(false);
-            }
-        });
     }
-    
+
+    //add oem product
+    public static void addOem(String oem, String name, String bc,String comp, String oe, double c, double d, double g, double r) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            String sql = "insert into oem (oem_no,oem_name,barcode,oe_no,company,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement p = conn.prepareStatement(sql);
+            p.setString(1, oem);
+            p.setString(2, name);
+            p.setString(3, bc);
+            p.setString(4, comp);
+            p.setString(5, oe);
+            p.setDouble(6, c);
+            p.setDouble(7, d);
+            p.setDouble(8, g);
+            p.setDouble(9, r);
+            p.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //add model of oe
+    public static void addModel(String oe, String model) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            String sql = "insert into oe_model (oe_no,model) values(?, ?)";
+            PreparedStatement p = conn.prepareStatement(sql);
+            p.setString(1, oe);
+            p.setString(2, model);
+            p.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //add body of oe
+    public static void addBody(String oe, String body) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            String sql = "insert into oe_body (oe_no, body) values(?, ?)";
+            PreparedStatement p = conn.prepareStatement(sql);
+            p.setString(1, oe);
+            p.setString(2, body);
+            p.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //add engine of oe
+    public static void addEngine(String oe, String engine) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            String sql = "insert into oe_engine (oe_no,engine) values(?, ?)";
+            PreparedStatement p = conn.prepareStatement(sql);
+            p.setString(1, oe);
+            p.setString(2, engine);
+            p.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    //select all of product
+    public static void selectPart() {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            PreparedStatement p = conn.prepareStatement("select OE_NO,OE_NAME,company,C_PRICE,D_PRICE,G_PRICE,R_PRICE from OE");
+            ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getDouble(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getString(7));
+            }
+            p = conn.prepareCall("select OEM_NO,OEM_NAME,company,C_PRICE,D_PRICE,G_PRICE,R_PRICE from OEM");
+            rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getDouble(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getString(7));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    //select part from engine
+    public static void selectPartEngine(String engine) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
+                    + "from OE, OE_Engine"
+                    + "where OE.OE_NO = OE_Engine.OE_NO and OE_Engine.Engine =" + engine);
+            ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
+            }
+            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
+                    + "from OEM, OE_Engine"
+                    + "where OEM.OE_NO = OE_Engine.OE_NO and OE_Engine.Engine =" + engine);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    //select part from model
+    public static void selectPartModel(String model) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
+                    + "from OE, OE_Model"
+                    + "where OE.OE_NO = OE_Model.OE_NO and OE_Model.Model =" + model);
+            ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
+            }
+
+            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
+                    + "from OEM, OE_Model"
+                    + "where OEM.OE_NO = OE_Model.OE_NO and OE_Model.Model =" + model);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    //select part from body
+    public static void selectPartBody(String body) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
+                    + "from OE, OE_BODY"
+                    + "where OE.OE_NO = OE_Body.OE_NO and OE_BODY.body =" + body);
+            ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
+            }
+
+            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
+                    + "from OEM, OE_BODY"
+                    + "where OEM.OE_NO = OE_Body.OE_NO and OE_BODY.Body =" + body);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void selectPartCompany(String comp) {
+        try (Connection conn = DriverManager.getConnection(DBURL)) {
+            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.company,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
+                    + "from OE"
+                    + "where OE.company = " + comp);
+            ResultSet rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getDouble(7));
+            }
+
+            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,company,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
+                    + "from OEM"
+                    + "where OEM.company = " + comp);
+            rs = p.executeQuery();
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getDouble(7));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }*/
+
+    public static String toPrice(String in) {
+        String price = "";
+        String[] a = new String[2];
+        boolean isDot = false;
+        for (int i = 0; i < in.length(); i++) {
+            if (in.charAt(i) == '.') {
+                a[0] = in.substring(0, i);
+                a[1] = in.substring(i + 1);
+                isDot = true;
+            }
+        }
+        if (!isDot) {
+            a[0] = in;
+        }
+        a[0] = "" + Integer.parseInt(a[0]);
+        while (a[0].length() != 0) {
+            int mod = a[0].length() % 3;
+            if (mod == 0) {
+                mod = 3;
+            }
+            price = price + a[0].substring(0, mod);
+            if (a[0].length() > 3) {
+                price += ",";
+            }
+            a[0] = a[0].substring(mod);
+        }
+        if (a[1] == null) {
+            a[1] = "00";
+        }
+        return price + "." + a[1].substring(0,2);
+    }
     private static void onClick(JPanel panel) {
        panel.setBackground(new Color(204,204,204));
        showMenu.setVisible(true);
@@ -1085,27 +1361,25 @@ public class TestUI extends javax.swing.JFrame {
        panel.setBackground(Color.white);
     }
 
-    /*public void showSearchUI(){
-       SearchUI searchUI = new SearchUI();
-       showMenu.add(searchUI,"SearchUI");
-       card.show(showMenu,"SearchUI");
-    }*/
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Button1;
-    private javax.swing.JPanel Button2;
-    private static javax.swing.JPanel Button3;
-    private javax.swing.JPanel Indicator1;
-    private javax.swing.JPanel Indicator2;
+    private static javax.swing.JPanel Indicator1;
+    private static javax.swing.JPanel Indicator2;
     private static javax.swing.JPanel Indicator3;
     private javax.swing.JPanel InsertOe;
     private javax.swing.JButton InsertOe_btn;
     private javax.swing.JPanel InsertOem;
     private javax.swing.JButton InsertOem_btn;
     private javax.swing.JPanel SearchMenu;
-    private static javax.swing.JButton Search_btn;
+    static javax.swing.JTextField barcode;
     private javax.swing.JPanel bg;
+    static javax.swing.JTextField body;
+    static javax.swing.JTextField company;
+    static javax.swing.JTextField engine;
+    private static javax.swing.JPanel insert_oe_btn;
+    private static javax.swing.JPanel insert_oem_btn;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1124,6 +1398,8 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1140,8 +1416,7 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLable8;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
@@ -1152,7 +1427,6 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
@@ -1160,15 +1434,19 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField24;
     private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField26;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField27;
+    private javax.swing.JTextField jTextField28;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel logo;
+    static javax.swing.JTextField model;
+    static javax.swing.JTextField oe_no;
+    static javax.swing.JTextField oem_no;
+    static javax.swing.JTextField part_name;
+    private static javax.swing.JButton search_btn;
+    private static javax.swing.JPanel search_menu_btn;
+    public static javax.swing.JTable select_table;
     private static javax.swing.JPanel showMenu;
     private javax.swing.JPanel sidepane;
     // End of variables declaration//GEN-END:variables
 }
+

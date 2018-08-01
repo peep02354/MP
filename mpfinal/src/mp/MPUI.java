@@ -6,7 +6,7 @@
 package mp;
 
 import java.awt.Color;
-import java.util.Set;
+
 import javax.swing.JPanel;
 import java.sql.*;
 
@@ -19,7 +19,7 @@ public class MPUI extends javax.swing.JFrame {
     /**
      * Creates new form MPUI
      */
-    final static String DBURL = "jdbc:ucanaccess://C:/Users/HP/Documents/finalLast2.accdb"; //change your msaccess file here
+    final static String DBURL = "jdbc:ucanaccess://D:/CS/MP/finalLast3.accdb"; //change your msaccess file here
     Statement stmt = null;
     ResultSet result = null;
     int xx;
@@ -672,12 +672,9 @@ public class MPUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    /*
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Windows".equals(info.getName())) {
@@ -696,7 +693,7 @@ public class MPUI extends javax.swing.JFrame {
         }
         //</editor-fold>
 
-        /* Create and display the form */
+     
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MPUI().setVisible(true);
@@ -708,7 +705,7 @@ public class MPUI extends javax.swing.JFrame {
                 Indicator2.setOpaque(false);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JPanel Button1;
