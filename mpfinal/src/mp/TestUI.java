@@ -3,6 +3,7 @@ package mp;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 public class TestUI extends javax.swing.JFrame {
 
@@ -1046,6 +1047,7 @@ public class TestUI extends javax.swing.JFrame {
         company.setText("");
         barcode.setText("");
         model.setText("");
+        JOptionPane.showMessageDialog(null,"Search");
     }//GEN-LAST:event_search_btnActionPerformed
 
     private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
