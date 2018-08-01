@@ -1,13 +1,14 @@
 package mp;
 
 import java.awt.Color;
-import java.awt.Toolkit;
 import javax.swing.JPanel;
 import java.sql.*;
 
 public class TestUI extends javax.swing.JFrame {
 
-    final static String DBURL = "jdbc:ucanaccess://D:/CS/MP/finalLast3.accdb"; //change your msaccess file here
+    //final static String DBURL = "jdbc:ucanaccess://D:/CS/MP/finalLast3.accdb"; //change your msaccess file here
+    final static String dir = System.getProperty("user.dir");
+    final static String DBURL = "jdbc:ucanaccess://"+dir+"/finalLast3.accdb";
     Statement stmt = null;
     ResultSet result = null;
     int xx,xy;
@@ -41,7 +42,7 @@ public class TestUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TestUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+            
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -52,6 +53,7 @@ public class TestUI extends javax.swing.JFrame {
         //sm.clearTable();
         //for testing
         //sm.all();
+        System.out.println(DBURL);
     }
     
     
