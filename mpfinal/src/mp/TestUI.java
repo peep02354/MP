@@ -1024,6 +1024,13 @@ public class TestUI extends javax.swing.JFrame {
     private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
         // TODO add your handling code here:
         sm.selectPart();
+        oe_no.setText("");
+        engine.setText("");
+        part_name.setText("");
+        body.setText("");
+        company.setText("");
+        barcode.setText("");
+        model.setText("");
     }//GEN-LAST:event_search_btnActionPerformed
 
     private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
@@ -1065,6 +1072,14 @@ public class TestUI extends javax.swing.JFrame {
             oem_oe_no.getText(), oem_company.getText(), Double.parseDouble(oem_c.getText()),
             Double.parseDouble(oem_d.getText()), Double.parseDouble(oem_g.getText()), Double.parseDouble(oem_r.getText())
         );
+        oem_oem_no.setText("");
+        oem_company.setText("");
+        oem_name.setText("");
+        oem_c.setText("");
+        oem_barcode.setText("");
+        oem_d.setText("");
+        oem_g.setText("");
+        oem_r.setText("");
     }//GEN-LAST:event_InsertOem_btnActionPerformed
 
     private void oem_gActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_gActionPerformed
@@ -1105,6 +1120,17 @@ public class TestUI extends javax.swing.JFrame {
             jTextField18.getText(), Double.parseDouble(jTextField13.getText()), Double.parseDouble(jTextField15.getText()),
             Double.parseDouble(jTextField16.getText()), Double.parseDouble(jTextField17.getText()), jTextField10.getText(),
             jTextField12.getText(), jTextField14.getText());
+        jTextField9.setText("");
+        jTextField10.setText("");
+        jTextField11.setText("");
+        jTextField12.setText("");
+        jTextField13.setText("");
+        jTextField14.setText("");
+        jTextField15.setText("");
+        jTextField16.setText("");
+        jTextField17.setText("");
+        jTextField18.setText("");
+        jTextField27.setText("");
     }//GEN-LAST:event_InsertOe_btnActionPerformed
 
     private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
