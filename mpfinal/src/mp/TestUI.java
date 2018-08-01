@@ -1,6 +1,7 @@
 package mp;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import javax.swing.JPanel;
 import java.sql.*;
 
@@ -14,7 +15,7 @@ public class TestUI extends javax.swing.JFrame {
     static InsertMethod im = new InsertMethod();
     
     public TestUI() {
-        initComponents();
+        initComponents();  
     }
     
     public static void main(String args[]) {
@@ -155,8 +156,10 @@ public class TestUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(1169, 608));
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
+        bg.setMaximumSize(new java.awt.Dimension(1169, 608));
         bg.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 bgMouseDragged(evt);
