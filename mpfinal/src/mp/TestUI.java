@@ -69,6 +69,8 @@ public class TestUI extends javax.swing.JFrame {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
         bg = new javax.swing.JPanel();
         sidepane = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -89,14 +91,12 @@ public class TestUI extends javax.swing.JFrame {
         showMenu = new javax.swing.JPanel();
         SearchMenu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLable2 = new javax.swing.JLabel();
         jLable3 = new javax.swing.JLabel();
         jLable4 = new javax.swing.JLabel();
         jLable5 = new javax.swing.JLabel();
         jLable6 = new javax.swing.JLabel();
         jLable7 = new javax.swing.JLabel();
         jLable8 = new javax.swing.JLabel();
-        oem_no = new javax.swing.JTextField();
         oe_no = new javax.swing.JTextField();
         engine = new javax.swing.JTextField();
         part_name = new javax.swing.JTextField();
@@ -151,8 +151,25 @@ public class TestUI extends javax.swing.JFrame {
         InsertOem_btn = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         jTextField28 = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
 
         jScrollPane2.setViewportView(jEditorPane1);
+
+        jLabel29.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel29.setText("X");
+        jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel29MouseClicked(evt);
+            }
+        });
+
+        jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel31.setText("X");
+        jLabel31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel31MouseClicked(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -358,18 +375,15 @@ public class TestUI extends javax.swing.JFrame {
 
         sidepane.add(insert_oe_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 270, -1));
 
-        bg.add(sidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 269, 608));
+        bg.add(sidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 640));
 
         showMenu.setBackground(new java.awt.Color(153, 0, 51));
         showMenu.setLayout(new java.awt.CardLayout());
 
-        SearchMenu.setBackground(new java.awt.Color(204, 204, 204));
+        SearchMenu.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("OEM NO.");
-
-        jLable2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLable2.setText("OE No.");
+        jLabel1.setText("OE No. / OEM No.");
 
         jLable3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLable3.setText("Body Code");
@@ -455,86 +469,77 @@ public class TestUI extends javax.swing.JFrame {
         SearchMenu.setLayout(SearchMenuLayout);
         SearchMenuLayout.setHorizontalGroup(
             SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SearchMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
             .addGroup(SearchMenuLayout.createSequentialGroup()
-                .addGap(92, 92, 92)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLable2)
-                    .addComponent(jLable4)
-                    .addComponent(jLable3))
-                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SearchMenuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
                     .addGroup(SearchMenuLayout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(SearchMenuLayout.createSequentialGroup()
-                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(oem_no, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(97, 97, 97)
-                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLable5)
-                                    .addComponent(jLable6)))
-                            .addGroup(SearchMenuLayout.createSequentialGroup()
-                                .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLable7))))
-                    .addGroup(SearchMenuLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(83, 83, 83)
+                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLable3)
+                            .addComponent(jLable4)
+                            .addComponent(jLable5))
+                        .addGap(27, 27, 27)
                         .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(engine, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(search_btn)
+                            .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(71, 71, 71)
+                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(SearchMenuLayout.createSequentialGroup()
-                                .addComponent(engine, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLable8)))))
-                .addGap(18, 18, 18)
-                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(369, Short.MAX_VALUE))
+                                .addComponent(jLable6)
+                                .addGap(18, 18, 18)
+                                .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(SearchMenuLayout.createSequentialGroup()
+                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLable8)
+                                    .addComponent(jLable7))
+                                .addGap(18, 18, 18)
+                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 352, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         SearchMenuLayout.setVerticalGroup(
             SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SearchMenuLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLable2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLable5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(oem_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addGap(45, 45, 45)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
+                .addGap(38, 38, 38)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(engine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                .addGap(45, 45, 45)
+                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLable5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
                 .addComponent(search_btn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         showMenu.add(SearchMenu, "card2");
 
-        InsertOe.setBackground(new java.awt.Color(204, 204, 204));
+        InsertOe.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("OE No.");
@@ -730,12 +735,12 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addComponent(InsertOe_btn)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addContainerGap(249, Short.MAX_VALUE))
         );
 
         showMenu.add(InsertOe, "card3");
 
-        InsertOem.setBackground(new java.awt.Color(204, 204, 204));
+        InsertOem.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel18.setText("OEM No.");
@@ -897,7 +902,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addComponent(InsertOem_btn)
-                .addContainerGap(242, Short.MAX_VALUE))
+                .addContainerGap(250, Short.MAX_VALUE))
         );
 
         showMenu.add(InsertOem, "card4");
@@ -915,7 +920,16 @@ public class TestUI extends javax.swing.JFrame {
             .addComponent(showMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        bg.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 0, 890, 608));
+        bg.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 30, 890, 608));
+
+        jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel32.setText("X");
+        jLabel32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel32MouseClicked(evt);
+            }
+        });
+        bg.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -994,76 +1008,6 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.revalidate();
     }//GEN-LAST:event_insert_oe_btnMouseClicked
 
-    private void engineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_engineActionPerformed
-
-    private void part_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_part_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_part_nameActionPerformed
-
-    private void bodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bodyActionPerformed
-
-    private void companyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_companyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_companyActionPerformed
-
-    private void barcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barcodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_barcodeActionPerformed
-
-    private void modelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_modelActionPerformed
-
-    private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
-        // TODO add your handling code here:
-        
-
-    }//GEN-LAST:event_search_btnMouseClicked
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
-
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
-
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
-
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
-
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
-
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
-
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
-
     private void logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoMouseClicked
         // TODO add your handling code here:
         showMenu.setVisible(false);
@@ -1075,62 +1019,144 @@ public class TestUI extends javax.swing.JFrame {
         Indicator3.setOpaque(false);
     }//GEN-LAST:event_logoMouseClicked
 
-    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
+    private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField19ActionPerformed
+        sm.selectPart();
+    }//GEN-LAST:event_search_btnActionPerformed
 
-    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
+    private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField20ActionPerformed
 
-    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField21ActionPerformed
+    }//GEN-LAST:event_search_btnMouseClicked
 
-    private void jTextField22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField22ActionPerformed
+    private void modelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField22ActionPerformed
+    }//GEN-LAST:event_modelActionPerformed
 
-    private void jTextField23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField23ActionPerformed
+    private void barcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barcodeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField23ActionPerformed
+    }//GEN-LAST:event_barcodeActionPerformed
 
-    private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
+    private void companyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_companyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField24ActionPerformed
+    }//GEN-LAST:event_companyActionPerformed
 
-    private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
+    private void bodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField25ActionPerformed
+    }//GEN-LAST:event_bodyActionPerformed
 
-    private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
+    private void part_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_part_nameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField26ActionPerformed
+    }//GEN-LAST:event_part_nameActionPerformed
 
-    private void InsertOe_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOe_btnActionPerformed
+    private void engineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_engineActionPerformed
         // TODO add your handling code here:
-        im.addOe(jTextField9.getText(), jTextField11.getText(), jTextField27.getText(),
-                  jTextField18.getText(), Double.parseDouble(jTextField13.getText()), Double.parseDouble(jTextField15.getText()),
-                 Double.parseDouble(jTextField16.getText()), Double.parseDouble(jTextField17.getText()), jTextField10.getText(), 
-                  jTextField12.getText(), jTextField14.getText());
-    }//GEN-LAST:event_InsertOe_btnActionPerformed
-
-    private void InsertOem_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOem_btnActionPerformed
-        // TODO add your handling code here:
-        im.addOem(jTextField19.getText(), jTextField21.getText(), jTextField23.getText(),
-                  jTextField20.getText(), jTextField28.getText(), Double.parseDouble(jTextField22.getText()),
-                 Double.parseDouble(jTextField24.getText()), Double.parseDouble(jTextField26.getText()), Double.parseDouble(jTextField25.getText()) 
-                  );
-    }//GEN-LAST:event_InsertOem_btnActionPerformed
+    }//GEN-LAST:event_engineActionPerformed
 
     private void oe_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oe_noActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_oe_noActionPerformed
 
-    private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
+    private void InsertOem_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOem_btnActionPerformed
         // TODO add your handling code here:
-        sm.selectPart();
-    }//GEN-LAST:event_search_btnActionPerformed
+        im.addOem(jTextField19.getText(), jTextField21.getText(), jTextField23.getText(),
+            jTextField20.getText(), jTextField28.getText(), Double.parseDouble(jTextField22.getText()),
+            Double.parseDouble(jTextField24.getText()), Double.parseDouble(jTextField26.getText()), Double.parseDouble(jTextField25.getText())
+        );
+    }//GEN-LAST:event_InsertOem_btnActionPerformed
+
+    private void jTextField26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField26ActionPerformed
+
+    private void jTextField25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField25ActionPerformed
+
+    private void jTextField24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField24ActionPerformed
+
+    private void jTextField23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField23ActionPerformed
+
+    private void jTextField22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField22ActionPerformed
+
+    private void jTextField21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField21ActionPerformed
+
+    private void jTextField20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField20ActionPerformed
+
+    private void jTextField19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField19ActionPerformed
+
+    private void InsertOe_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOe_btnActionPerformed
+        // TODO add your handling code here:
+        im.addOe(jTextField9.getText(), jTextField11.getText(), jTextField27.getText(),
+            jTextField18.getText(), Double.parseDouble(jTextField13.getText()), Double.parseDouble(jTextField15.getText()),
+            Double.parseDouble(jTextField16.getText()), Double.parseDouble(jTextField17.getText()), jTextField10.getText(),
+            jTextField12.getText(), jTextField14.getText());
+    }//GEN-LAST:event_InsertOe_btnActionPerformed
+
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField18ActionPerformed
+
+    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField17ActionPerformed
+
+    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField16ActionPerformed
+
+    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField15ActionPerformed
+
+    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField14ActionPerformed
+
+    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField13ActionPerformed
+
+    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField12ActionPerformed
+
+    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField11ActionPerformed
+
+    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField10ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel29MouseClicked
+
+    private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel31MouseClicked
+
+    private void jLabel32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseClicked
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jLabel32MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1403,14 +1429,16 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLable2;
     private javax.swing.JLabel jLable3;
     private javax.swing.JLabel jLable4;
     private javax.swing.JLabel jLable5;
@@ -1443,7 +1471,6 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JLabel logo;
     static javax.swing.JTextField model;
     static javax.swing.JTextField oe_no;
-    static javax.swing.JTextField oem_no;
     static javax.swing.JTextField part_name;
     private static javax.swing.JButton search_btn;
     private static javax.swing.JPanel search_menu_btn;

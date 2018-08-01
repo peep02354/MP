@@ -13,6 +13,28 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JLabel" name="jLabel29">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="24" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="X"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel29MouseClicked"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel31">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="24" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="X"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel31MouseClicked"/>
+      </Events>
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -81,7 +103,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="0" y="0" width="269" height="608"/>
+              <AbsoluteConstraints x="0" y="0" width="280" height="640"/>
             </Constraint>
           </Constraints>
 
@@ -395,7 +417,7 @@
         <Container class="javax.swing.JDesktopPane" name="jDesktopPane1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="279" y="0" width="890" height="608"/>
+              <AbsoluteConstraints x="279" y="30" width="890" height="608"/>
             </Constraint>
           </Constraints>
 
@@ -427,7 +449,7 @@
                 <Container class="javax.swing.JPanel" name="SearchMenu">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -439,61 +461,51 @@
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" max="32767" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLable2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLable4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLable3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="oe_no" min="-2" pref="80" max="-2" attributes="0"/>
-                                                  <Component id="oem_no" min="-2" pref="80" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Component id="jLable5" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jLable6" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="body" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jLable7" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jScrollPane1" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLable3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLable4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLable5" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="search_btn" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" attributes="0">
-                                              <Component id="engine" min="-2" pref="80" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jLable8" min="-2" max="-2" attributes="0"/>
+                                          <Component id="body" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="oe_no" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="engine" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <Component id="search_btn" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="part_name" alignment="0" min="-2" pref="80" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jLable6" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="model" min="-2" pref="80" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="1" attributes="0">
+                                                  <Component id="jLable8" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="jLable7" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="company" min="-2" pref="80" max="-2" attributes="0"/>
+                                                  <Component id="barcode" min="-2" pref="80" max="-2" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
+                                      <EmptySpace min="0" pref="352" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="part_name" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="company" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="barcode" min="-2" pref="80" max="-2" attributes="0"/>
-                                  <Component id="model" min="-2" pref="80" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="369" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -502,36 +514,34 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLable2" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="oe_no" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLable5" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="part_name" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="oem_no" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLable6" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="model" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLable3" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="body" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLable7" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="company" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLable4" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="engine" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLable8" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="barcode" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLable5" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="part_name" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                               <Component id="search_btn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" pref="284" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" pref="278" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -543,15 +553,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="OEM NO."/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JLabel" name="jLable2">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Tahoma" size="14" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="OE No."/>
+                        <Property name="text" type="java.lang.String" value="OE No. / OEM No."/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLable3">
@@ -601,11 +603,6 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="Barcode"/>
                       </Properties>
-                    </Component>
-                    <Component class="javax.swing.JTextField" name="oem_no">
-                      <AuxValues>
-                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="8"/>
-                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JTextField" name="oe_no">
                       <Events>
@@ -715,7 +712,7 @@
                 <Container class="javax.swing.JPanel" name="InsertOe">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -842,7 +839,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="InsertOe_btn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="237" max="32767" attributes="0"/>
+                              <EmptySpace pref="249" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1001,7 +998,7 @@
                 <Container class="javax.swing.JPanel" name="InsertOem">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1101,7 +1098,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Component id="InsertOem_btn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="242" max="32767" attributes="0"/>
+                              <EmptySpace pref="250" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1240,6 +1237,22 @@
             </Container>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="jLabel32">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="24" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="X"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel32MouseClicked"/>
+          </Events>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="1140" y="0" width="-1" height="-1"/>
+            </Constraint>
+          </Constraints>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>
