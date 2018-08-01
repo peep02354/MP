@@ -6,7 +6,6 @@ import java.sql.*;
 
 public class TestUI extends javax.swing.JFrame {
 
-    //final static String DBURL = "jdbc:ucanaccess://D:/CS/MP/finalLast3.accdb"; //change your msaccess file here
     final static String dir = System.getProperty("user.dir");
     final static String DBURL = "jdbc:ucanaccess://"+dir+"/finalLast3.accdb";
     Statement stmt = null;
