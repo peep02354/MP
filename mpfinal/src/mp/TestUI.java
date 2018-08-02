@@ -451,12 +451,18 @@ public class TestUI extends javax.swing.JFrame {
         });
 
         select_table.setAutoCreateRowSorter(true);
-        select_table.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        select_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         select_table.setGridColor(new java.awt.Color(255, 255, 255));
         select_table.setIntercellSpacing(new java.awt.Dimension(5, 5));
         select_table.setSelectionBackground(new java.awt.Color(231, 231, 231));
         select_table.setSelectionForeground(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(select_table);
+        if (select_table.getColumnModel().getColumnCount() > 0) {
+            select_table.getColumnModel().getColumn(0).setHeaderValue("OE/OEM No.");
+            select_table.getColumnModel().getColumn(1).setHeaderValue("OE/OEM Name");
+            select_table.getColumnModel().getColumn(2).setHeaderValue("Capital Price");
+            select_table.getColumnModel().getColumn(3).setHeaderValue("Retail Price");
+        }
 
         search_btn.setText("Search");
         search_btn.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -520,7 +526,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable7)
                     .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
+                .addGap(45, 45, 45)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(engine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -531,7 +537,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(search_btn)
                     .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
