@@ -993,6 +993,15 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.add(InsertOem);
         showMenu.repaint();
         showMenu.revalidate();
+        //reset when swap menu bar
+        oem_oem_no.setText("");
+            oem_company.setText("");
+            oem_name.setText("");
+            oem_c.setText("");
+            oem_barcode.setText("");
+            oem_d.setText("");
+            oem_g.setText("");
+            oem_r.setText("");
     }//GEN-LAST:event_insert_oem_btnMouseClicked
 
     private void search_menu_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_menu_btnMouseClicked
@@ -1008,6 +1017,14 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.add(SearchMenu);
         showMenu.repaint();
         showMenu.revalidate();
+        //reset when swap menu bar
+            oe_no.setText("");
+            engine.setText("");
+            part_name.setText("");
+            body.setText("");
+            company.setText("");
+            barcode.setText("");
+            model.setText("");
     }//GEN-LAST:event_search_menu_btnMouseClicked
 
     private void insert_oe_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insert_oe_btnMouseClicked
@@ -1024,6 +1041,18 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.add(InsertOe);
         showMenu.repaint();
         showMenu.revalidate();
+        //reset when swap menu bar
+        jTextField9.setText("");
+            jTextField10.setText("");
+            jTextField11.setText("");
+            jTextField12.setText("");
+            jTextField13.setText("");
+            jTextField14.setText("");
+            jTextField15.setText("");
+            jTextField16.setText("");
+            jTextField17.setText("");
+            jTextField18.setText("");
+            jTextField27.setText("");
     }//GEN-LAST:event_insert_oe_btnMouseClicked
 
     private void logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoMouseClicked
@@ -1039,15 +1068,30 @@ public class TestUI extends javax.swing.JFrame {
 
     private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
         // TODO add your handling code here:
-        sm.selectPart();
-        oe_no.setText("");
-        engine.setText("");
-        part_name.setText("");
-        body.setText("");
-        company.setText("");
-        barcode.setText("");
-        model.setText("");
-        JOptionPane.showMessageDialog(null,"Search");
+        if(oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")  
+                && barcode.getText().equals("") && model.getText().equals("")){
+            //sm.selectPart();
+            oe_no.setText("");
+            engine.setText("");
+            part_name.setText("");
+            body.setText("");
+            company.setText("");
+            barcode.setText("");
+            model.setText("");
+            JOptionPane.showMessageDialog(null,"Please fill in all blanks!");
+            //if(oe_no.getText()==null && engine.getText()==null && part_name.getText()==null && body.getText()==null && company.getText()==null  
+                //&& barcode.getText()==null && model.getText()==null)
+        }else{
+            sm.selectPart();
+            oe_no.setText("");
+            engine.setText("");
+            part_name.setText("");
+            body.setText("");
+            company.setText("");
+            barcode.setText("");
+            model.setText("");
+            JOptionPane.showMessageDialog(null,"Search success!");
+        }
     }//GEN-LAST:event_search_btnActionPerformed
 
     private void search_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_btnMouseClicked
@@ -1085,18 +1129,25 @@ public class TestUI extends javax.swing.JFrame {
 
     private void InsertOem_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOem_btnActionPerformed
         // TODO add your handling code here:
-        im.addOem(oem_oem_no.getText(), oem_name.getText(), oem_barcode.getText(),
-            oem_oe_no.getText(), oem_company.getText(), Double.parseDouble(oem_c.getText()),
-            Double.parseDouble(oem_d.getText()), Double.parseDouble(oem_g.getText()), Double.parseDouble(oem_r.getText())
-        );
-        oem_oem_no.setText("");
-        oem_company.setText("");
-        oem_name.setText("");
-        oem_c.setText("");
-        oem_barcode.setText("");
-        oem_d.setText("");
-        oem_g.setText("");
-        oem_r.setText("");
+        if(oem_oem_no.getText().equals("")||oem_company.getText().equals("")||oem_name.getText().equals("")
+                ||oem_c.getText().equals("")||oem_barcode.getText().equals("")||oem_d.getText().equals("")
+                ||oem_g.getText().equals("")||oem_r.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Please fill in all blanks!");
+        }else{
+            im.addOem(oem_oem_no.getText(), oem_name.getText(), oem_barcode.getText(),
+                oem_oe_no.getText(), oem_company.getText(), Double.parseDouble(oem_c.getText()),
+                Double.parseDouble(oem_d.getText()), Double.parseDouble(oem_g.getText()), Double.parseDouble(oem_r.getText())
+            );
+            oem_oem_no.setText("");
+            oem_company.setText("");
+            oem_name.setText("");
+            oem_c.setText("");
+            oem_barcode.setText("");
+            oem_d.setText("");
+            oem_g.setText("");
+            oem_r.setText("");
+            JOptionPane.showMessageDialog(null,"Insert success!");
+        }
     }//GEN-LAST:event_InsertOem_btnActionPerformed
 
     private void oem_gActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_gActionPerformed
@@ -1133,21 +1184,29 @@ public class TestUI extends javax.swing.JFrame {
 
     private void InsertOe_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOe_btnActionPerformed
         // TODO add your handling code here:
-        im.addOe(jTextField9.getText(), jTextField11.getText(), jTextField27.getText(),
+        if(jTextField9.getText().equals("")|| jTextField10.getText().equals("")|| jTextField11.getText().equals("")
+                || jTextField12.getText().equals("")|| jTextField13.getText().equals("")|| jTextField14.getText().equals("")
+                || jTextField15.getText().equals("")|| jTextField16.getText().equals("")|| jTextField17.getText().equals("")
+                || jTextField18.getText().equals("")|| jTextField27.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Please fill in all blanks!");
+        }else{
+            im.addOe(jTextField9.getText(), jTextField11.getText(), jTextField27.getText(),
             jTextField18.getText(), Double.parseDouble(jTextField13.getText()), Double.parseDouble(jTextField15.getText()),
             Double.parseDouble(jTextField16.getText()), Double.parseDouble(jTextField17.getText()), jTextField10.getText(),
             jTextField12.getText(), jTextField14.getText());
-        jTextField9.setText("");
-        jTextField10.setText("");
-        jTextField11.setText("");
-        jTextField12.setText("");
-        jTextField13.setText("");
-        jTextField14.setText("");
-        jTextField15.setText("");
-        jTextField16.setText("");
-        jTextField17.setText("");
-        jTextField18.setText("");
-        jTextField27.setText("");
+            jTextField9.setText("");
+            jTextField10.setText("");
+            jTextField11.setText("");
+            jTextField12.setText("");
+            jTextField13.setText("");
+            jTextField14.setText("");
+            jTextField15.setText("");
+            jTextField16.setText("");
+            jTextField17.setText("");
+            jTextField18.setText("");
+            jTextField27.setText("");
+            JOptionPane.showMessageDialog(null,"Insert success!");
+        }
     }//GEN-LAST:event_InsertOe_btnActionPerformed
 
     private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
