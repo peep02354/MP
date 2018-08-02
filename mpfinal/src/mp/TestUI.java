@@ -17,6 +17,7 @@ public class TestUI extends javax.swing.JFrame {
     
     public TestUI() {
         initComponents();  
+        sm.clearTable();
     }
     
     public static void main(String args[]) {
