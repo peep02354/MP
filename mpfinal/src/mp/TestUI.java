@@ -51,10 +51,6 @@ public class TestUI extends javax.swing.JFrame {
                 select_table.setVisible(true);
             }
         });
-        //sm.clearTable();
-        //for testing
-        //sm.all();
-        System.out.println(DBURL);
     }
     
     
