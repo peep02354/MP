@@ -17,6 +17,7 @@ public class TestUI extends javax.swing.JFrame {
     
     public TestUI() {
         initComponents();  
+        sm.clearTable();
     }
     
     public static void main(String args[]) {
@@ -51,10 +52,6 @@ public class TestUI extends javax.swing.JFrame {
                 select_table.setVisible(true);
             }
         });
-        //sm.clearTable();
-        //for testing
-        //sm.all();
-        System.out.println(DBURL);
     }
     
     
