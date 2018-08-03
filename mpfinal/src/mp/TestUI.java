@@ -380,7 +380,7 @@ public class TestUI extends javax.swing.JFrame {
 
         sidepane.add(insert_oe_btn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 270, -1));
 
-        bg.add(sidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 280, 600));
+        bg.add(sidepane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 640));
 
         showMenu.setBackground(new java.awt.Color(153, 0, 51));
         showMenu.setLayout(new java.awt.CardLayout());
