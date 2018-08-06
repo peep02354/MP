@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Properties;
 import javax.swing.table.DefaultTableModel;
 import static mp.TestUI.DBURL;
 
@@ -31,7 +32,10 @@ public class SelectMethod {
     }
 
     public static void all() {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
+        try {
+            Properties props = new Properties();
+            props.put("charSet", "UTF-8");
+            Connection conn = DriverManager.getConnection(DBURL, props);
             PreparedStatement p = conn.prepareStatement("select OE_NO,OE_NAME,C_PRICE,R_PRICE from OE");
             ResultSet rs = p.executeQuery();
             DefaultTableModel m = clearTable();
@@ -53,7 +57,10 @@ public class SelectMethod {
     }
 
     public static void selectPart() {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
+        try{
+            Properties props = new Properties();
+            props.put("charSet", "UTF-8");
+            Connection conn = DriverManager.getConnection(DBURL,props);
             DefaultTableModel m = clearTable();
             String where = "";
             String realWhere = "";
@@ -61,38 +68,38 @@ public class SelectMethod {
             ArrayList<String> arr = new ArrayList<>();
             if (!TestUI.oe_no.getText().equals("")) {
                 where += " and oe.oe_no like ?";
-                arr.add("%"+TestUI.oe_no.getText()+"%");
+                arr.add("%" + TestUI.oe_no.getText() + "%");
             }
             if (!TestUI.part_name.getText().equals("")) {
                 where += " and oe.oe_name like ?";
-                arr.add("%"+TestUI.part_name.getText()+"%");
+                arr.add("%" + TestUI.part_name.getText() + "%");
             }
             if (!TestUI.company.getText().equals("")) {
                 where += " and oe.company like ?";
-                arr.add("%"+TestUI.company.getText()+"%");
+                arr.add("%" + TestUI.company.getText() + "%");
             }
             if (!TestUI.body.getText().equals("")) {
                 where += " and body like ? and oe.oe_no = oe_body.oe_no";
                 from += ", oe_body";
-                arr.add("%"+TestUI.body.getText()+"%");
+                arr.add("%" + TestUI.body.getText() + "%");
             }
             if (!TestUI.engine.getText().equals("")) {
                 where += " and engine like ? and oe.oe_no = oe_engine.oe_no";
                 from += ", oe_engine";
-                arr.add("%"+TestUI.engine.getText()+"%");
+                arr.add("%" + TestUI.engine.getText() + "%");
             }
             if (!TestUI.model.getText().equals("")) {
                 where += " and model like ? and oe.oe_no = oe_model.oe_no";
                 from += ", oe_model";
-                arr.add("%"+TestUI.model.getText()+"%");
+                arr.add("%" + TestUI.model.getText() + "%");
             }
             if (!where.equals("")) {
                 realWhere = "where true" + where;
             }
             String sql = "select OE_NO,OE_NAME,C_PRICE,R_PRICE " + from + " " + realWhere;
             PreparedStatement p = conn.prepareStatement(sql);
-            for(int i = 0; i < arr.size();i++){
-                p.setString(i+1, arr.get(i));
+            for (int i = 0; i < arr.size(); i++) {
+                p.setString(i + 1, arr.get(i));
             }
             ResultSet rs = p.executeQuery();
             int row = 0;
@@ -100,50 +107,50 @@ public class SelectMethod {
                 m.addRow(new Object[0]);
                 setData(m, row++, rs);
             }
-            
+
             arr = new ArrayList<>();
             where = "";
             realWhere = "";
             from = "from oem";
-            if (!TestUI.oe_no.getText().equals("")){
+            if (!TestUI.oe_no.getText().equals("")) {
                 where += " and oem.oem_no like ? or oem.oe_no like ?";
-                arr.add("%"+TestUI.oe_no.getText()+"%");
-                arr.add("%"+TestUI.oe_no.getText()+"%");
+                arr.add("%" + TestUI.oe_no.getText() + "%");
+                arr.add("%" + TestUI.oe_no.getText() + "%");
             }
             if (!TestUI.oe_no.getText().equals("")) {
                 where += " and oem.oe_no like ?";
-                arr.add("%"+TestUI.oe_no.getText()+"%");
+                arr.add("%" + TestUI.oe_no.getText() + "%");
             }
             if (!TestUI.part_name.getText().equals("")) {
                 where += " and oem.oem_name like ?";
-                arr.add("%"+TestUI.part_name.getText()+"%");
+                arr.add("%" + TestUI.part_name.getText() + "%");
             }
             if (!TestUI.company.getText().equals("")) {
                 where += " and oem.company like ?";
-                arr.add("%"+TestUI.company.getText()+"%");
+                arr.add("%" + TestUI.company.getText() + "%");
             }
             if (!TestUI.body.getText().equals("")) {
                 where += " and body like ? and oem.oe_no = oe_body.oe_no";
                 from += ", oe_body";
-                arr.add("%"+TestUI.body.getText()+"%");
+                arr.add("%" + TestUI.body.getText() + "%");
             }
             if (!TestUI.engine.getText().equals("")) {
                 where += " and engine like ? and oem.oe_no = oe_engine.oe_no";
                 from += ", oe_engine";
-                arr.add("%"+TestUI.engine.getText()+"%");
+                arr.add("%" + TestUI.engine.getText() + "%");
             }
             if (!TestUI.model.getText().equals("")) {
                 where += " and model like ? and oem.oe_no = oe_model.oe_no";
                 from += ", oe_model";
-                arr.add("%"+TestUI.model.getText()+"%");
+                arr.add("%" + TestUI.model.getText() + "%");
             }
             if (!where.equals("")) {
                 realWhere = "where true" + where;
             }
             String sql2 = "select oem.OEM_NO,oem.OEM_NAME,oem.C_PRICE,oem.R_PRICE " + from + " " + realWhere;
             p = conn.prepareStatement(sql2);
-            for(int i = 0; i < arr.size();i++){
-                p.setString(i+1, arr.get(i));
+            for (int i = 0; i < arr.size(); i++) {
+                p.setString(i + 1, arr.get(i));
             }
             rs = p.executeQuery();
             while (rs.next()) {

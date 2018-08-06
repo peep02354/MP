@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 public class TestUI extends javax.swing.JFrame {
 
     final static String dir = System.getProperty("user.dir");
+    //&useUnicode=true&characterEncoding=UTF-8
     final static String DBURL = "jdbc:ucanaccess://"+dir+"/finalLast3.accdb";
     Statement stmt = null;
     ResultSet result = null;
@@ -1132,6 +1133,7 @@ public class TestUI extends javax.swing.JFrame {
             oem_d.setText("");
             oem_g.setText("");
             oem_r.setText("");
+            oem_oe_no.setText("");
             JOptionPane.showMessageDialog(null,"Insert success!");
         }
     }//GEN-LAST:event_InsertOem_btnActionPerformed
