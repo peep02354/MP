@@ -1132,6 +1132,7 @@ public class TestUI extends javax.swing.JFrame {
             oem_d.setText("");
             oem_g.setText("");
             oem_r.setText("");
+            oem_oe_no.setText("");
             JOptionPane.showMessageDialog(null,"Insert success!");
         }
     }//GEN-LAST:event_InsertOem_btnActionPerformed
