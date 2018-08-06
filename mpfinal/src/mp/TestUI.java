@@ -762,6 +762,8 @@ public class TestUI extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Body Code", body_tab);
 
+        engine_tab.setBackground(new java.awt.Color(255, 255, 255));
+
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("OE No.");
 
@@ -1379,7 +1381,7 @@ public class TestUI extends javax.swing.JFrame {
                 jTextField18.getText(), Double.parseDouble(jTextField13.getText()), Double.parseDouble(jTextField15.getText()),
                 Double.parseDouble(jTextField16.getText()), Double.parseDouble(jTextField17.getText()), jTextField10.getText(),
                 jTextField12.getText(), jTextField14.getText());
-            jTextField9.setText("");
+            /*jTextField9.setText("");
             jTextField10.setText("");
             jTextField11.setText("");
             jTextField12.setText("");
@@ -1389,7 +1391,7 @@ public class TestUI extends javax.swing.JFrame {
             jTextField16.setText("");
             jTextField17.setText("");
             jTextField18.setText("");
-            jTextField27.setText("");
+            jTextField27.setText("");*/
             JOptionPane.showMessageDialog(null,"Insert success!");
         }
     }//GEN-LAST:event_InsertOe_btnActionPerformed
