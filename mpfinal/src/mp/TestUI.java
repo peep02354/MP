@@ -9,19 +9,19 @@ public class TestUI extends javax.swing.JFrame {
 
     final static String dir = System.getProperty("user.dir");
     //&useUnicode=true&characterEncoding=UTF-8
-    final static String DBURL = "jdbc:ucanaccess://"+dir+"/finalLast3.accdb";
+    final static String DBURL = "jdbc:ucanaccess://" + dir + "/finalLast3.accdb";
     Statement stmt = null;
     ResultSet result = null;
-    int xx,xy;
+    int xx, xy;
     static SelectMethod sm = new SelectMethod();
     static InsertMethod im = new InsertMethod();
-    
+
     public TestUI() {
-        initComponents();  
+        initComponents();
         sm.clearTable();
         sm.all();
     }
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -45,7 +45,7 @@ public class TestUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TestUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-            
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -55,11 +55,7 @@ public class TestUI extends javax.swing.JFrame {
             }
         });
     }
-    
-    
-    
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1163,13 +1159,13 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.revalidate();
         //reset when swap menu bar
         oem_oem_no.setText("");
-            oem_company.setText("");
-            oem_name.setText("");
-            oem_c.setText("");
-            oem_barcode.setText("");
-            oem_d.setText("");
-            oem_g.setText("");
-            oem_r.setText("");
+        oem_company.setText("");
+        oem_name.setText("");
+        oem_c.setText("");
+        oem_barcode.setText("");
+        oem_d.setText("");
+        oem_g.setText("");
+        oem_r.setText("");
     }//GEN-LAST:event_insert_oem_btnMouseClicked
 
     private void search_menu_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_menu_btnMouseClicked
@@ -1186,18 +1182,18 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.repaint();
         showMenu.revalidate();
         //reset when swap menu bar
-            oe_no.setText("");
-            engine.setText("");
-            part_name.setText("");
-            body.setText("");
-            company.setText("");
-            barcode.setText("");
-            model.setText("");
+        oe_no.setText("");
+        engine.setText("");
+        part_name.setText("");
+        body.setText("");
+        company.setText("");
+        barcode.setText("");
+        model.setText("");
     }//GEN-LAST:event_search_menu_btnMouseClicked
 
     private void insert_oe_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insert_oe_btnMouseClicked
         // TODO add your handling code here:
-             // TODO add your handling code here:
+        // TODO add your handling code here:
         onClick(insert_oe_btn);
         onLeaveClick(insert_oem_btn);
         onLeaveClick(search_menu_btn);
@@ -1210,17 +1206,14 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.repaint();
         showMenu.revalidate();
         //reset when swap menu bar
-        jTextField9.setText("");
-            jTextField10.setText("");
-            jTextField11.setText("");
-            jTextField12.setText("");
-            jTextField13.setText("");
-            jTextField14.setText("");
-            jTextField15.setText("");
-            jTextField16.setText("");
-            jTextField17.setText("");
-            jTextField18.setText("");
-            jTextField27.setText("");
+        in_oe_no.setText("");
+        in_name.setText("");
+        in_com.setText("");
+        in_bar.setText("");
+        in_c.setText("");
+        in_d.setText("");
+        in_g.setText("");
+        in_r.setText("");
     }//GEN-LAST:event_insert_oe_btnMouseClicked
 
     private void logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoMouseClicked
@@ -1236,8 +1229,8 @@ public class TestUI extends javax.swing.JFrame {
 
     private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
         // TODO add your handling code here:
-        if(oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")  
-                && barcode.getText().equals("") && model.getText().equals("")){
+        if (oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
+                && barcode.getText().equals("") && model.getText().equals("")) {
             //sm.selectPart();
             oe_no.setText("");
             engine.setText("");
@@ -1246,10 +1239,10 @@ public class TestUI extends javax.swing.JFrame {
             company.setText("");
             barcode.setText("");
             model.setText("");
-            JOptionPane.showMessageDialog(null,"Please fill in all blanks!");
+            JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
             //if(oe_no.getText()==null && engine.getText()==null && part_name.getText()==null && body.getText()==null && company.getText()==null  
-                //&& barcode.getText()==null && model.getText()==null)
-        }else{
+            //&& barcode.getText()==null && model.getText()==null)
+        } else {
             sm.selectPart();
             oe_no.setText("");
             engine.setText("");
@@ -1258,7 +1251,7 @@ public class TestUI extends javax.swing.JFrame {
             company.setText("");
             barcode.setText("");
             model.setText("");
-            JOptionPane.showMessageDialog(null,"Search success!");
+            JOptionPane.showMessageDialog(null, "Search success!");
         }
     }//GEN-LAST:event_search_btnActionPerformed
 
@@ -1297,14 +1290,14 @@ public class TestUI extends javax.swing.JFrame {
 
     private void InsertOem_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOem_btnActionPerformed
         // TODO add your handling code here:
-        if(oem_oem_no.getText().equals("")||oem_company.getText().equals("")||oem_name.getText().equals("")
-                ||oem_c.getText().equals("")||oem_barcode.getText().equals("")||oem_d.getText().equals("")
-                ||oem_g.getText().equals("")||oem_r.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Please fill in all blanks!");
-        }else{
+        if (oem_oem_no.getText().equals("") || oem_company.getText().equals("") || oem_name.getText().equals("")
+                || oem_c.getText().equals("") || oem_barcode.getText().equals("") || oem_d.getText().equals("")
+                || oem_g.getText().equals("") || oem_r.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
+        } else {
             im.addOem(oem_oem_no.getText(), oem_name.getText(), oem_barcode.getText(),
-                oem_oe_no.getText(), oem_company.getText(), Double.parseDouble(oem_c.getText()),
-                Double.parseDouble(oem_d.getText()), Double.parseDouble(oem_g.getText()), Double.parseDouble(oem_r.getText())
+                    oem_oe_no.getText(), oem_company.getText(), Double.parseDouble(oem_c.getText()),
+                    Double.parseDouble(oem_d.getText()), Double.parseDouble(oem_g.getText()), Double.parseDouble(oem_r.getText())
             );
             oem_oem_no.setText("");
             oem_company.setText("");
@@ -1315,7 +1308,7 @@ public class TestUI extends javax.swing.JFrame {
             oem_g.setText("");
             oem_r.setText("");
             oem_oe_no.setText("");
-            JOptionPane.showMessageDialog(null,"Insert success!");
+            JOptionPane.showMessageDialog(null, "Insert success!");
         }
     }//GEN-LAST:event_InsertOem_btnActionPerformed
 
@@ -1371,28 +1364,21 @@ public class TestUI extends javax.swing.JFrame {
 
     private void InsertOe_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOe_btnActionPerformed
         // TODO add your handling code here:
-        if(jTextField9.getText().equals("")|| jTextField10.getText().equals("")|| jTextField11.getText().equals("")
-            || jTextField12.getText().equals("")|| jTextField13.getText().equals("")|| jTextField14.getText().equals("")
-            || jTextField15.getText().equals("")|| jTextField16.getText().equals("")|| jTextField17.getText().equals("")
-            || jTextField18.getText().equals("")|| jTextField27.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Please fill in all blanks!");
-        }else{
-            im.addOe(jTextField9.getText(), jTextField11.getText(), jTextField27.getText(),
-                jTextField18.getText(), Double.parseDouble(jTextField13.getText()), Double.parseDouble(jTextField15.getText()),
-                Double.parseDouble(jTextField16.getText()), Double.parseDouble(jTextField17.getText()), jTextField10.getText(),
-                jTextField12.getText(), jTextField14.getText());
-            /*jTextField9.setText("");
-            jTextField10.setText("");
-            jTextField11.setText("");
-            jTextField12.setText("");
-            jTextField13.setText("");
-            jTextField14.setText("");
-            jTextField15.setText("");
-            jTextField16.setText("");
-            jTextField17.setText("");
-            jTextField18.setText("");
-            jTextField27.setText("");*/
-            JOptionPane.showMessageDialog(null,"Insert success!");
+        if (in_oe_no.getText().equals("") || in_name.getText().equals("") || in_com.getText().equals("")
+                || in_bar.getText().equals("") || in_c.getText().equals("") || in_g.getText().equals("")
+                || in_d.getText().equals("") || in_r.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
+        } else {
+            im.addOe(in_oe_no.getText(), in_name.getText(), in_bar.getText(), in_com.getText(), Double.parseDouble(in_c.getText()), Double.parseDouble(in_d.getText()), Double.parseDouble(in_g.getText()), Double.parseDouble(in_r.getText()));
+            in_oe_no.setText("");
+            in_name.setText("");
+            in_com.setText("");
+            in_bar.setText("");
+            in_c.setText("");
+            in_d.setText("");
+            in_g.setText("");
+            in_r.setText("");
+            JOptionPane.showMessageDialog(null, "Insert success!");
         }
     }//GEN-LAST:event_InsertOe_btnActionPerformed
 
@@ -1415,198 +1401,6 @@ public class TestUI extends javax.swing.JFrame {
     private void car_carActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_car_carActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_car_carActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    /*
-    public static void addOe(String oe, String name, String bc,String comp, double c, double d, double g, double r,String body,String engine,String model) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            String sql = "insert into oe (oe_no,oe_name,barcode,company,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement p = conn.prepareStatement(sql);
-            p.setString(1, oe);
-            p.setString(2, name);
-            p.setString(3, bc);
-            p.setString(4, comp);
-            p.setDouble(5, c);
-            p.setDouble(6, d);
-            p.setDouble(7, g);
-            p.setDouble(8, r);
-            p.executeUpdate();
-            addBody(oe, body);
-            addEngine(oe, engine);
-            addModel(oe, model);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //add oem product
-    public static void addOem(String oem, String name, String bc,String comp, String oe, double c, double d, double g, double r) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            String sql = "insert into oem (oem_no,oem_name,barcode,oe_no,company,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement p = conn.prepareStatement(sql);
-            p.setString(1, oem);
-            p.setString(2, name);
-            p.setString(3, bc);
-            p.setString(4, comp);
-            p.setString(5, oe);
-            p.setDouble(6, c);
-            p.setDouble(7, d);
-            p.setDouble(8, g);
-            p.setDouble(9, r);
-            p.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //add model of oe
-    public static void addModel(String oe, String model) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            String sql = "insert into oe_model (oe_no,model) values(?, ?)";
-            PreparedStatement p = conn.prepareStatement(sql);
-            p.setString(1, oe);
-            p.setString(2, model);
-            p.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //add body of oe
-    public static void addBody(String oe, String body) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            String sql = "insert into oe_body (oe_no, body) values(?, ?)";
-            PreparedStatement p = conn.prepareStatement(sql);
-            p.setString(1, oe);
-            p.setString(2, body);
-            p.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //add engine of oe
-    public static void addEngine(String oe, String engine) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            String sql = "insert into oe_engine (oe_no,engine) values(?, ?)";
-            PreparedStatement p = conn.prepareStatement(sql);
-            p.setString(1, oe);
-            p.setString(2, engine);
-            p.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //select all of product
-    public static void selectPart() {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            PreparedStatement p = conn.prepareStatement("select OE_NO,OE_NAME,company,C_PRICE,D_PRICE,G_PRICE,R_PRICE from OE");
-            ResultSet rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getDouble(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getString(7));
-            }
-            p = conn.prepareCall("select OEM_NO,OEM_NAME,company,C_PRICE,D_PRICE,G_PRICE,R_PRICE from OEM");
-            rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getDouble(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getString(7));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    //select part from engine
-    public static void selectPartEngine(String engine) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
-                    + "from OE, OE_Engine"
-                    + "where OE.OE_NO = OE_Engine.OE_NO and OE_Engine.Engine =" + engine);
-            ResultSet rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
-            }
-            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
-                    + "from OEM, OE_Engine"
-                    + "where OEM.OE_NO = OE_Engine.OE_NO and OE_Engine.Engine =" + engine);
-            rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    //select part from model
-    public static void selectPartModel(String model) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
-                    + "from OE, OE_Model"
-                    + "where OE.OE_NO = OE_Model.OE_NO and OE_Model.Model =" + model);
-            ResultSet rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
-            }
-
-            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
-                    + "from OEM, OE_Model"
-                    + "where OEM.OE_NO = OE_Model.OE_NO and OE_Model.Model =" + model);
-            rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    //select part from body
-    public static void selectPartBody(String body) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
-                    + "from OE, OE_BODY"
-                    + "where OE.OE_NO = OE_Body.OE_NO and OE_BODY.body =" + body);
-            ResultSet rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
-            }
-
-            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
-                    + "from OEM, OE_BODY"
-                    + "where OEM.OE_NO = OE_Body.OE_NO and OE_BODY.Body =" + body);
-            rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public static void selectPartCompany(String comp) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.company,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
-                    + "from OE"
-                    + "where OE.company = " + comp);
-            ResultSet rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getDouble(7));
-            }
-
-            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,company,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
-                    + "from OEM"
-                    + "where OEM.company = " + comp);
-            rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getDouble(7));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }*/
 
     public static String toPrice(String in) {
         String price = "";
@@ -1637,18 +1431,19 @@ public class TestUI extends javax.swing.JFrame {
         if (a[1] == null) {
             a[1] = "00";
         }
-        return price + "." + a[1].substring(0,2);
+        return price + "." + a[1].substring(0, 2);
     }
+
     private static void onClick(JPanel panel) {
-       panel.setBackground(new Color(204,204,204));
-       showMenu.setVisible(true);
+        panel.setBackground(new Color(204, 204, 204));
+        showMenu.setVisible(true);
     }
 
     private static void onLeaveClick(JPanel panel) {
-       panel.setBackground(Color.white);
+        panel.setBackground(Color.white);
     }
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JPanel Indicator1;
     private static javax.swing.JPanel Indicator2;
@@ -1756,4 +1551,3 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JPanel sidepane;
     // End of variables declaration//GEN-END:variables
 }
-
