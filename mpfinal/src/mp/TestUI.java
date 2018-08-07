@@ -69,6 +69,7 @@ public class TestUI extends javax.swing.JFrame {
         jEditorPane1 = new javax.swing.JEditorPane();
         jLabel29 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         bg = new javax.swing.JPanel();
         sidepane = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -105,6 +106,8 @@ public class TestUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         select_table = new javax.swing.JTable();
         search_btn = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         InsertOe = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         oe_tab = new javax.swing.JPanel();
@@ -491,45 +494,59 @@ public class TestUI extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(jRadioButton1);
+        jRadioButton1.setText("jRadioButton1");
+
+        buttonGroup1.add(jRadioButton2);
+        jRadioButton2.setText("jRadioButton2");
+
         javax.swing.GroupLayout SearchMenuLayout = new javax.swing.GroupLayout(SearchMenu);
         SearchMenu.setLayout(SearchMenuLayout);
         SearchMenuLayout.setHorizontalGroup(
             SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SearchMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addContainerGap())
-            .addGroup(SearchMenuLayout.createSequentialGroup()
-                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SearchMenuLayout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLable6)
-                            .addComponent(jLabel1)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SearchMenuLayout.createSequentialGroup()
-                        .addContainerGap(104, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(SearchMenuLayout.createSequentialGroup()
+                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(SearchMenuLayout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLable6)
+                                    .addComponent(jLabel1)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SearchMenuLayout.createSequentialGroup()
+                                .addContainerGap(104, Short.MAX_VALUE)
+                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLable3, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLable4, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(27, 27, 27)
                         .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLable3, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLable4, javax.swing.GroupLayout.Alignment.TRAILING))))
-                .addGap(27, 27, 27)
-                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(oe_no)
-                        .addComponent(engine, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                        .addComponent(body))
-                    .addComponent(model, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(83, 83, 83)
-                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLable7)
-                    .addComponent(jLable8)
-                    .addComponent(search_btn)
-                    .addComponent(jLable5))
-                .addGap(18, 18, 18)
-                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 226, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(oe_no)
+                                .addComponent(engine, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                                .addComponent(body))
+                            .addComponent(model, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(83, 83, 83)
+                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLable7)
+                            .addComponent(jLable8)
+                            .addComponent(search_btn)
+                            .addComponent(jLable5))
+                        .addGap(18, 18, 18)
+                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(SearchMenuLayout.createSequentialGroup()
+                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(54, 54, 54)
+                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButton1)
+                                    .addComponent(jRadioButton2))))
+                        .addGap(0, 69, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         SearchMenuLayout.setVerticalGroup(
             SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -539,14 +556,16 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLable5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButton1))
+                .addGap(43, 43, 43)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable7)
-                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRadioButton2))
+                .addGap(53, 53, 53)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(engine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -557,7 +576,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(search_btn)
                     .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -1452,6 +1471,7 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JTextField body_body;
     private javax.swing.JTextField body_oe;
     private javax.swing.JPanel body_tab;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextField car_car;
     private javax.swing.JTextField car_oe;
     private javax.swing.JPanel carseries_tab;
@@ -1515,6 +1535,8 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
