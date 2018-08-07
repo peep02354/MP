@@ -10,7 +10,7 @@ import static mp.TestUI.DBURL;
 public class InsertMethod {
 
     //insert
-    public static void addOe(String oe, String name, String bc, String comp, double c, double d, double g, double r, String body, String engine, String model) {
+    public static void addOe(String oe, String name, String bc, String comp, double c, double d, double g, double r) {
         try {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
@@ -26,9 +26,6 @@ public class InsertMethod {
             p.setDouble(7, g);
             p.setDouble(8, r);
             p.executeUpdate();
-            addBody(oe, body);
-            addEngine(oe, engine);
-            addModel(oe, model);
         } catch (SQLException e) {
             e.printStackTrace();
         }
