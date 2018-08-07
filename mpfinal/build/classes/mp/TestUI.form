@@ -67,12 +67,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="bg" alignment="0" max="32767" attributes="0"/>
+          <Component id="bg" alignment="0" pref="1763" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="bg" max="32767" attributes="0"/>
+          <Component id="bg" pref="768" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -83,7 +83,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[1169, 608]"/>
+          <Dimension value="[1169, 640]"/>
         </Property>
       </Properties>
       <Events>
@@ -435,7 +435,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="showMenu" alignment="0" max="32767" attributes="0"/>
+                  <Component id="showMenu" alignment="0" pref="608" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -723,15 +723,17 @@
                             <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="ff" green="ff" red="ff" type="rgb"/>
                             </Property>
-                            <Property name="intercellSpacing" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-                              <Dimension value="[5, 5]"/>
-                            </Property>
+                            <Property name="name" type="java.lang.String" value="" noResource="true"/>
+                            <Property name="opaque" type="boolean" value="false"/>
+                            <Property name="requestFocusEnabled" type="boolean" value="false"/>
                             <Property name="selectionBackground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="e7" green="e7" red="e7" type="rgb"/>
                             </Property>
                             <Property name="selectionForeground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                               <Color blue="0" green="0" red="0" type="rgb"/>
                             </Property>
+                            <Property name="showVerticalLines" type="boolean" value="false"/>
+                            <Property name="surrendersFocusOnKeystroke" type="boolean" value="true"/>
                             <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                             </Property>
@@ -790,7 +792,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTabbedPane2" min="-2" pref="861" max="-2" attributes="0"/>
-                              <EmptySpace pref="19" max="32767" attributes="0"/>
+                              <EmptySpace pref="17" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -920,7 +922,7 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                                       <Component id="InsertOe_btn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="138" max="32767" attributes="0"/>
+                                      <EmptySpace pref="124" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1076,7 +1078,7 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                                       <Component id="InsertBody_btn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="316" max="32767" attributes="0"/>
+                                      <EmptySpace pref="306" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1162,7 +1164,7 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                                       <Component id="InsertEngine_btn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="316" max="32767" attributes="0"/>
+                                      <EmptySpace pref="306" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1245,7 +1247,7 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                                       <Component id="InsertCar_btn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="316" max="32767" attributes="0"/>
+                                      <EmptySpace pref="306" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1376,7 +1378,7 @@
                                   <Component id="oem_barcode" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="InsertOem_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="293" max="32767" attributes="0"/>
+                              <EmptySpace pref="287" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1558,7 +1560,7 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="569" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="565" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                           </Layout>
@@ -1580,7 +1582,7 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="569" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="565" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                           </Layout>

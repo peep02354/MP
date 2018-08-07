@@ -1,6 +1,7 @@
 package mp;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import javax.swing.JPanel;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -17,6 +18,8 @@ public class TestUI extends javax.swing.JFrame {
     static InsertMethod im = new InsertMethod();
 
     public TestUI() {
+        //this.setUndecorated(true);
+        //this.setVisible(true);
         initComponents();
         sm.clearTable();
         sm.all();
@@ -197,7 +200,7 @@ public class TestUI extends javax.swing.JFrame {
         setUndecorated(true);
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
-        bg.setMaximumSize(new java.awt.Dimension(1169, 608));
+        bg.setMaximumSize(new java.awt.Dimension(1169, 640));
         bg.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 bgMouseDragged(evt);
@@ -471,9 +474,13 @@ public class TestUI extends javax.swing.JFrame {
         select_table.setAutoCreateRowSorter(true);
         select_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         select_table.setGridColor(new java.awt.Color(255, 255, 255));
-        select_table.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        select_table.setName(""); // NOI18N
+        select_table.setOpaque(false);
+        select_table.setRequestFocusEnabled(false);
         select_table.setSelectionBackground(new java.awt.Color(231, 231, 231));
         select_table.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        select_table.setShowVerticalLines(false);
+        select_table.setSurrendersFocusOnKeystroke(true);
         jScrollPane1.setViewportView(select_table);
         if (select_table.getColumnModel().getColumnCount() > 0) {
             select_table.getColumnModel().getColumn(0).setHeaderValue("OE/OEM No.");
@@ -719,7 +726,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(in_r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertOe_btn)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("OE", oe_tab);
@@ -763,7 +770,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(body_body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertBody_btn)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Body Code", body_tab);
@@ -810,7 +817,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(engine_engine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertEngine_btn)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Engine Code", engine_tab);
@@ -861,7 +868,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(car_car, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertCar_btn)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Car Series", carseries_tab);
@@ -873,7 +880,7 @@ public class TestUI extends javax.swing.JFrame {
             .addGroup(InsertOeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 861, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         InsertOeLayout.setVerticalGroup(
             InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1038,7 +1045,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(oem_r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(oem_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(InsertOem_btn))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(287, Short.MAX_VALUE))
         );
 
         showMenu.add(InsertOem, "card4");
@@ -1051,7 +1058,7 @@ public class TestUI extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("ENNNNNNNNNNNNNNNN", jPanel1);
@@ -1064,7 +1071,7 @@ public class TestUI extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
+            .addGap(0, 565, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab2", jPanel2);
@@ -1096,7 +1103,7 @@ public class TestUI extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(showMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(showMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
         );
 
         bg.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 30, 890, 608));
@@ -1125,11 +1132,11 @@ public class TestUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 1763, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
         );
 
         pack();
