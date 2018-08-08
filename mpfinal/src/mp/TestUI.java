@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import javax.swing.JPanel;
 import java.sql.*;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class TestUI extends javax.swing.JFrame {
@@ -29,6 +30,7 @@ public class TestUI extends javax.swing.JFrame {
         int xsize = (int)tk.getScreenSize().getWidth();
         int ysize = (int)tk.getScreenSize().getHeight();
         this.setSize(xsize, ysize);*/
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 
     public static void main(String args[]) {
@@ -205,6 +207,7 @@ public class TestUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1169, 608));
+        setUndecorated(true);
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setMaximumSize(new java.awt.Dimension(1169, 640));
@@ -530,17 +533,12 @@ public class TestUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1))
                     .addGroup(SearchMenuLayout.createSequentialGroup()
-                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(SearchMenuLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLable6)
-                                    .addComponent(jLabel1)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SearchMenuLayout.createSequentialGroup()
-                                .addContainerGap(104, Short.MAX_VALUE)
-                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLable3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLable4, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addContainerGap(72, Short.MAX_VALUE)
+                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLable3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLable4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLable6, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(27, 27, 27)
                         .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -548,24 +546,28 @@ public class TestUI extends javax.swing.JFrame {
                                 .addComponent(engine, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
                                 .addComponent(body))
                             .addComponent(model, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(83, 83, 83)
-                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLable7)
-                            .addComponent(jLable8)
-                            .addComponent(search_btn)
-                            .addComponent(jLable5))
-                        .addGap(18, 18, 18)
+                        .addGap(84, 84, 84)
                         .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(SearchMenuLayout.createSequentialGroup()
+                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLable7)
+                                    .addComponent(jLable8)
+                                    .addComponent(jLable5))
+                                .addGap(18, 18, 18)
+                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(SearchMenuLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(search_btn)))
                         .addGap(54, 54, 54)
                         .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(g_btn)
                             .addComponent(c_btn)
                             .addComponent(d_btn)
                             .addComponent(r_btn))
-                        .addGap(0, 101, Short.MAX_VALUE)))
+                        .addGap(0, 421, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         SearchMenuLayout.setVerticalGroup(
@@ -598,8 +600,8 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(r_btn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -741,7 +743,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(in_r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertOe_btn)
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(340, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("OE", oe_tab);
@@ -785,7 +787,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(body_body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertBody_btn)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(518, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Body Code", body_tab);
@@ -832,7 +834,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(engine_engine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertEngine_btn)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(518, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Engine Code", engine_tab);
@@ -883,7 +885,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(car_car, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertCar_btn)
-                .addContainerGap(316, Short.MAX_VALUE))
+                .addContainerGap(518, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Car Series", carseries_tab);
@@ -895,7 +897,7 @@ public class TestUI extends javax.swing.JFrame {
             .addGroup(InsertOeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 861, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(339, Short.MAX_VALUE))
         );
         InsertOeLayout.setVerticalGroup(
             InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1015,20 +1017,22 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jLabel23)
                     .addComponent(jLabel24)
                     .addComponent(jLabel25))
-                .addGap(18, 29, Short.MAX_VALUE)
-                .addGroup(InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(oem_g, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                    .addComponent(oem_c, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(oem_d, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(oem_r))
-                .addGap(27, 27, 27)
+                .addGap(30, 30, 30)
                 .addGroup(InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(oem_d, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oem_g, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(InsertOemLayout.createSequentialGroup()
-                        .addComponent(jLabel27)
-                        .addGap(27, 27, 27)
-                        .addComponent(oem_oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(InsertOem_btn))
-                .addContainerGap(126, Short.MAX_VALUE))
+                        .addGroup(InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(oem_c, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(oem_r, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(48, 48, 48)
+                        .addGroup(InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InsertOem_btn)
+                            .addGroup(InsertOemLayout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addGap(18, 18, 18)
+                                .addComponent(oem_oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(433, Short.MAX_VALUE))
         );
         InsertOemLayout.setVerticalGroup(
             InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1060,7 +1064,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(oem_r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(oem_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(InsertOem_btn))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(495, Short.MAX_VALUE))
         );
 
         showMenu.add(InsertOem, "card4");
@@ -1073,7 +1077,7 @@ public class TestUI extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
+            .addGap(0, 771, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("ENNNNNNNNNNNNNNNN", jPanel1);
@@ -1086,7 +1090,7 @@ public class TestUI extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
+            .addGap(0, 771, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab2", jPanel2);
@@ -1097,7 +1101,7 @@ public class TestUI extends javax.swing.JFrame {
             TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TestLayout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 869, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(0, 341, Short.MAX_VALUE))
         );
         TestLayout.setVerticalGroup(
             TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1121,7 +1125,7 @@ public class TestUI extends javax.swing.JFrame {
             .addComponent(showMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        bg.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 30, 890, 608));
+        bg.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 30, 1210, 810));
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mp/180802020003-k0nQ.png"))); // NOI18N
@@ -1131,7 +1135,7 @@ public class TestUI extends javax.swing.JFrame {
                 jLabel28MouseClicked(evt);
             }
         });
-        bg.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 10, -1, 20));
+        bg.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1430, 10, -1, 20));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mp/180802015948-8x40.png"))); // NOI18N
@@ -1141,20 +1145,20 @@ public class TestUI extends javax.swing.JFrame {
                 jLabel32MouseClicked(evt);
             }
         });
-        bg.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 10, -1, -1));
+        bg.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1460, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 1494, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1494, 850));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
