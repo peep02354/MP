@@ -1,6 +1,7 @@
 package mp;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import javax.swing.JPanel;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -15,11 +16,15 @@ public class TestUI extends javax.swing.JFrame {
     int xx, xy;
     static SelectMethod sm = new SelectMethod();
     static InsertMethod im = new InsertMethod();
+    
 
     public TestUI() {
+        //this.setUndecorated(true);
+        //this.setVisible(true);
         initComponents();
         sm.clearTable();
         sm.all();
+        select_table.setRowHeight(30);
     }
 
     public static void main(String args[]) {
@@ -199,7 +204,7 @@ public class TestUI extends javax.swing.JFrame {
         setUndecorated(true);
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
-        bg.setMaximumSize(new java.awt.Dimension(1169, 608));
+        bg.setMaximumSize(new java.awt.Dimension(1169, 640));
         bg.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 bgMouseDragged(evt);
@@ -473,9 +478,13 @@ public class TestUI extends javax.swing.JFrame {
         select_table.setAutoCreateRowSorter(true);
         select_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         select_table.setGridColor(new java.awt.Color(255, 255, 255));
-        select_table.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        select_table.setName(""); // NOI18N
+        select_table.setOpaque(false);
+        select_table.setRequestFocusEnabled(false);
         select_table.setSelectionBackground(new java.awt.Color(231, 231, 231));
         select_table.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        select_table.setShowVerticalLines(false);
+        select_table.setSurrendersFocusOnKeystroke(true);
         jScrollPane1.setViewportView(select_table);
         if (select_table.getColumnModel().getColumnCount() > 0) {
             select_table.getColumnModel().getColumn(0).setHeaderValue("OE/OEM No.");
@@ -520,7 +529,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addGroup(SearchMenuLayout.createSequentialGroup()
                         .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(SearchMenuLayout.createSequentialGroup()
-                                .addGap(51, 51, 51)
+                                .addContainerGap()
                                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLable6)
                                     .addComponent(jLabel1)))
@@ -883,7 +892,7 @@ public class TestUI extends javax.swing.JFrame {
             .addGroup(InsertOeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 861, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         InsertOeLayout.setVerticalGroup(
             InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1135,11 +1144,11 @@ public class TestUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 1763, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 768, Short.MAX_VALUE)
         );
 
         pack();
