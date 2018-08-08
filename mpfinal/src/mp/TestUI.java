@@ -5,7 +5,9 @@ import java.awt.Toolkit;
 import javax.swing.JPanel;
 import java.sql.*;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableCellRenderer;
 
 public class TestUI extends javax.swing.JFrame {
 
@@ -26,6 +28,9 @@ public class TestUI extends javax.swing.JFrame {
         sm.clearTable();
         sm.all();
         select_table.setRowHeight(30);
+        TableCellRenderer rendererFromHeader = select_table.getTableHeader().getDefaultRenderer();
+        JLabel headerLabel = (JLabel) rendererFromHeader;
+        headerLabel.setHorizontalAlignment(JLabel.CENTER);
         /*Toolkit tk = Toolkit.getDefaultToolkit();
         int xsize = (int)tk.getScreenSize().getWidth();
         int ysize = (int)tk.getScreenSize().getHeight();
