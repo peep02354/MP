@@ -16,6 +16,7 @@ public class TestUI extends javax.swing.JFrame {
     int xx, xy;
     static SelectMethod sm = new SelectMethod();
     static InsertMethod im = new InsertMethod();
+    
 
     public TestUI() {
         //this.setUndecorated(true);
@@ -23,6 +24,7 @@ public class TestUI extends javax.swing.JFrame {
         initComponents();
         sm.clearTable();
         sm.all();
+        select_table.setRowHeight(30);
     }
 
     public static void main(String args[]) {
@@ -519,7 +521,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addGroup(SearchMenuLayout.createSequentialGroup()
                         .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(SearchMenuLayout.createSequentialGroup()
-                                .addGap(51, 51, 51)
+                                .addContainerGap()
                                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLable6)
                                     .addComponent(jLabel1)))
@@ -726,7 +728,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(in_r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertOe_btn)
-                .addContainerGap(124, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("OE", oe_tab);
@@ -770,7 +772,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(body_body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertBody_btn)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(316, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Body Code", body_tab);
@@ -817,7 +819,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(engine_engine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertEngine_btn)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(316, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Engine Code", engine_tab);
@@ -868,7 +870,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(car_car, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertCar_btn)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(316, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Car Series", carseries_tab);
@@ -1045,7 +1047,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(oem_r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(oem_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(InsertOem_btn))
-                .addContainerGap(287, Short.MAX_VALUE))
+                .addContainerGap(293, Short.MAX_VALUE))
         );
 
         showMenu.add(InsertOem, "card4");
@@ -1058,7 +1060,7 @@ public class TestUI extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
+            .addGap(0, 569, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("ENNNNNNNNNNNNNNNN", jPanel1);
@@ -1071,7 +1073,7 @@ public class TestUI extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 565, Short.MAX_VALUE)
+            .addGap(0, 569, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab2", jPanel2);
@@ -1103,7 +1105,7 @@ public class TestUI extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(showMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+            .addComponent(showMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         bg.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 30, 890, 608));
