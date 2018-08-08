@@ -508,20 +508,18 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="company" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
+                                          <Component id="part_name" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
                                           <Component id="barcode" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="company" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                                  <Component id="part_name" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="69" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="g_btn" min="-2" max="-2" attributes="0"/>
+                                          <Component id="c_btn" min="-2" max="-2" attributes="0"/>
+                                          <Component id="d_btn" min="-2" max="-2" attributes="0"/>
+                                          <Component id="r_btn" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="101" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -537,7 +535,7 @@
                                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLable5" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="part_name" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="c_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -545,7 +543,7 @@
                                   <Component id="body" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLable7" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="company" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="d_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -553,12 +551,14 @@
                                   <Component id="engine" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLable8" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="barcode" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="g_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="search_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="model" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLable6" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                                  <Component id="r_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="47" max="32767" attributes="0"/>
                               <Component id="jScrollPane1" min="-2" pref="265" max="-2" attributes="0"/>
@@ -754,20 +754,36 @@
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
                       </AuxValues>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                    <Component class="javax.swing.JRadioButton" name="c_btn">
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroup1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jRadioButton1"/>
+                        <Property name="text" type="java.lang.String" value="C_Price"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                    <Component class="javax.swing.JRadioButton" name="d_btn">
                       <Properties>
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroup1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jRadioButton2"/>
+                        <Property name="text" type="java.lang.String" value="D_Price"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JRadioButton" name="g_btn">
+                      <Properties>
+                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                          <ComponentRef name="buttonGroup1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="G_Price"/>
+                      </Properties>
+                    </Component>
+                    <Component class="javax.swing.JRadioButton" name="r_btn">
+                      <Properties>
+                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                          <ComponentRef name="buttonGroup1"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="R_Price"/>
                       </Properties>
                     </Component>
                   </SubComponents>

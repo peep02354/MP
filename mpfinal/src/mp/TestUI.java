@@ -106,8 +106,10 @@ public class TestUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         select_table = new javax.swing.JTable();
         search_btn = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        c_btn = new javax.swing.JRadioButton();
+        d_btn = new javax.swing.JRadioButton();
+        g_btn = new javax.swing.JRadioButton();
+        r_btn = new javax.swing.JRadioButton();
         InsertOe = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         oe_tab = new javax.swing.JPanel();
@@ -494,11 +496,17 @@ public class TestUI extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("jRadioButton1");
+        buttonGroup1.add(c_btn);
+        c_btn.setText("C_Price");
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("jRadioButton2");
+        buttonGroup1.add(d_btn);
+        d_btn.setText("D_Price");
+
+        buttonGroup1.add(g_btn);
+        g_btn.setText("G_Price");
+
+        buttonGroup1.add(r_btn);
+        r_btn.setText("R_Price");
 
         javax.swing.GroupLayout SearchMenuLayout = new javax.swing.GroupLayout(SearchMenu);
         SearchMenu.setLayout(SearchMenuLayout);
@@ -536,16 +544,16 @@ public class TestUI extends javax.swing.JFrame {
                             .addComponent(jLable5))
                         .addGap(18, 18, 18)
                         .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(SearchMenuLayout.createSequentialGroup()
-                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(54, 54, 54)
-                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButton1)
-                                    .addComponent(jRadioButton2))))
-                        .addGap(0, 69, Short.MAX_VALUE)))
+                            .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54)
+                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(g_btn)
+                            .addComponent(c_btn)
+                            .addComponent(d_btn)
+                            .addComponent(r_btn))
+                        .addGap(0, 101, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         SearchMenuLayout.setVerticalGroup(
@@ -557,25 +565,27 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLable5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1))
+                    .addComponent(c_btn))
                 .addGap(43, 43, 43)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable7)
                     .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton2))
+                    .addComponent(d_btn))
                 .addGap(53, 53, 53)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(engine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                    .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(g_btn))
+                .addGap(43, 43, 43)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(search_btn)
                     .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLable6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLable6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r_btn))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -1472,14 +1482,17 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JTextField body_oe;
     private javax.swing.JPanel body_tab;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton c_btn;
     private javax.swing.JTextField car_car;
     private javax.swing.JTextField car_oe;
     private javax.swing.JPanel carseries_tab;
     static javax.swing.JTextField company;
+    private javax.swing.JRadioButton d_btn;
     static javax.swing.JTextField engine;
     private javax.swing.JTextField engine_engine;
     private javax.swing.JTextField engine_oe;
     private javax.swing.JPanel engine_tab;
+    private javax.swing.JRadioButton g_btn;
     private javax.swing.JTextField in_bar;
     private javax.swing.JTextField in_c;
     private javax.swing.JTextField in_com;
@@ -1535,8 +1548,6 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -1555,6 +1566,7 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JTextField oem_oem_no;
     private javax.swing.JTextField oem_r;
     static javax.swing.JTextField part_name;
+    private javax.swing.JRadioButton r_btn;
     private static javax.swing.JButton search_btn;
     private static javax.swing.JPanel search_menu_btn;
     public static javax.swing.JTable select_table;
