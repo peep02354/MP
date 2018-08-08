@@ -4,3 +4,10 @@
 mpfinal/nbproject/private/private.properties
 *.properties
 *.class
+*.class
+*.xml
+*.class
+*.xml
+*.properties
+/mpfinal/nbproject/private/
+/mpfinal/build/

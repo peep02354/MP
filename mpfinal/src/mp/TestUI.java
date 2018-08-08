@@ -1,26 +1,38 @@
 package mp;
 
 import java.awt.Color;
+import java.awt.Toolkit;
 import javax.swing.JPanel;
 import java.sql.*;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 public class TestUI extends javax.swing.JFrame {
 
     final static String dir = System.getProperty("user.dir");
-    final static String DBURL = "jdbc:ucanaccess://"+dir+"/finalLast3.accdb";
+    //&useUnicode=true&characterEncoding=UTF-8
+    final static String DBURL = "jdbc:ucanaccess://" + dir + "/finalLast3.accdb";
     Statement stmt = null;
     ResultSet result = null;
-    int xx,xy;
+    int xx, xy;
     static SelectMethod sm = new SelectMethod();
     static InsertMethod im = new InsertMethod();
     
+
     public TestUI() {
-        initComponents();  
+        //this.setUndecorated(true);
+        //this.setVisible(true);
+        initComponents();
         sm.clearTable();
         sm.all();
+        select_table.setRowHeight(30);
+        /*Toolkit tk = Toolkit.getDefaultToolkit();
+        int xsize = (int)tk.getScreenSize().getWidth();
+        int ysize = (int)tk.getScreenSize().getHeight();
+        this.setSize(xsize, ysize);*/
+        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -44,7 +56,7 @@ public class TestUI extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(TestUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-            
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -54,11 +66,7 @@ public class TestUI extends javax.swing.JFrame {
             }
         });
     }
-    
-    
-    
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,6 +80,7 @@ public class TestUI extends javax.swing.JFrame {
         jEditorPane1 = new javax.swing.JEditorPane();
         jLabel29 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
+        buttonGroup1 = new javax.swing.ButtonGroup();
         bg = new javax.swing.JPanel();
         sidepane = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -108,30 +117,48 @@ public class TestUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         select_table = new javax.swing.JTable();
         search_btn = new javax.swing.JButton();
+        c_btn = new javax.swing.JRadioButton();
+        d_btn = new javax.swing.JRadioButton();
+        g_btn = new javax.swing.JRadioButton();
+        r_btn = new javax.swing.JRadioButton();
         InsertOe = new javax.swing.JPanel();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
+        oe_tab = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        InsertOe_btn = new javax.swing.JButton();
+        in_oe_no = new javax.swing.JTextField();
+        in_c = new javax.swing.JTextField();
+        in_name = new javax.swing.JTextField();
+        in_d = new javax.swing.JTextField();
+        in_com = new javax.swing.JTextField();
+        in_g = new javax.swing.JTextField();
+        in_bar = new javax.swing.JTextField();
+        in_r = new javax.swing.JTextField();
+        body_tab = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
+        body_oe = new javax.swing.JTextField();
+        body_body = new javax.swing.JTextField();
+        InsertBody_btn = new javax.swing.JButton();
+        engine_tab = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField14 = new javax.swing.JTextField();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
-        jTextField18 = new javax.swing.JTextField();
-        InsertOe_btn = new javax.swing.JButton();
-        jLabel26 = new javax.swing.JLabel();
-        jTextField27 = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        engine_engine = new javax.swing.JTextField();
+        engine_oe = new javax.swing.JTextField();
+        InsertEngine_btn = new javax.swing.JButton();
+        carseries_tab = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        car_oe = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        car_car = new javax.swing.JTextField();
+        InsertCar_btn = new javax.swing.JButton();
         InsertOem = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -152,6 +179,10 @@ public class TestUI extends javax.swing.JFrame {
         InsertOem_btn = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         oem_oe_no = new javax.swing.JTextField();
+        Test = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
 
@@ -179,7 +210,7 @@ public class TestUI extends javax.swing.JFrame {
         setUndecorated(true);
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
-        bg.setMaximumSize(new java.awt.Dimension(1169, 608));
+        bg.setMaximumSize(new java.awt.Dimension(1169, 640));
         bg.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseDragged(java.awt.event.MouseEvent evt) {
                 bgMouseDragged(evt);
@@ -453,9 +484,13 @@ public class TestUI extends javax.swing.JFrame {
         select_table.setAutoCreateRowSorter(true);
         select_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         select_table.setGridColor(new java.awt.Color(255, 255, 255));
-        select_table.setIntercellSpacing(new java.awt.Dimension(5, 5));
+        select_table.setName(""); // NOI18N
+        select_table.setOpaque(false);
+        select_table.setRequestFocusEnabled(false);
         select_table.setSelectionBackground(new java.awt.Color(231, 231, 231));
         select_table.setSelectionForeground(new java.awt.Color(0, 0, 0));
+        select_table.setShowVerticalLines(false);
+        select_table.setSurrendersFocusOnKeystroke(true);
         jScrollPane1.setViewportView(select_table);
         if (select_table.getColumnModel().getColumnCount() > 0) {
             select_table.getColumnModel().getColumn(0).setHeaderValue("OE/OEM No.");
@@ -476,40 +511,64 @@ public class TestUI extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(c_btn);
+        c_btn.setText("C_Price");
+
+        buttonGroup1.add(d_btn);
+        d_btn.setText("D_Price");
+
+        buttonGroup1.add(g_btn);
+        g_btn.setText("G_Price");
+
+        buttonGroup1.add(r_btn);
+        r_btn.setText("R_Price");
+
         javax.swing.GroupLayout SearchMenuLayout = new javax.swing.GroupLayout(SearchMenu);
         SearchMenu.setLayout(SearchMenuLayout);
         SearchMenuLayout.setHorizontalGroup(
             SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SearchMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SearchMenuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
+                    .addGroup(SearchMenuLayout.createSequentialGroup()
+                        .addContainerGap(72, Short.MAX_VALUE)
+                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLable3, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLable4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLable6, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(27, 27, 27)
+                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(oe_no)
+                                .addComponent(engine, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
+                                .addComponent(body))
+                            .addComponent(model, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(84, 84, 84)
+                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SearchMenuLayout.createSequentialGroup()
+                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLable7)
+                                    .addComponent(jLable8)
+                                    .addComponent(jLable5))
+                                .addGap(18, 18, 18)
+                                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(SearchMenuLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(search_btn)))
+                        .addGap(54, 54, 54)
+                        .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(g_btn)
+                            .addComponent(c_btn)
+                            .addComponent(d_btn)
+                            .addComponent(r_btn))
+                        .addGap(0, 421, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(SearchMenuLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLable6)
-                    .addComponent(jLabel1)
-                    .addComponent(jLable3)
-                    .addComponent(jLable4))
-                .addGap(27, 27, 27)
-                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(oe_no)
-                        .addComponent(engine, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                        .addComponent(body))
-                    .addComponent(model, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(83, 83, 83)
-                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLable7)
-                    .addComponent(jLable8)
-                    .addComponent(search_btn)
-                    .addComponent(jLable5))
-                .addGap(18, 18, 18)
-                .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 241, Short.MAX_VALUE))
         );
         SearchMenuLayout.setVerticalGroup(
             SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -519,26 +578,30 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
                     .addComponent(jLable5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                    .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(c_btn))
+                .addGap(43, 43, 43)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable7)
-                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                    .addComponent(company, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(d_btn))
+                .addGap(53, 53, 53)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(engine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLable8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                    .addComponent(barcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(g_btn))
+                .addGap(43, 43, 43)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(search_btn)
                     .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLable6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLable6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(r_btn))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -546,95 +609,33 @@ public class TestUI extends javax.swing.JFrame {
 
         InsertOe.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("OE No.");
+        jTabbedPane2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setText("Body Code");
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel8.setText("Engine Code");
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("Car Series");
+        oe_tab.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Name Part");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("OE No.");
+
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Company");
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel12.setText("D_Price");
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("C_Price");
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel16.setText("R_Price");
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setText("D_Price");
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel17.setText("G_Price");
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
-            }
-        });
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel16.setText("R_Price");
 
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
-            }
-        });
-
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField11ActionPerformed(evt);
-            }
-        });
-
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
-            }
-        });
-
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField13ActionPerformed(evt);
-            }
-        });
-
-        jTextField14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField14ActionPerformed(evt);
-            }
-        });
-
-        jTextField15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField15ActionPerformed(evt);
-            }
-        });
-
-        jTextField16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField16ActionPerformed(evt);
-            }
-        });
-
-        jTextField17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField17ActionPerformed(evt);
-            }
-        });
-
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
-            }
-        });
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel26.setText("Barcode");
 
         InsertOe_btn.setText("Insert");
         InsertOe_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -643,100 +644,266 @@ public class TestUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel26.setText("Barcode");
+        in_oe_no.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                in_oe_noActionPerformed(evt);
+            }
+        });
+
+        in_d.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                in_dActionPerformed(evt);
+            }
+        });
+
+        in_com.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                in_comActionPerformed(evt);
+            }
+        });
+
+        in_g.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                in_gActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout oe_tabLayout = new javax.swing.GroupLayout(oe_tab);
+        oe_tab.setLayout(oe_tabLayout);
+        oe_tabLayout.setHorizontalGroup(
+            oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(oe_tabLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(oe_tabLayout.createSequentialGroup()
+                        .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel10))
+                        .addGap(18, 18, 18)
+                        .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(in_oe_no, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                            .addComponent(in_name))
+                        .addGap(117, 117, 117)
+                        .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel15))
+                        .addGap(18, 18, Short.MAX_VALUE))
+                    .addGroup(oe_tabLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel26))
+                        .addGap(18, 18, 18)
+                        .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(oe_tabLayout.createSequentialGroup()
+                                .addComponent(InsertOe_btn)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(oe_tabLayout.createSequentialGroup()
+                                .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(in_com)
+                                    .addComponent(in_bar))
+                                .addGap(118, 118, 118)
+                                .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel16))
+                                .addGap(18, 18, 18)))))
+                .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(in_c, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                    .addComponent(in_d)
+                    .addComponent(in_g)
+                    .addComponent(in_r))
+                .addContainerGap(285, Short.MAX_VALUE))
+        );
+        oe_tabLayout.setVerticalGroup(
+            oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(oe_tabLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel15)
+                    .addComponent(in_oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(in_c, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel10)
+                    .addComponent(in_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(in_d, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(in_com, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(in_g, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel16)
+                    .addComponent(in_bar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(in_r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addComponent(InsertOe_btn)
+                .addContainerGap(340, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("OE", oe_tab);
+
+        body_tab.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("OE No.");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Body Code");
+
+        InsertBody_btn.setText("Insert");
+
+        javax.swing.GroupLayout body_tabLayout = new javax.swing.GroupLayout(body_tab);
+        body_tab.setLayout(body_tabLayout);
+        body_tabLayout.setHorizontalGroup(
+            body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(body_tabLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel8))
+                .addGap(18, 18, 18)
+                .addGroup(body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InsertBody_btn)
+                    .addComponent(body_oe, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(body_body, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(597, Short.MAX_VALUE))
+        );
+        body_tabLayout.setVerticalGroup(
+            body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(body_tabLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(body_oe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addGroup(body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(body_body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addComponent(InsertBody_btn)
+                .addContainerGap(518, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Body Code", body_tab);
+
+        engine_tab.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("OE No.");
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel30.setText("Engine Code");
+
+        InsertEngine_btn.setText("Insert");
+
+        javax.swing.GroupLayout engine_tabLayout = new javax.swing.GroupLayout(engine_tab);
+        engine_tab.setLayout(engine_tabLayout);
+        engine_tabLayout.setHorizontalGroup(
+            engine_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(engine_tabLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(engine_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(engine_tabLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(engine_oe, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(engine_tabLayout.createSequentialGroup()
+                        .addComponent(jLabel30)
+                        .addGap(18, 18, 18)
+                        .addGroup(engine_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InsertEngine_btn)
+                            .addComponent(engine_engine, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(597, Short.MAX_VALUE))
+        );
+        engine_tabLayout.setVerticalGroup(
+            engine_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(engine_tabLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(engine_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(engine_oe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addGap(69, 69, 69)
+                .addGroup(engine_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(engine_engine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addComponent(InsertEngine_btn)
+                .addContainerGap(518, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Engine Code", engine_tab);
+
+        carseries_tab.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel33.setText("Car Series");
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel34.setText("OE No.");
+
+        car_car.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                car_carActionPerformed(evt);
+            }
+        });
+
+        InsertCar_btn.setText("Insert");
+
+        javax.swing.GroupLayout carseries_tabLayout = new javax.swing.GroupLayout(carseries_tab);
+        carseries_tab.setLayout(carseries_tabLayout);
+        carseries_tabLayout.setHorizontalGroup(
+            carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, carseries_tabLayout.createSequentialGroup()
+                .addContainerGap(53, Short.MAX_VALUE)
+                .addGroup(carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel33)
+                    .addComponent(jLabel34))
+                .addGap(18, 18, 18)
+                .addGroup(carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InsertCar_btn)
+                    .addGroup(carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(car_oe, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                        .addComponent(car_car)))
+                .addGap(597, 597, 597))
+        );
+        carseries_tabLayout.setVerticalGroup(
+            carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(carseries_tabLayout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(car_oe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel34))
+                .addGap(69, 69, 69)
+                .addGroup(carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(car_car, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addComponent(InsertCar_btn)
+                .addContainerGap(518, Short.MAX_VALUE))
+        );
+
+        jTabbedPane2.addTab("Car Series", carseries_tab);
 
         javax.swing.GroupLayout InsertOeLayout = new javax.swing.GroupLayout(InsertOe);
         InsertOe.setLayout(InsertOeLayout);
         InsertOeLayout.setHorizontalGroup(
             InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InsertOeLayout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel10))
-                .addGap(27, 27, 27)
-                .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField10)
-                    .addComponent(jTextField12)
-                    .addComponent(jTextField9))
-                .addGap(27, 27, 27)
-                .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel12)
-                        .addComponent(jLabel15)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addGroup(InsertOeLayout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addGap(1, 1, 1)))
-                .addGap(27, 27, 27)
-                .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InsertOeLayout.createSequentialGroup()
-                        .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField17))
-                        .addGap(27, 27, 27)
-                        .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InsertOe_btn)
-                            .addGroup(InsertOeLayout.createSequentialGroup()
-                                .addComponent(jLabel26)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                                .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(105, 105, 105))
-                    .addGroup(InsertOeLayout.createSequentialGroup()
-                        .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                            .addComponent(jTextField15)
-                            .addComponent(jTextField16))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                .addContainerGap()
+                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 861, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(339, Short.MAX_VALUE))
         );
         InsertOeLayout.setVerticalGroup(
             InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InsertOeLayout.createSequentialGroup()
-                .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(InsertOeLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11)
-                            .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel26)
-                            .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(51, 51, 51)
-                        .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10))
-                        .addGap(54, 54, 54)
-                        .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12)
-                            .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(132, 132, 132))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertOeLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(54, 54, 54)))
-                .addGroup(InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InsertOe_btn))
-                .addContainerGap(223, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InsertOeLayout.createSequentialGroup()
+                .addComponent(jTabbedPane2)
+                .addContainerGap())
         );
 
         showMenu.add(InsertOe, "card3");
@@ -850,20 +1017,22 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jLabel23)
                     .addComponent(jLabel24)
                     .addComponent(jLabel25))
-                .addGap(18, 28, Short.MAX_VALUE)
-                .addGroup(InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(oem_g, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                    .addComponent(oem_c, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(oem_d, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(oem_r))
-                .addGap(27, 27, 27)
+                .addGap(30, 30, 30)
                 .addGroup(InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(oem_d, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oem_g, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(InsertOemLayout.createSequentialGroup()
-                        .addComponent(jLabel27)
-                        .addGap(27, 27, 27)
-                        .addComponent(oem_oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(InsertOem_btn))
-                .addContainerGap(127, Short.MAX_VALUE))
+                        .addGroup(InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(oem_c, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(oem_r, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(48, 48, 48)
+                        .addGroup(InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(InsertOem_btn)
+                            .addGroup(InsertOemLayout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addGap(18, 18, 18)
+                                .addComponent(oem_oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(433, Short.MAX_VALUE))
         );
         InsertOemLayout.setVerticalGroup(
             InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -895,10 +1064,53 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(oem_r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(oem_barcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(InsertOem_btn))
-                .addContainerGap(293, Short.MAX_VALUE))
+                .addContainerGap(495, Short.MAX_VALUE))
         );
 
         showMenu.add(InsertOem, "card4");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 864, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 771, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("ENNNNNNNNNNNNNNNN", jPanel1);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 864, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 771, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("tab2", jPanel2);
+
+        javax.swing.GroupLayout TestLayout = new javax.swing.GroupLayout(Test);
+        Test.setLayout(TestLayout);
+        TestLayout.setHorizontalGroup(
+            TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TestLayout.createSequentialGroup()
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 869, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 341, Short.MAX_VALUE))
+        );
+        TestLayout.setVerticalGroup(
+            TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TestLayout.createSequentialGroup()
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
+        );
+
+        showMenu.add(Test, "card5");
 
         jDesktopPane1.setLayer(showMenu, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -910,10 +1122,10 @@ public class TestUI extends javax.swing.JFrame {
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(showMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE)
+            .addComponent(showMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        bg.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 30, 890, 608));
+        bg.add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(279, 30, 1210, 810));
 
         jLabel28.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mp/180802020003-k0nQ.png"))); // NOI18N
@@ -923,7 +1135,7 @@ public class TestUI extends javax.swing.JFrame {
                 jLabel28MouseClicked(evt);
             }
         });
-        bg.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 10, -1, 20));
+        bg.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(1430, 10, -1, 20));
 
         jLabel32.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mp/180802015948-8x40.png"))); // NOI18N
@@ -933,20 +1145,21 @@ public class TestUI extends javax.swing.JFrame {
                 jLabel32MouseClicked(evt);
             }
         });
-        bg.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 10, -1, -1));
+        bg.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1460, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 1494, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(bg, javax.swing.GroupLayout.DEFAULT_SIZE, 850, Short.MAX_VALUE)
         );
 
-        pack();
+        setSize(new java.awt.Dimension(1494, 850));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void bgMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bgMousePressed
@@ -981,13 +1194,13 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.revalidate();
         //reset when swap menu bar
         oem_oem_no.setText("");
-            oem_company.setText("");
-            oem_name.setText("");
-            oem_c.setText("");
-            oem_barcode.setText("");
-            oem_d.setText("");
-            oem_g.setText("");
-            oem_r.setText("");
+        oem_company.setText("");
+        oem_name.setText("");
+        oem_c.setText("");
+        oem_barcode.setText("");
+        oem_d.setText("");
+        oem_g.setText("");
+        oem_r.setText("");
     }//GEN-LAST:event_insert_oem_btnMouseClicked
 
     private void search_menu_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_search_menu_btnMouseClicked
@@ -1004,18 +1217,18 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.repaint();
         showMenu.revalidate();
         //reset when swap menu bar
-            oe_no.setText("");
-            engine.setText("");
-            part_name.setText("");
-            body.setText("");
-            company.setText("");
-            barcode.setText("");
-            model.setText("");
+        oe_no.setText("");
+        engine.setText("");
+        part_name.setText("");
+        body.setText("");
+        company.setText("");
+        barcode.setText("");
+        model.setText("");
     }//GEN-LAST:event_search_menu_btnMouseClicked
 
     private void insert_oe_btnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insert_oe_btnMouseClicked
         // TODO add your handling code here:
-             // TODO add your handling code here:
+        // TODO add your handling code here:
         onClick(insert_oe_btn);
         onLeaveClick(insert_oem_btn);
         onLeaveClick(search_menu_btn);
@@ -1028,17 +1241,14 @@ public class TestUI extends javax.swing.JFrame {
         showMenu.repaint();
         showMenu.revalidate();
         //reset when swap menu bar
-        jTextField9.setText("");
-            jTextField10.setText("");
-            jTextField11.setText("");
-            jTextField12.setText("");
-            jTextField13.setText("");
-            jTextField14.setText("");
-            jTextField15.setText("");
-            jTextField16.setText("");
-            jTextField17.setText("");
-            jTextField18.setText("");
-            jTextField27.setText("");
+        in_oe_no.setText("");
+        in_name.setText("");
+        in_com.setText("");
+        in_bar.setText("");
+        in_c.setText("");
+        in_d.setText("");
+        in_g.setText("");
+        in_r.setText("");
     }//GEN-LAST:event_insert_oe_btnMouseClicked
 
     private void logoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoMouseClicked
@@ -1054,8 +1264,8 @@ public class TestUI extends javax.swing.JFrame {
 
     private void search_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_search_btnActionPerformed
         // TODO add your handling code here:
-        if(oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")  
-                && barcode.getText().equals("") && model.getText().equals("")){
+        if (oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
+                && barcode.getText().equals("") && model.getText().equals("")) {
             //sm.selectPart();
             oe_no.setText("");
             engine.setText("");
@@ -1064,10 +1274,10 @@ public class TestUI extends javax.swing.JFrame {
             company.setText("");
             barcode.setText("");
             model.setText("");
-            JOptionPane.showMessageDialog(null,"Please fill in all blanks!");
+            JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
             //if(oe_no.getText()==null && engine.getText()==null && part_name.getText()==null && body.getText()==null && company.getText()==null  
-                //&& barcode.getText()==null && model.getText()==null)
-        }else{
+            //&& barcode.getText()==null && model.getText()==null)
+        } else {
             sm.selectPart();
             oe_no.setText("");
             engine.setText("");
@@ -1076,7 +1286,7 @@ public class TestUI extends javax.swing.JFrame {
             company.setText("");
             barcode.setText("");
             model.setText("");
-            JOptionPane.showMessageDialog(null,"Search success!");
+            JOptionPane.showMessageDialog(null, "Search success!");
         }
     }//GEN-LAST:event_search_btnActionPerformed
 
@@ -1115,14 +1325,14 @@ public class TestUI extends javax.swing.JFrame {
 
     private void InsertOem_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOem_btnActionPerformed
         // TODO add your handling code here:
-        if(oem_oem_no.getText().equals("")||oem_company.getText().equals("")||oem_name.getText().equals("")
-                ||oem_c.getText().equals("")||oem_barcode.getText().equals("")||oem_d.getText().equals("")
-                ||oem_g.getText().equals("")||oem_r.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Please fill in all blanks!");
-        }else{
+        if (oem_oem_no.getText().equals("") || oem_company.getText().equals("") || oem_name.getText().equals("")
+                || oem_c.getText().equals("") || oem_barcode.getText().equals("") || oem_d.getText().equals("")
+                || oem_g.getText().equals("") || oem_r.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
+        } else {
             im.addOem(oem_oem_no.getText(), oem_name.getText(), oem_barcode.getText(),
-                oem_oe_no.getText(), oem_company.getText(), Double.parseDouble(oem_c.getText()),
-                Double.parseDouble(oem_d.getText()), Double.parseDouble(oem_g.getText()), Double.parseDouble(oem_r.getText())
+                    oem_oe_no.getText(), oem_company.getText(), Double.parseDouble(oem_c.getText()),
+                    Double.parseDouble(oem_d.getText()), Double.parseDouble(oem_g.getText()), Double.parseDouble(oem_r.getText())
             );
             oem_oem_no.setText("");
             oem_company.setText("");
@@ -1133,7 +1343,7 @@ public class TestUI extends javax.swing.JFrame {
             oem_g.setText("");
             oem_r.setText("");
             oem_oe_no.setText("");
-            JOptionPane.showMessageDialog(null,"Insert success!");
+            JOptionPane.showMessageDialog(null, "Insert success!");
         }
     }//GEN-LAST:event_InsertOem_btnActionPerformed
 
@@ -1189,262 +1399,43 @@ public class TestUI extends javax.swing.JFrame {
 
     private void InsertOe_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOe_btnActionPerformed
         // TODO add your handling code here:
-        if(jTextField9.getText().equals("")|| jTextField10.getText().equals("")|| jTextField11.getText().equals("")
-            || jTextField12.getText().equals("")|| jTextField13.getText().equals("")|| jTextField14.getText().equals("")
-            || jTextField15.getText().equals("")|| jTextField16.getText().equals("")|| jTextField17.getText().equals("")
-            || jTextField18.getText().equals("")|| jTextField27.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Please fill in all blanks!");
-        }else{
-            im.addOe(jTextField9.getText(), jTextField11.getText(), jTextField27.getText(),
-                jTextField18.getText(), Double.parseDouble(jTextField13.getText()), Double.parseDouble(jTextField15.getText()),
-                Double.parseDouble(jTextField16.getText()), Double.parseDouble(jTextField17.getText()), jTextField10.getText(),
-                jTextField12.getText(), jTextField14.getText());
-            jTextField9.setText("");
-            jTextField10.setText("");
-            jTextField11.setText("");
-            jTextField12.setText("");
-            jTextField13.setText("");
-            jTextField14.setText("");
-            jTextField15.setText("");
-            jTextField16.setText("");
-            jTextField17.setText("");
-            jTextField18.setText("");
-            jTextField27.setText("");
-            JOptionPane.showMessageDialog(null,"Insert success!");
+        if (in_oe_no.getText().equals("") || in_name.getText().equals("") || in_com.getText().equals("")
+                || in_bar.getText().equals("") || in_c.getText().equals("") || in_g.getText().equals("")
+                || in_d.getText().equals("") || in_r.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
+        } else {
+            im.addOe(in_oe_no.getText(), in_name.getText(), in_bar.getText(), in_com.getText(), Double.parseDouble(in_c.getText()), Double.parseDouble(in_d.getText()), Double.parseDouble(in_g.getText()), Double.parseDouble(in_r.getText()));
+            in_oe_no.setText("");
+            in_name.setText("");
+            in_com.setText("");
+            in_bar.setText("");
+            in_c.setText("");
+            in_d.setText("");
+            in_g.setText("");
+            in_r.setText("");
+            JOptionPane.showMessageDialog(null, "Insert success!");
         }
     }//GEN-LAST:event_InsertOe_btnActionPerformed
 
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+    private void in_dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_dActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
+    }//GEN-LAST:event_in_dActionPerformed
 
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+    private void in_oe_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_oe_noActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
+    }//GEN-LAST:event_in_oe_noActionPerformed
 
-    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+    private void in_comActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_comActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16ActionPerformed
+    }//GEN-LAST:event_in_comActionPerformed
 
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+    private void in_gActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_gActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
+    }//GEN-LAST:event_in_gActionPerformed
 
-    private void jTextField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField14ActionPerformed
+    private void car_carActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_car_carActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField14ActionPerformed
-
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
-
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
-
-    private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField11ActionPerformed
-
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    /*
-    public static void addOe(String oe, String name, String bc,String comp, double c, double d, double g, double r,String body,String engine,String model) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            String sql = "insert into oe (oe_no,oe_name,barcode,company,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement p = conn.prepareStatement(sql);
-            p.setString(1, oe);
-            p.setString(2, name);
-            p.setString(3, bc);
-            p.setString(4, comp);
-            p.setDouble(5, c);
-            p.setDouble(6, d);
-            p.setDouble(7, g);
-            p.setDouble(8, r);
-            p.executeUpdate();
-            addBody(oe, body);
-            addEngine(oe, engine);
-            addModel(oe, model);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //add oem product
-    public static void addOem(String oem, String name, String bc,String comp, String oe, double c, double d, double g, double r) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            String sql = "insert into oem (oem_no,oem_name,barcode,oe_no,company,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement p = conn.prepareStatement(sql);
-            p.setString(1, oem);
-            p.setString(2, name);
-            p.setString(3, bc);
-            p.setString(4, comp);
-            p.setString(5, oe);
-            p.setDouble(6, c);
-            p.setDouble(7, d);
-            p.setDouble(8, g);
-            p.setDouble(9, r);
-            p.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //add model of oe
-    public static void addModel(String oe, String model) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            String sql = "insert into oe_model (oe_no,model) values(?, ?)";
-            PreparedStatement p = conn.prepareStatement(sql);
-            p.setString(1, oe);
-            p.setString(2, model);
-            p.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //add body of oe
-    public static void addBody(String oe, String body) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            String sql = "insert into oe_body (oe_no, body) values(?, ?)";
-            PreparedStatement p = conn.prepareStatement(sql);
-            p.setString(1, oe);
-            p.setString(2, body);
-            p.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //add engine of oe
-    public static void addEngine(String oe, String engine) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            String sql = "insert into oe_engine (oe_no,engine) values(?, ?)";
-            PreparedStatement p = conn.prepareStatement(sql);
-            p.setString(1, oe);
-            p.setString(2, engine);
-            p.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    //select all of product
-    public static void selectPart() {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            PreparedStatement p = conn.prepareStatement("select OE_NO,OE_NAME,company,C_PRICE,D_PRICE,G_PRICE,R_PRICE from OE");
-            ResultSet rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getDouble(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getString(7));
-            }
-            p = conn.prepareCall("select OEM_NO,OEM_NAME,company,C_PRICE,D_PRICE,G_PRICE,R_PRICE from OEM");
-            rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getDouble(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getString(7));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    //select part from engine
-    public static void selectPartEngine(String engine) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
-                    + "from OE, OE_Engine"
-                    + "where OE.OE_NO = OE_Engine.OE_NO and OE_Engine.Engine =" + engine);
-            ResultSet rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
-            }
-            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
-                    + "from OEM, OE_Engine"
-                    + "where OEM.OE_NO = OE_Engine.OE_NO and OE_Engine.Engine =" + engine);
-            rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    //select part from model
-    public static void selectPartModel(String model) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
-                    + "from OE, OE_Model"
-                    + "where OE.OE_NO = OE_Model.OE_NO and OE_Model.Model =" + model);
-            ResultSet rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
-            }
-
-            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
-                    + "from OEM, OE_Model"
-                    + "where OEM.OE_NO = OE_Model.OE_NO and OE_Model.Model =" + model);
-            rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    //select part from body
-    public static void selectPartBody(String body) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
-                    + "from OE, OE_BODY"
-                    + "where OE.OE_NO = OE_Body.OE_NO and OE_BODY.body =" + body);
-            ResultSet rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
-            }
-
-            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
-                    + "from OEM, OE_BODY"
-                    + "where OEM.OE_NO = OE_Body.OE_NO and OE_BODY.Body =" + body);
-            rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getDouble(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public static void selectPartCompany(String comp) {
-        try (Connection conn = DriverManager.getConnection(DBURL)) {
-            PreparedStatement p = conn.prepareStatement("select OE.OE_NO,OE.OE_NAME,OE.company,OE.C_PRICE,OE.D_PRICE,OE.G_PRICE,OE.R_PRICE "
-                    + "from OE"
-                    + "where OE.company = " + comp);
-            ResultSet rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getDouble(7));
-            }
-
-            p = conn.prepareStatement("select OEM.OEM_NO,OEM.OEM_NAME,company,OEM.C_PRICE,OEM.D_PRICE,OEM.G_PRICE,OEM.R_PRICE "
-                    + "from OEM"
-                    + "where OEM.company = " + comp);
-            rs = p.executeQuery();
-            while (rs.next()) {
-                System.out.println(rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5) + "\t" + rs.getString(6) + "\t" + rs.getDouble(7));
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-    }*/
+    }//GEN-LAST:event_car_carActionPerformed
 
     public static String toPrice(String in) {
         String price = "";
@@ -1475,32 +1466,58 @@ public class TestUI extends javax.swing.JFrame {
         if (a[1] == null) {
             a[1] = "00";
         }
-        return price + "." + a[1].substring(0,2);
+        return price + "." + a[1].substring(0, 2);
     }
+
     private static void onClick(JPanel panel) {
-       panel.setBackground(new Color(204,204,204));
-       showMenu.setVisible(true);
+        panel.setBackground(new Color(204, 204, 204));
+        showMenu.setVisible(true);
     }
 
     private static void onLeaveClick(JPanel panel) {
-       panel.setBackground(Color.white);
+        panel.setBackground(Color.white);
     }
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JPanel Indicator1;
     private static javax.swing.JPanel Indicator2;
     private static javax.swing.JPanel Indicator3;
+    private javax.swing.JButton InsertBody_btn;
+    private javax.swing.JButton InsertCar_btn;
+    private javax.swing.JButton InsertEngine_btn;
     private javax.swing.JPanel InsertOe;
     private javax.swing.JButton InsertOe_btn;
     private javax.swing.JPanel InsertOem;
     private javax.swing.JButton InsertOem_btn;
     private javax.swing.JPanel SearchMenu;
+    private javax.swing.JPanel Test;
     static javax.swing.JTextField barcode;
     private javax.swing.JPanel bg;
     static javax.swing.JTextField body;
+    private javax.swing.JTextField body_body;
+    private javax.swing.JTextField body_oe;
+    private javax.swing.JPanel body_tab;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton c_btn;
+    private javax.swing.JTextField car_car;
+    private javax.swing.JTextField car_oe;
+    private javax.swing.JPanel carseries_tab;
     static javax.swing.JTextField company;
+    private javax.swing.JRadioButton d_btn;
     static javax.swing.JTextField engine;
+    private javax.swing.JTextField engine_engine;
+    private javax.swing.JTextField engine_oe;
+    private javax.swing.JPanel engine_tab;
+    private javax.swing.JRadioButton g_btn;
+    private javax.swing.JTextField in_bar;
+    private javax.swing.JTextField in_c;
+    private javax.swing.JTextField in_com;
+    private javax.swing.JTextField in_d;
+    private javax.swing.JTextField in_g;
+    private javax.swing.JTextField in_name;
+    private javax.swing.JTextField in_oe_no;
+    private javax.swing.JTextField in_r;
     private static javax.swing.JPanel insert_oe_btn;
     private static javax.swing.JPanel insert_oem_btn;
     private javax.swing.JDesktopPane jDesktopPane1;
@@ -1528,8 +1545,11 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1542,23 +1562,17 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLable6;
     private javax.swing.JLabel jLable7;
     private javax.swing.JLabel jLable8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JLabel logo;
     static javax.swing.JTextField model;
     static javax.swing.JTextField oe_no;
+    private javax.swing.JPanel oe_tab;
     private javax.swing.JTextField oem_barcode;
     private javax.swing.JTextField oem_c;
     private javax.swing.JTextField oem_company;
@@ -1569,6 +1583,7 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JTextField oem_oem_no;
     private javax.swing.JTextField oem_r;
     static javax.swing.JTextField part_name;
+    private javax.swing.JRadioButton r_btn;
     private static javax.swing.JButton search_btn;
     private static javax.swing.JPanel search_menu_btn;
     public static javax.swing.JTable select_table;
@@ -1576,4 +1591,3 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JPanel sidepane;
     // End of variables declaration//GEN-END:variables
 }
-
