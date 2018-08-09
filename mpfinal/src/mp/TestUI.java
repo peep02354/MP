@@ -152,18 +152,10 @@ public class TestUI extends javax.swing.JFrame {
         body_oe = new javax.swing.JTextField();
         body_body = new javax.swing.JTextField();
         InsertBody_btn = new javax.swing.JButton();
-        engine_tab = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         engine_engine = new javax.swing.JTextField();
-        engine_oe = new javax.swing.JTextField();
-        InsertEngine_btn = new javax.swing.JButton();
-        carseries_tab = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
-        car_oe = new javax.swing.JTextField();
-        jLabel34 = new javax.swing.JLabel();
         car_car = new javax.swing.JTextField();
-        InsertCar_btn = new javax.swing.JButton();
         InsertOem = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -692,7 +684,7 @@ public class TestUI extends javax.swing.JFrame {
                         .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel12)
                             .addComponent(jLabel15))
-                        .addGap(18, 18, Short.MAX_VALUE))
+                        .addGap(18, 40, Short.MAX_VALUE))
                     .addGroup(oe_tabLayout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -707,17 +699,17 @@ public class TestUI extends javax.swing.JFrame {
                                 .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(in_com)
                                     .addComponent(in_bar))
-                                .addGap(118, 118, 118)
-                                .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGap(96, 96, 96)
+                                .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel17)
                                     .addComponent(jLabel16))
-                                .addGap(18, 18, 18)))))
+                                .addGap(40, 40, 40)))))
                 .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(in_c, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                     .addComponent(in_d)
                     .addComponent(in_g)
                     .addComponent(in_r))
-                .addContainerGap(285, Short.MAX_VALUE))
+                .addContainerGap(602, Short.MAX_VALUE))
         );
         oe_tabLayout.setVerticalGroup(
             oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -763,21 +755,37 @@ public class TestUI extends javax.swing.JFrame {
 
         InsertBody_btn.setText("Insert");
 
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel30.setText("Engine Code");
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel33.setText("Car Series");
+
+        car_car.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                car_carActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout body_tabLayout = new javax.swing.GroupLayout(body_tab);
         body_tab.setLayout(body_tabLayout);
         body_tabLayout.setHorizontalGroup(
             body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(body_tabLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(36, 36, 36)
                 .addGroup(body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel33)
+                    .addComponent(jLabel30)
                     .addComponent(jLabel6)
                     .addComponent(jLabel8))
                 .addGap(18, 18, 18)
-                .addGroup(body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(InsertBody_btn)
-                    .addComponent(body_oe, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(body_body, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(597, Short.MAX_VALUE))
+                    .addComponent(body_oe, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                    .addComponent(body_body, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                    .addComponent(engine_engine, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
+                    .addComponent(car_car))
+                .addContainerGap(936, Short.MAX_VALUE))
         );
         body_tabLayout.setVerticalGroup(
             body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -790,110 +798,20 @@ public class TestUI extends javax.swing.JFrame {
                 .addGroup(body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
                     .addComponent(body_body, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
-                .addComponent(InsertBody_btn)
-                .addContainerGap(518, Short.MAX_VALUE))
-        );
-
-        jTabbedPane2.addTab("Body Code", body_tab);
-
-        engine_tab.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel9.setText("OE No.");
-
-        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel30.setText("Engine Code");
-
-        InsertEngine_btn.setText("Insert");
-
-        javax.swing.GroupLayout engine_tabLayout = new javax.swing.GroupLayout(engine_tab);
-        engine_tab.setLayout(engine_tabLayout);
-        engine_tabLayout.setHorizontalGroup(
-            engine_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(engine_tabLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(engine_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(engine_tabLayout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(18, 18, 18)
-                        .addComponent(engine_oe, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(engine_tabLayout.createSequentialGroup()
-                        .addComponent(jLabel30)
-                        .addGap(18, 18, 18)
-                        .addGroup(engine_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InsertEngine_btn)
-                            .addComponent(engine_engine, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(597, Short.MAX_VALUE))
-        );
-        engine_tabLayout.setVerticalGroup(
-            engine_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(engine_tabLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(engine_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(engine_oe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
-                .addGap(69, 69, 69)
-                .addGroup(engine_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(60, 60, 60)
+                .addGroup(body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(engine_engine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
-                .addComponent(InsertEngine_btn)
-                .addContainerGap(518, Short.MAX_VALUE))
-        );
-
-        jTabbedPane2.addTab("Engine Code", engine_tab);
-
-        carseries_tab.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel33.setText("Car Series");
-
-        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel34.setText("OE No.");
-
-        car_car.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                car_carActionPerformed(evt);
-            }
-        });
-
-        InsertCar_btn.setText("Insert");
-
-        javax.swing.GroupLayout carseries_tabLayout = new javax.swing.GroupLayout(carseries_tab);
-        carseries_tab.setLayout(carseries_tabLayout);
-        carseries_tabLayout.setHorizontalGroup(
-            carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, carseries_tabLayout.createSequentialGroup()
-                .addContainerGap(53, Short.MAX_VALUE)
-                .addGroup(carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel33)
-                    .addComponent(jLabel34))
-                .addGap(18, 18, 18)
-                .addGroup(carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(InsertCar_btn)
-                    .addGroup(carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(car_oe, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                        .addComponent(car_car)))
-                .addGap(597, 597, 597))
-        );
-        carseries_tabLayout.setVerticalGroup(
-            carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(carseries_tabLayout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(car_oe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel34))
-                .addGap(69, 69, 69)
-                .addGroup(carseries_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(62, 62, 62)
+                .addGroup(body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel33)
                     .addComponent(car_car, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(69, 69, 69)
-                .addComponent(InsertCar_btn)
-                .addContainerGap(518, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(InsertBody_btn)
+                .addContainerGap(357, Short.MAX_VALUE))
         );
 
-        jTabbedPane2.addTab("Car Series", carseries_tab);
+        jTabbedPane2.addTab("Add car model", body_tab);
 
         javax.swing.GroupLayout InsertOeLayout = new javax.swing.GroupLayout(InsertOe);
         InsertOe.setLayout(InsertOeLayout);
@@ -901,8 +819,7 @@ public class TestUI extends javax.swing.JFrame {
             InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InsertOeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 861, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(339, Short.MAX_VALUE))
+                .addComponent(jTabbedPane2))
         );
         InsertOeLayout.setVerticalGroup(
             InsertOeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1402,11 +1319,31 @@ public class TestUI extends javax.swing.JFrame {
         this.setState(TestUI.ICONIFIED);
     }//GEN-LAST:event_jLabel28MouseClicked
 
+    private void car_carActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_car_carActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_car_carActionPerformed
+
+    private void in_gActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_gActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_in_gActionPerformed
+
+    private void in_comActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_comActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_in_comActionPerformed
+
+    private void in_dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_dActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_in_dActionPerformed
+
+    private void in_oe_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_oe_noActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_in_oe_noActionPerformed
+
     private void InsertOe_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOe_btnActionPerformed
         // TODO add your handling code here:
         if (in_oe_no.getText().equals("") || in_name.getText().equals("") || in_com.getText().equals("")
-                || in_bar.getText().equals("") || in_c.getText().equals("") || in_g.getText().equals("")
-                || in_d.getText().equals("") || in_r.getText().equals("")) {
+            || in_bar.getText().equals("") || in_c.getText().equals("") || in_g.getText().equals("")
+            || in_d.getText().equals("") || in_r.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
         } else {
             im.addOe(in_oe_no.getText(), in_name.getText(), in_bar.getText(), in_com.getText(), Double.parseDouble(in_c.getText()), Double.parseDouble(in_d.getText()), Double.parseDouble(in_g.getText()), Double.parseDouble(in_r.getText()));
@@ -1421,26 +1358,6 @@ public class TestUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Insert success!");
         }
     }//GEN-LAST:event_InsertOe_btnActionPerformed
-
-    private void in_dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_dActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_in_dActionPerformed
-
-    private void in_oe_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_oe_noActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_in_oe_noActionPerformed
-
-    private void in_comActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_comActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_in_comActionPerformed
-
-    private void in_gActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_gActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_in_gActionPerformed
-
-    private void car_carActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_car_carActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_car_carActionPerformed
 
     public static String toPrice(String in) {
         String price = "";
@@ -1489,8 +1406,6 @@ public class TestUI extends javax.swing.JFrame {
     private static javax.swing.JPanel Indicator2;
     private static javax.swing.JPanel Indicator3;
     private javax.swing.JButton InsertBody_btn;
-    private javax.swing.JButton InsertCar_btn;
-    private javax.swing.JButton InsertEngine_btn;
     private javax.swing.JPanel InsertOe;
     private javax.swing.JButton InsertOe_btn;
     private javax.swing.JPanel InsertOem;
@@ -1506,14 +1421,10 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton c_btn;
     private javax.swing.JTextField car_car;
-    private javax.swing.JTextField car_oe;
-    private javax.swing.JPanel carseries_tab;
     static javax.swing.JTextField company;
     private javax.swing.JRadioButton d_btn;
     static javax.swing.JTextField engine;
     private javax.swing.JTextField engine_engine;
-    private javax.swing.JTextField engine_oe;
-    private javax.swing.JPanel engine_tab;
     private javax.swing.JRadioButton g_btn;
     private javax.swing.JTextField in_bar;
     private javax.swing.JTextField in_c;
@@ -1554,13 +1465,11 @@ public class TestUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLable3;
     private javax.swing.JLabel jLable4;
     private javax.swing.JLabel jLable5;
