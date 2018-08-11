@@ -515,7 +515,6 @@
                                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="g_btn" min="-2" max="-2" attributes="0"/>
-                                          <Component id="c_btn" min="-2" max="-2" attributes="0"/>
                                           <Component id="d_btn" min="-2" max="-2" attributes="0"/>
                                           <Component id="r_btn" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -535,7 +534,7 @@
                                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLable5" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="part_name" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="c_btn" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="r_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -558,10 +557,9 @@
                                   <Component id="search_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="model" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLable6" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                                  <Component id="r_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" pref="500" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" pref="496" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -755,17 +753,6 @@
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
                       </AuxValues>
-                    </Component>
-                    <Component class="javax.swing.JRadioButton" name="c_btn">
-                      <Properties>
-                        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
-                          <ComponentRef name="buttonGroup1"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="C_Price"/>
-                      </Properties>
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c_btnActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="d_btn">
                       <Properties>

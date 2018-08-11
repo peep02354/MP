@@ -122,7 +122,6 @@ public class TestUI extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         select_table = new javax.swing.JTable();
         search_btn = new javax.swing.JButton();
-        c_btn = new javax.swing.JRadioButton();
         d_btn = new javax.swing.JRadioButton();
         g_btn = new javax.swing.JRadioButton();
         r_btn = new javax.swing.JRadioButton();
@@ -508,14 +507,6 @@ public class TestUI extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(c_btn);
-        c_btn.setText("C_Price");
-        c_btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c_btnActionPerformed(evt);
-            }
-        });
-
         buttonGroup1.add(d_btn);
         d_btn.setText("D_Price");
         d_btn.addActionListener(new java.awt.event.ActionListener() {
@@ -581,7 +572,6 @@ public class TestUI extends javax.swing.JFrame {
                         .addGap(54, 54, 54)
                         .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(g_btn)
-                            .addComponent(c_btn)
                             .addComponent(d_btn)
                             .addComponent(r_btn))
                         .addGap(0, 421, Short.MAX_VALUE)))
@@ -596,7 +586,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLable5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(part_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(c_btn))
+                    .addComponent(r_btn))
                 .addGap(43, 43, 43)
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLable3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -615,10 +605,9 @@ public class TestUI extends javax.swing.JFrame {
                 .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(search_btn)
                     .addComponent(model, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLable6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(r_btn))
+                    .addComponent(jLable6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1377,14 +1366,6 @@ public class TestUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_InsertOe_btnActionPerformed
 
-    private void c_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_btnActionPerformed
-        priceTab = "C_PRICE";
-        if (oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
-                && barcode.getText().equals("") && model.getText().equals("")) {
-            sm.all(priceTab);
-        }
-    }//GEN-LAST:event_c_btnActionPerformed
-
     private void d_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d_btnActionPerformed
         priceTab = "D_PRICE";
         if (oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
@@ -1509,7 +1490,6 @@ public static String toPrice(String in) {
     private javax.swing.JTextField body_oe;
     private javax.swing.JPanel body_tab;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JRadioButton c_btn;
     private javax.swing.JTextField car_car;
     static javax.swing.JTextField company;
     private javax.swing.JRadioButton d_btn;
