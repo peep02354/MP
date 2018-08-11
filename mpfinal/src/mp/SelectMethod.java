@@ -38,7 +38,7 @@ public class SelectMethod {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
             Connection conn = DriverManager.getConnection(DBURL, props);
-            PreparedStatement p = conn.prepareStatement("select OE_NO,OE_NAME,C_PRICE,R_PRICE from OE");
+            PreparedStatement p = conn.prepareStatement("select OE_NO,OE_NAME,C_PRICE,"+price+ " from OE");
             ResultSet rs = p.executeQuery();
             DefaultTableModel m = clearTable(price);
             int row = 0;
@@ -46,7 +46,7 @@ public class SelectMethod {
                 m.addRow(new Object[0]);
                 setData(m, row++, rs);
             }
-            p = conn.prepareStatement("select OEM_NO,OEM_NAME,C_PRICE,R_PRICE from OEM");
+            p = conn.prepareStatement("select OEM_NO,OEM_NAME,C_PRICE,"+price+ " from OEM");
             rs = p.executeQuery();
             while (rs.next()) {
                 m.addRow(new Object[0]);

@@ -19,7 +19,7 @@ public class TestUI extends javax.swing.JFrame {
     int xx, xy;
     static SelectMethod sm = new SelectMethod();
     static InsertMethod im = new InsertMethod();
-    static String priceTab = "";
+    static String priceTab = "R_PRICE";
 
     public TestUI() {
         //this.setUndecorated(true);
@@ -1208,26 +1208,19 @@ public class TestUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
                 && barcode.getText().equals("") && model.getText().equals("")) {
-            //sm.selectPart();
-            oe_no.setText("");
-            engine.setText("");
-            part_name.setText("");
-            body.setText("");
-            company.setText("");
-            barcode.setText("");
-            model.setText("");
-            JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
+            sm.all(priceTab);
+            //JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
             //if(oe_no.getText()==null && engine.getText()==null && part_name.getText()==null && body.getText()==null && company.getText()==null  
             //&& barcode.getText()==null && model.getText()==null)
         } else {
             sm.selectPart(priceTab);
-            oe_no.setText("");
+            /*oe_no.setText("");
             engine.setText("");
             part_name.setText("");
             body.setText("");
             company.setText("");
             barcode.setText("");
-            model.setText("");
+            model.setText("");*/
             JOptionPane.showMessageDialog(null, "Search success!");
         }
     }//GEN-LAST:event_search_btnActionPerformed
@@ -1381,18 +1374,34 @@ public class TestUI extends javax.swing.JFrame {
 
     private void c_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_btnActionPerformed
         priceTab = "C_PRICE";
+        if(oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
+            && barcode.getText().equals("") && model.getText().equals("")){
+            sm.all(priceTab);
+        }
     }//GEN-LAST:event_c_btnActionPerformed
 
     private void d_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d_btnActionPerformed
         priceTab = "D_PRICE";
+        if(oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
+            && barcode.getText().equals("") && model.getText().equals("")){
+            sm.all(priceTab);
+        }
     }//GEN-LAST:event_d_btnActionPerformed
 
     private void g_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g_btnActionPerformed
         priceTab = "G_PRICE";
+        if(oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
+            && barcode.getText().equals("") && model.getText().equals("")){
+            sm.all(priceTab);
+        }
     }//GEN-LAST:event_g_btnActionPerformed
 
     private void r_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_btnActionPerformed
         priceTab = "R_PRICE";
+        if(oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
+            && barcode.getText().equals("") && model.getText().equals("")){
+            sm.all(priceTab);
+        }
     }//GEN-LAST:event_r_btnActionPerformed
 
     public static String toPrice(String in) {
