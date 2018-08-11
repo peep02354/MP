@@ -19,14 +19,14 @@ public class TestUI extends javax.swing.JFrame {
     int xx, xy;
     static SelectMethod sm = new SelectMethod();
     static InsertMethod im = new InsertMethod();
-    
+    static String priceTab = "";
 
     public TestUI() {
         //this.setUndecorated(true);
         //this.setVisible(true);
         initComponents();
-        sm.clearTable();
-        sm.all();
+        sm.clearTable(priceTab);
+        sm.all(priceTab);
         select_table.setRowHeight(30);
         TableCellRenderer rendererFromHeader = select_table.getTableHeader().getDefaultRenderer();
         JLabel headerLabel = (JLabel) rendererFromHeader;
@@ -510,15 +510,35 @@ public class TestUI extends javax.swing.JFrame {
 
         buttonGroup1.add(c_btn);
         c_btn.setText("C_Price");
+        c_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                c_btnActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(d_btn);
         d_btn.setText("D_Price");
+        d_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                d_btnActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(g_btn);
         g_btn.setText("G_Price");
+        g_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                g_btnActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(r_btn);
         r_btn.setText("R_Price");
+        r_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                r_btnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout SearchMenuLayout = new javax.swing.GroupLayout(SearchMenu);
         SearchMenu.setLayout(SearchMenuLayout);
@@ -1200,7 +1220,7 @@ public class TestUI extends javax.swing.JFrame {
             //if(oe_no.getText()==null && engine.getText()==null && part_name.getText()==null && body.getText()==null && company.getText()==null  
             //&& barcode.getText()==null && model.getText()==null)
         } else {
-            sm.selectPart();
+            sm.selectPart(priceTab);
             oe_no.setText("");
             engine.setText("");
             part_name.setText("");
@@ -1358,6 +1378,22 @@ public class TestUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Insert success!");
         }
     }//GEN-LAST:event_InsertOe_btnActionPerformed
+
+    private void c_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_btnActionPerformed
+        priceTab = "C_PRICE";
+    }//GEN-LAST:event_c_btnActionPerformed
+
+    private void d_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d_btnActionPerformed
+        priceTab = "D_PRICE";
+    }//GEN-LAST:event_d_btnActionPerformed
+
+    private void g_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g_btnActionPerformed
+        priceTab = "G_PRICE";
+    }//GEN-LAST:event_g_btnActionPerformed
+
+    private void r_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_btnActionPerformed
+        priceTab = "R_PRICE";
+    }//GEN-LAST:event_r_btnActionPerformed
 
     public static String toPrice(String in) {
         String price = "";

@@ -763,6 +763,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="C_Price"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="c_btnActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="d_btn">
                       <Properties>
@@ -771,6 +774,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="D_Price"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="d_btnActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="g_btn">
                       <Properties>
@@ -779,6 +785,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="G_Price"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="g_btnActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JRadioButton" name="r_btn">
                       <Properties>
@@ -787,6 +796,9 @@
                         </Property>
                         <Property name="text" type="java.lang.String" value="R_Price"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="r_btnActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
