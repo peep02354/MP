@@ -561,7 +561,7 @@
                                   <Component id="r_btn" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jScrollPane1" pref="496" max="32767" attributes="0"/>
+                              <Component id="jScrollPane1" pref="500" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -877,7 +877,7 @@
                                                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                                   <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <EmptySpace type="separate" pref="40" max="32767" attributes="0"/>
+                                              <EmptySpace type="separate" pref="50" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
@@ -912,7 +912,7 @@
                                           <Component id="in_g" alignment="0" max="32767" attributes="0"/>
                                           <Component id="in_r" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="602" max="32767" attributes="0"/>
+                                      <EmptySpace pref="611" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -949,7 +949,7 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                                       <Component id="InsertOe_btn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="340" max="32767" attributes="0"/>
+                                      <EmptySpace pref="341" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1090,7 +1090,7 @@
                                           <Component id="engine_engine" pref="128" max="32767" attributes="0"/>
                                           <Component id="car_car" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="936" max="32767" attributes="0"/>
+                                      <EmptySpace pref="955" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1119,7 +1119,7 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                                       <Component id="InsertBody_btn" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace pref="357" max="32767" attributes="0"/>
+                                      <EmptySpace pref="358" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                             </DimensionLayout>
@@ -1149,6 +1149,9 @@
                               <Properties>
                                 <Property name="text" type="java.lang.String" value="Insert"/>
                               </Properties>
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertBody_btnActionPerformed"/>
+                              </Events>
                             </Component>
                             <Component class="javax.swing.JLabel" name="jLabel30">
                               <Properties>
@@ -1236,7 +1239,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="433" max="32767" attributes="0"/>
+                              <EmptySpace pref="445" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1421,7 +1424,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jTabbedPane1" min="-2" pref="869" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="341" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="353" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1456,7 +1459,7 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="771" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="797" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                           </Layout>
@@ -1478,7 +1481,7 @@
                             </DimensionLayout>
                             <DimensionLayout dim="1">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <EmptySpace min="0" pref="771" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="797" max="32767" attributes="0"/>
                               </Group>
                             </DimensionLayout>
                           </Layout>

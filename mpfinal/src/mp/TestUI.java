@@ -618,7 +618,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(jLable6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(r_btn))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 496, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -704,7 +704,7 @@ public class TestUI extends javax.swing.JFrame {
                         .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel12)
                             .addComponent(jLabel15))
-                        .addGap(18, 40, Short.MAX_VALUE))
+                        .addGap(18, 50, Short.MAX_VALUE))
                     .addGroup(oe_tabLayout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -729,7 +729,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(in_d)
                     .addComponent(in_g)
                     .addComponent(in_r))
-                .addContainerGap(602, Short.MAX_VALUE))
+                .addContainerGap(611, Short.MAX_VALUE))
         );
         oe_tabLayout.setVerticalGroup(
             oe_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -760,7 +760,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(in_r, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(69, 69, 69)
                 .addComponent(InsertOe_btn)
-                .addContainerGap(340, Short.MAX_VALUE))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("OE", oe_tab);
@@ -774,6 +774,11 @@ public class TestUI extends javax.swing.JFrame {
         jLabel8.setText("Body Code");
 
         InsertBody_btn.setText("Insert");
+        InsertBody_btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertBody_btnActionPerformed(evt);
+            }
+        });
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel30.setText("Engine Code");
@@ -805,7 +810,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(body_body, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                     .addComponent(engine_engine, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
                     .addComponent(car_car))
-                .addContainerGap(936, Short.MAX_VALUE))
+                .addContainerGap(955, Short.MAX_VALUE))
         );
         body_tabLayout.setVerticalGroup(
             body_tabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -828,7 +833,7 @@ public class TestUI extends javax.swing.JFrame {
                     .addComponent(car_car, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68)
                 .addComponent(InsertBody_btn)
-                .addContainerGap(357, Short.MAX_VALUE))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Add car model", body_tab);
@@ -974,7 +979,7 @@ public class TestUI extends javax.swing.JFrame {
                                 .addComponent(jLabel27)
                                 .addGap(18, 18, 18)
                                 .addComponent(oem_oe_no, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(433, Short.MAX_VALUE))
+                .addContainerGap(445, Short.MAX_VALUE))
         );
         InsertOemLayout.setVerticalGroup(
             InsertOemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1019,7 +1024,7 @@ public class TestUI extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 771, Short.MAX_VALUE)
+            .addGap(0, 797, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("ENNNNNNNNNNNNNNNN", jPanel1);
@@ -1032,7 +1037,7 @@ public class TestUI extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 771, Short.MAX_VALUE)
+            .addGap(0, 797, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("tab2", jPanel2);
@@ -1043,7 +1048,7 @@ public class TestUI extends javax.swing.JFrame {
             TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TestLayout.createSequentialGroup()
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 869, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 341, Short.MAX_VALUE))
+                .addGap(0, 353, Short.MAX_VALUE))
         );
         TestLayout.setVerticalGroup(
             TestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1355,8 +1360,8 @@ public class TestUI extends javax.swing.JFrame {
     private void InsertOe_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOe_btnActionPerformed
         // TODO add your handling code here:
         if (in_oe_no.getText().equals("") || in_name.getText().equals("") || in_com.getText().equals("")
-            || in_bar.getText().equals("") || in_c.getText().equals("") || in_g.getText().equals("")
-            || in_d.getText().equals("") || in_r.getText().equals("")) {
+                || in_bar.getText().equals("") || in_c.getText().equals("") || in_g.getText().equals("")
+                || in_d.getText().equals("") || in_r.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
         } else {
             im.addOe(in_oe_no.getText(), in_name.getText(), in_bar.getText(), in_com.getText(), Double.parseDouble(in_c.getText()), Double.parseDouble(in_d.getText()), Double.parseDouble(in_g.getText()), Double.parseDouble(in_r.getText()));
@@ -1374,37 +1379,77 @@ public class TestUI extends javax.swing.JFrame {
 
     private void c_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_btnActionPerformed
         priceTab = "C_PRICE";
-        if(oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
-            && barcode.getText().equals("") && model.getText().equals("")){
+        if (oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
+                && barcode.getText().equals("") && model.getText().equals("")) {
             sm.all(priceTab);
         }
     }//GEN-LAST:event_c_btnActionPerformed
 
     private void d_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_d_btnActionPerformed
         priceTab = "D_PRICE";
-        if(oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
-            && barcode.getText().equals("") && model.getText().equals("")){
+        if (oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
+                && barcode.getText().equals("") && model.getText().equals("")) {
             sm.all(priceTab);
         }
     }//GEN-LAST:event_d_btnActionPerformed
 
     private void g_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_g_btnActionPerformed
         priceTab = "G_PRICE";
-        if(oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
-            && barcode.getText().equals("") && model.getText().equals("")){
+        if (oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
+                && barcode.getText().equals("") && model.getText().equals("")) {
             sm.all(priceTab);
         }
     }//GEN-LAST:event_g_btnActionPerformed
 
     private void r_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_btnActionPerformed
         priceTab = "R_PRICE";
-        if(oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
-            && barcode.getText().equals("") && model.getText().equals("")){
+        if (oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
+                && barcode.getText().equals("") && model.getText().equals("")) {
             sm.all(priceTab);
         }
     }//GEN-LAST:event_r_btnActionPerformed
 
-    public static String toPrice(String in) {
+    private void InsertBody_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertBody_btnActionPerformed
+        boolean oneOfThree = false;
+        if (body_oe.getText().trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "Please add OE number!");
+            body_oe.setText("");
+            return;
+        }
+        try {
+            Connection conn = DriverManager.getConnection(DBURL);
+            Statement s = conn.createStatement();
+            ResultSet rs = s.executeQuery("select * from oe where oe_no = '"+body_oe.getText()+"'");
+            if(!rs.first()){
+                JOptionPane.showMessageDialog(null, "Invalid OE number!");
+                body_oe.setText("");
+                return;
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Invalid OE number!");
+            return;
+        }
+        if (!body_body.getText().trim().equals("")) {
+            im.addBody(body_oe.getText(), body_body.getText());
+            oneOfThree = true;
+        }
+        if (!engine_engine.getText().trim().equals("")) {
+            im.addEngine(body_oe.getText(), engine_engine.getText());
+            oneOfThree = true;
+        }
+        if (!car_car.getText().trim().equals("")) {
+            im.addModel(body_oe.getText(), car_car.getText());
+            oneOfThree = true;
+        }
+        body_body.setText("");
+        car_car.setText("");
+        engine_engine.setText("");
+        if (!oneOfThree) {
+            JOptionPane.showMessageDialog(null, "Please add Body, Engine or Car Series!");
+        }
+    }//GEN-LAST:event_InsertBody_btnActionPerformed
+
+public static String toPrice(String in) {
         String price = "";
         String[] a = new String[2];
         boolean isDot = false;
