@@ -524,6 +524,7 @@ public class TestUI extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(r_btn);
+        r_btn.setSelected(true);
         r_btn.setText("R_Price");
         r_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
