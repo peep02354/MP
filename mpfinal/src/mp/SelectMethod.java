@@ -22,6 +22,7 @@ public class SelectMethod {
         if(price.equalsIgnoreCase("d_price")) model.addColumn("Dealer Price");
         else if(price.equalsIgnoreCase("g_price")) model.addColumn("Garage Price");
         else model.addColumn("Retail Price");
+        model.addColumn("Location.");
 
         return model;
     }
