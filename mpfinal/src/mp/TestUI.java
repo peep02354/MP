@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
 
 public class TestUI extends javax.swing.JFrame {
 
@@ -39,11 +40,12 @@ public class TestUI extends javax.swing.JFrame {
         this.setSize(xsize, ysize);*/
         //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         //select_table.addColumn("Location");
-        DefaultTableModel model = new DefaultTableModel();
-        Object[]columns ={"Location"};
-        model.addColumn(columns);
-        select_table.setModel(model);
+        //String[]columns ={"Location"};
+        //DefaultTableModel model = new DefaultTableModel();
+        //TableColumnModel t = new TableColumnModel();
+        //select_table.setTableHeader(Location);
         //select_table.addColumn("Location");
+        //select_table.getColumnModel().getColumn(4).setHeaderValue("Location");
     }
 
     public static void main(String args[]) {
