@@ -10,43 +10,45 @@ import static mp.TestUI.DBURL;
 public class InsertMethod {
 
     //insert
-    public static void addOe(String oe, String name, String bc, String comp, double c, double d, double g, double r) {
+    public static void addOe(String oe, String name, String bc, String comp,String location, double c, double d, double g, double r) {
         try {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
             Connection conn = DriverManager.getConnection(DBURL, props);
-            String sql = "insert into oe (oe_no,oe_name,barcode,company,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "insert into oe (oe_no,oe_name,barcode,company,location,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement p = conn.prepareStatement(sql);
             p.setString(1, oe);
             p.setString(2, name);
             p.setString(3, bc);
             p.setString(4, comp);
-            p.setDouble(5, c);
-            p.setDouble(6, d);
-            p.setDouble(7, g);
-            p.setDouble(8, r);
+            p.setString(5, location);
+            p.setDouble(6, c);
+            p.setDouble(7, d);
+            p.setDouble(8, g);
+            p.setDouble(9, r);
             p.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public static void addOem(String oem, String name, String bc, String comp, String oe, double c, double d, double g, double r) {
+    public static void addOem(String oem, String name, String bc, String oe,String comp,String location, double c, double d, double g, double r) {
         try {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
             Connection conn = DriverManager.getConnection(DBURL, props);
-            String sql = "insert into oem (oem_no,oem_name,barcode,oe_no,company,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "insert into oem (oem_no,oem_name,barcode,oe_no,company,location,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement p = conn.prepareStatement(sql);
             p.setString(1, oem);
             p.setString(2, name);
             p.setString(3, bc);
-            p.setString(4, comp);
-            p.setString(5, oe);
-            p.setDouble(6, c);
-            p.setDouble(7, d);
-            p.setDouble(8, g);
-            p.setDouble(9, r);
+            p.setString(4, oe);
+            p.setString(5, comp);
+            p.setString(6, location);
+            p.setDouble(7, c);
+            p.setDouble(8, d);
+            p.setDouble(9, g);
+            p.setDouble(10, r);
             p.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

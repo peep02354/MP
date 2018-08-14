@@ -32,6 +32,7 @@ public class SelectMethod {
         m.setValueAt(rs.getString(2), row, 1);
         m.setValueAt(rs.getString(3), row, 2);
         m.setValueAt(rs.getString(4), row, 3);
+        m.setValueAt(rs.getString(5), row, 4);
     }
 
     public static void all(String price) {
@@ -39,7 +40,7 @@ public class SelectMethod {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
             Connection conn = DriverManager.getConnection(DBURL, props);
-            PreparedStatement p = conn.prepareStatement("select OE_NO,OE_NAME,C_PRICE,"+price+ " from OE");
+            PreparedStatement p = conn.prepareStatement("select OE_NO,OE_NAME,C_PRICE,"+price+ ",LOCATION from OE");
             ResultSet rs = p.executeQuery();
             DefaultTableModel m = clearTable(price);
             int row = 0;
@@ -47,7 +48,7 @@ public class SelectMethod {
                 m.addRow(new Object[0]);
                 setData(m, row++, rs);
             }
-            p = conn.prepareStatement("select OEM_NO,OEM_NAME,C_PRICE,"+price+ " from OEM");
+            p = conn.prepareStatement("select OEM_NO,OEM_NAME,C_PRICE,"+price+ ",LOCATION from OEM");
             rs = p.executeQuery();
             while (rs.next()) {
                 m.addRow(new Object[0]);
@@ -69,7 +70,7 @@ public class SelectMethod {
             String realWhere = "";
             String from = "from oe";
             ArrayList<String> arr = new ArrayList<>();
-            String sql = "select OE_NO,OE_NAME,C_PRICE,OE."+price+" ";
+            String sql = "select OE_NO,OE_NAME,C_PRICE,OE."+price+" ,LOCATION ";
             if (!TestUI.oe_no.getText().equals("")) {
                 where += " and oe.oe_no like ?";
                 arr.add("%" + TestUI.oe_no.getText() + "%");
@@ -116,7 +117,7 @@ public class SelectMethod {
             where = "";
             realWhere = "";
             from = "from oem";
-            String sql2 = "select oem.OEM_NO,oem.OEM_NAME,oem.C_PRICE,OEM."+price+" ";
+            String sql2 = "select oem.OEM_NO,oem.OEM_NAME,oem.C_PRICE,OEM."+price+",LOCATION ";
             if (!TestUI.oe_no.getText().equals("")) {
                 where += " and oem.oem_no like ? or oem.oe_no like ?";
                 arr.add("%" + TestUI.oe_no.getText() + "%");

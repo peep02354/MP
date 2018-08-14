@@ -539,7 +539,7 @@ public class TestUI extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(d_btn);
-        d_btn.setText("D_Price");
+        d_btn.setText("Dealer Price");
         d_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 d_btnActionPerformed(evt);
@@ -547,7 +547,7 @@ public class TestUI extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(g_btn);
-        g_btn.setText("G_Price");
+        g_btn.setText("Garage Price");
         g_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 g_btnActionPerformed(evt);
@@ -556,7 +556,7 @@ public class TestUI extends javax.swing.JFrame {
 
         buttonGroup1.add(r_btn);
         r_btn.setSelected(true);
-        r_btn.setText("R_Price");
+        r_btn.setText("Retail Price");
         r_btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 r_btnActionPerformed(evt);
@@ -573,7 +573,7 @@ public class TestUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jScrollPane1))
                     .addGroup(SearchMenuLayout.createSequentialGroup()
-                        .addContainerGap(73, Short.MAX_VALUE)
+                        .addContainerGap(53, Short.MAX_VALUE)
                         .addGroup(SearchMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLable3, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLable4, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -606,7 +606,7 @@ public class TestUI extends javax.swing.JFrame {
                             .addComponent(g_btn)
                             .addComponent(d_btn)
                             .addComponent(r_btn))
-                        .addGap(0, 420, Short.MAX_VALUE)))
+                        .addGap(0, 399, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         SearchMenuLayout.setVerticalGroup(
@@ -708,6 +708,12 @@ public class TestUI extends javax.swing.JFrame {
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel34.setText("Location");
+
+        in_lo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                in_loActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout oe_tabLayout = new javax.swing.GroupLayout(oe_tab);
         oe_tab.setLayout(oe_tabLayout);
@@ -1308,11 +1314,11 @@ public class TestUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (oem_oem_no.getText().equals("") || oem_company.getText().equals("") || oem_name.getText().equals("")
                 || oem_c.getText().equals("") || oem_barcode.getText().equals("") || oem_d.getText().equals("")
-                || oem_g.getText().equals("") || oem_r.getText().equals("")) {
+                || oem_g.getText().equals("") || oem_r.getText().equals("") || oem_lo.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
         } else {
-            im.addOem(oem_oem_no.getText(), oem_name.getText(), oem_barcode.getText(),
-                    oem_lo.getText(), oem_company.getText(), Double.parseDouble(oem_c.getText()),
+            im.addOem(oem_oem_no.getText(), oem_name.getText(), oem_barcode.getText(),oem_oe_no1.getText(),
+                    oem_company.getText(),oem_lo.getText(), Double.parseDouble(oem_c.getText()),
                     Double.parseDouble(oem_d.getText()), Double.parseDouble(oem_g.getText()), Double.parseDouble(oem_r.getText())
             );
             oem_oem_no.setText("");
@@ -1405,7 +1411,7 @@ public class TestUI extends javax.swing.JFrame {
                 || in_d.getText().equals("") || in_r.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
         } else {
-            im.addOe(in_oe_no.getText(), in_name.getText(), in_bar.getText(), in_com.getText(), Double.parseDouble(in_c.getText()), Double.parseDouble(in_d.getText()), Double.parseDouble(in_g.getText()), Double.parseDouble(in_r.getText()));
+            im.addOe(in_oe_no.getText(), in_name.getText(), in_bar.getText(), in_com.getText(),in_lo.getText(), Double.parseDouble(in_c.getText()), Double.parseDouble(in_d.getText()), Double.parseDouble(in_g.getText()), Double.parseDouble(in_r.getText()));
             in_oe_no.setText("");
             in_name.setText("");
             in_com.setText("");
@@ -1481,6 +1487,10 @@ public class TestUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please add Body, Engine or Car Series!");
         }
     }//GEN-LAST:event_InsertBody_btnActionPerformed
+
+    private void in_loActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_loActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_in_loActionPerformed
 
 public static String toPrice(String in) {
         String price = "";

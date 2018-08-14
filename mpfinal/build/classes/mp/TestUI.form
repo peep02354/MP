@@ -476,7 +476,7 @@
                                       <Component id="jScrollPane1" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace pref="73" max="32767" attributes="0"/>
+                                      <EmptySpace pref="53" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLable3" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLable4" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -518,7 +518,7 @@
                                           <Component id="d_btn" min="-2" max="-2" attributes="0"/>
                                           <Component id="r_btn" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="0" pref="420" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="399" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -770,7 +770,7 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroup1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="D_Price"/>
+                        <Property name="text" type="java.lang.String" value="Dealer Price"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="d_btnActionPerformed"/>
@@ -781,7 +781,7 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="buttonGroup1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="G_Price"/>
+                        <Property name="text" type="java.lang.String" value="Garage Price"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="g_btnActionPerformed"/>
@@ -793,7 +793,7 @@
                           <ComponentRef name="buttonGroup1"/>
                         </Property>
                         <Property name="selected" type="boolean" value="true"/>
-                        <Property name="text" type="java.lang.String" value="R_Price"/>
+                        <Property name="text" type="java.lang.String" value="Retail Price"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="r_btnActionPerformed"/>
@@ -1069,6 +1069,9 @@
                               </Properties>
                             </Component>
                             <Component class="javax.swing.JTextField" name="in_lo">
+                              <Events>
+                                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="in_loActionPerformed"/>
+                              </Events>
                             </Component>
                           </SubComponents>
                         </Container>
