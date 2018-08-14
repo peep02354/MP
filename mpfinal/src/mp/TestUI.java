@@ -493,6 +493,29 @@ public class TestUI extends javax.swing.JFrame {
 
         select_table.setAutoCreateRowSorter(true);
         select_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        select_table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "OE/OEM No.", "OE/OEM Name", "Capital Price", "Retail Price", "Location"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         select_table.setGridColor(new java.awt.Color(255, 255, 255));
         select_table.setName(""); // NOI18N
         select_table.setOpaque(false);
@@ -502,12 +525,6 @@ public class TestUI extends javax.swing.JFrame {
         select_table.setShowVerticalLines(false);
         select_table.setSurrendersFocusOnKeystroke(true);
         jScrollPane1.setViewportView(select_table);
-        if (select_table.getColumnModel().getColumnCount() > 0) {
-            select_table.getColumnModel().getColumn(0).setHeaderValue("OE/OEM No.");
-            select_table.getColumnModel().getColumn(1).setHeaderValue("OE/OEM Name");
-            select_table.getColumnModel().getColumn(2).setHeaderValue("Capital Price");
-            select_table.getColumnModel().getColumn(3).setHeaderValue("Retail Price");
-        }
 
         search_btn.setText("Search");
         search_btn.addMouseListener(new java.awt.event.MouseAdapter() {
