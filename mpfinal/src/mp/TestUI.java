@@ -3,6 +3,7 @@ package mp;
 import java.awt.Color;
 import javax.swing.JPanel;
 import java.sql.*;
+import java.util.Properties;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableCellRenderer;
@@ -1376,10 +1377,13 @@ public class TestUI extends javax.swing.JFrame {
             return;
         }
         try {
-            Connection conn = DriverManager.getConnection(DBURL);
-            Statement s = conn.createStatement();
-            ResultSet rs = s.executeQuery("select * from oe where oe_no = '"+body_oe.getText()+"'");
-            if(!rs.first()){
+            Properties props = new Properties();
+            props.put("charSet", "UTF-8");
+            Connection conn = DriverManager.getConnection(DBURL,props);
+            PreparedStatement p = conn.prepareStatement("select count(*) from oe where oe_no = ?");
+            p.setString(1, body_oe.getText());
+            ResultSet rs = p.executeQuery();
+            if(!rs.next()){
                 JOptionPane.showMessageDialog(null, "Invalid OE number!");
                 body_oe.setText("");
                 return;
@@ -1403,8 +1407,11 @@ public class TestUI extends javax.swing.JFrame {
         body_body.setText("");
         car_car.setText("");
         engine_engine.setText("");
+        body_oe.setText("");
         if (!oneOfThree) {
             JOptionPane.showMessageDialog(null, "Please add Body, Engine or Car Series!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Insert successful.");
         }
     }//GEN-LAST:event_InsertBody_btnActionPerformed
 
