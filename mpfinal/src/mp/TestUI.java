@@ -1314,62 +1314,6 @@ public class TestUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_oe_noActionPerformed
 
-    private void InsertOem_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOem_btnActionPerformed
-        // TODO add your handling code here:
-        if (oem_oem_no.getText().equals("") || oem_company.getText().equals("") || oem_name.getText().equals("")
-                || oem_c.getText().equals("") || oem_barcode.getText().equals("") || oem_d.getText().equals("")
-                || oem_g.getText().equals("") || oem_r.getText().equals("") || oem_lo.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
-        } else {
-            im.addOem(oem_oem_no.getText(), oem_name.getText(), oem_barcode.getText(),oem_oe_no1.getText(),
-                    oem_company.getText(),oem_lo.getText(), Double.parseDouble(oem_c.getText()),
-                    Double.parseDouble(oem_d.getText()), Double.parseDouble(oem_g.getText()), Double.parseDouble(oem_r.getText())
-            );
-            oem_oem_no.setText("");
-            oem_company.setText("");
-            oem_name.setText("");
-            oem_c.setText("");
-            oem_barcode.setText("");
-            oem_d.setText("");
-            oem_g.setText("");
-            oem_r.setText("");
-            oem_lo.setText("");
-            JOptionPane.showMessageDialog(null, "Insert success!");
-        }
-    }//GEN-LAST:event_InsertOem_btnActionPerformed
-
-    private void oem_gActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_gActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oem_gActionPerformed
-
-    private void oem_rActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_rActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oem_rActionPerformed
-
-    private void oem_dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_dActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oem_dActionPerformed
-
-    private void oem_barcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_barcodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oem_barcodeActionPerformed
-
-    private void oem_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_cActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oem_cActionPerformed
-
-    private void oem_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_nameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oem_nameActionPerformed
-
-    private void oem_companyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_companyActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oem_companyActionPerformed
-
-    private void oem_oem_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_oem_noActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oem_oem_noActionPerformed
-
     private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel29MouseClicked
@@ -1424,6 +1368,7 @@ public class TestUI extends javax.swing.JFrame {
             in_d.setText("");
             in_g.setText("");
             in_r.setText("");
+            in_lo.setText("");
             JOptionPane.showMessageDialog(null, "Insert success!");
         }
     }//GEN-LAST:event_InsertOe_btnActionPerformed
@@ -1495,6 +1440,63 @@ public class TestUI extends javax.swing.JFrame {
     private void in_loActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_in_loActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_in_loActionPerformed
+
+    private void InsertOem_btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertOem_btnActionPerformed
+        // TODO add your handling code here:
+        if (oem_oem_no.getText().equals("") || oem_company.getText().equals("") || oem_name.getText().equals("")
+            || oem_c.getText().equals("") || oem_barcode.getText().equals("") || oem_d.getText().equals("")
+            || oem_g.getText().equals("") || oem_r.getText().equals("") || oem_lo.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
+        } else {
+            im.addOem(oem_oem_no.getText(), oem_name.getText(), oem_barcode.getText(),oem_oe_no1.getText(),
+                oem_company.getText(),oem_lo.getText(), Double.parseDouble(oem_c.getText()),
+                Double.parseDouble(oem_d.getText()), Double.parseDouble(oem_g.getText()), Double.parseDouble(oem_r.getText())
+            );
+            oem_oem_no.setText("");
+            oem_company.setText("");
+            oem_name.setText("");
+            oem_c.setText("");
+            oem_barcode.setText("");
+            oem_d.setText("");
+            oem_g.setText("");
+            oem_r.setText("");
+            oem_lo.setText("");
+            oem_oe_no1.setText("");
+            JOptionPane.showMessageDialog(null, "Insert success!");
+        }
+    }//GEN-LAST:event_InsertOem_btnActionPerformed
+
+    private void oem_gActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_gActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oem_gActionPerformed
+
+    private void oem_rActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_rActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oem_rActionPerformed
+
+    private void oem_dActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_dActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oem_dActionPerformed
+
+    private void oem_barcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_barcodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oem_barcodeActionPerformed
+
+    private void oem_cActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_cActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oem_cActionPerformed
+
+    private void oem_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_nameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oem_nameActionPerformed
+
+    private void oem_companyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_companyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oem_companyActionPerformed
+
+    private void oem_oem_noActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oem_oem_noActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oem_oem_noActionPerformed
 
 public static String toPrice(String in) {
         String price = "";
