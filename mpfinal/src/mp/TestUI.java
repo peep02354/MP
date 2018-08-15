@@ -1,18 +1,11 @@
 package mp;
 
 import java.awt.Color;
-import java.awt.Toolkit;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import javax.swing.JPanel;
 import java.sql.*;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumnModel;
 
 public class TestUI extends javax.swing.JFrame {
 
@@ -38,18 +31,6 @@ public class TestUI extends javax.swing.JFrame {
         TableCellRenderer rendererFromHeader = select_table.getTableHeader().getDefaultRenderer();
         JLabel headerLabel = (JLabel) rendererFromHeader;
         headerLabel.setHorizontalAlignment(JLabel.CENTER);
-        /*Toolkit tk = Toolkit.getDefaultToolkit();
-        int xsize = (int)tk.getScreenSize().getWidth();
-        int ysize = (int)tk.getScreenSize().getHeight();
-        this.setSize(xsize, ysize);*/
-        //this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        //select_table.addColumn("Location");
-        //String[]columns ={"Location"};
-        //DefaultTableModel model = new DefaultTableModel();
-        //TableColumnModel t = new TableColumnModel();
-        //select_table.setTableHeader(Location);
-        //select_table.addColumn("Location");
-        //select_table.getColumnModel().getColumn(4).setHeaderValue("Location");
     }
 
     public static void main(String args[]) {
@@ -1265,18 +1246,8 @@ public class TestUI extends javax.swing.JFrame {
         if (oe_no.getText().equals("") && engine.getText().equals("") && part_name.getText().equals("") && body.getText().equals("") && company.getText().equals("")
                 && barcode.getText().equals("") && model.getText().equals("")) {
             sm.all(priceTab);
-            //JOptionPane.showMessageDialog(null, "Please fill in all blanks!");
-            //if(oe_no.getText()==null && engine.getText()==null && part_name.getText()==null && body.getText()==null && company.getText()==null  
-            //&& barcode.getText()==null && model.getText()==null)
         } else {
             sm.selectPart(priceTab);
-            /*oe_no.setText("");
-            engine.setText("");
-            part_name.setText("");
-            body.setText("");
-            company.setText("");
-            barcode.setText("");
-            model.setText("");*/
             JOptionPane.showMessageDialog(null, "Search success!");
         }
     }//GEN-LAST:event_search_btnActionPerformed

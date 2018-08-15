@@ -11,3 +11,4 @@ mpfinal/nbproject/private/private.properties
 *.properties
 /mpfinal/nbproject/private/
 /mpfinal/build/
+*.class
