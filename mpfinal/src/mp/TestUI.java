@@ -18,7 +18,7 @@ public class TestUI extends javax.swing.JFrame {
 
     final static String dir = System.getProperty("user.dir");
     //&useUnicode=true&characterEncoding=UTF-8
-    final static String DBURL = "jdbc:ucanaccess://C://Users//mos_s//Documents//GitHub//MP//mpfinal//finalLast3.accdb";
+    final static String DBURL = "jdbc:ucanaccess://"+dir+"//finalLast3.accdb";
    /* static String user = "peep";
     static String pwd = "peep";*/
     Statement stmt = null;
