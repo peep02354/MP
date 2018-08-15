@@ -2,6 +2,8 @@ package mp;
 
 import java.awt.Color;
 import java.awt.Toolkit;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import javax.swing.JPanel;
 import java.sql.*;
 import javax.swing.JFrame;
@@ -16,7 +18,9 @@ public class TestUI extends javax.swing.JFrame {
 
     final static String dir = System.getProperty("user.dir");
     //&useUnicode=true&characterEncoding=UTF-8
-    final static String DBURL = "jdbc:ucanaccess://" + dir + "/finalLast3.accdb";
+    final static String DBURL = "jdbc:ucanaccess://C://Users//mos_s//Documents//GitHub//MP//mpfinal//finalLast3.accdb";
+   /* static String user = "peep";
+    static String pwd = "peep";*/
     Statement stmt = null;
     ResultSet result = null;
     int xx, xy;
@@ -30,7 +34,7 @@ public class TestUI extends javax.swing.JFrame {
         initComponents();
         sm.clearTable(priceTab);
         sm.all(priceTab);
-        select_table.setRowHeight(30);
+        select_table.setRowHeight(35);
         TableCellRenderer rendererFromHeader = select_table.getTableHeader().getDefaultRenderer();
         JLabel headerLabel = (JLabel) rendererFromHeader;
         headerLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -492,7 +496,7 @@ public class TestUI extends javax.swing.JFrame {
         });
 
         select_table.setAutoCreateRowSorter(true);
-        select_table.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        select_table.setFont(new java.awt.Font("AngsanaUPC", 0, 24)); // NOI18N
         select_table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

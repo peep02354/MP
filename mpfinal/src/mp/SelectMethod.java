@@ -39,7 +39,7 @@ public class SelectMethod {
         try {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
-            Connection conn = DriverManager.getConnection(DBURL, props);
+            Connection conn = DriverManager.getConnection(DBURL,props);
             PreparedStatement p = conn.prepareStatement("select OE_NO,OE_NAME,C_PRICE,"+price+ ",LOCATION from OE");
             ResultSet rs = p.executeQuery();
             DefaultTableModel m = clearTable(price);

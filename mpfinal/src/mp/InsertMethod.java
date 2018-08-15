@@ -14,7 +14,7 @@ public class InsertMethod {
         try {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
-            Connection conn = DriverManager.getConnection(DBURL, props);
+            Connection conn = DriverManager.getConnection(DBURL);
             String sql = "insert into oe (oe_no,oe_name,barcode,company,location,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement p = conn.prepareStatement(sql);
             p.setString(1, oe);
@@ -36,7 +36,7 @@ public class InsertMethod {
         try {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
-            Connection conn = DriverManager.getConnection(DBURL, props);
+            Connection conn = DriverManager.getConnection(DBURL);
             String sql = "insert into oem (oem_no,oem_name,barcode,oe_no,company,location,c_price,d_price,g_price,r_price) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement p = conn.prepareStatement(sql);
             p.setString(1, oem);
@@ -59,7 +59,7 @@ public class InsertMethod {
         try {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
-            Connection conn = DriverManager.getConnection(DBURL, props);
+            Connection conn = DriverManager.getConnection(DBURL);
             String sql = "insert into oe_model (oe_no,model) values(?, ?)";
             PreparedStatement p = conn.prepareStatement(sql);
             p.setString(1, oe);
@@ -74,7 +74,7 @@ public class InsertMethod {
         try {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
-            Connection conn = DriverManager.getConnection(DBURL, props);
+            Connection conn = DriverManager.getConnection(DBURL);
             String sql = "insert into oe_body (oe_no, body) values(?, ?)";
             PreparedStatement p = conn.prepareStatement(sql);
             p.setString(1, oe);
@@ -89,7 +89,7 @@ public class InsertMethod {
         try {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
-            Connection conn = DriverManager.getConnection(DBURL, props);
+            Connection conn = DriverManager.getConnection(DBURL);
             String sql = "insert into oe_engine (oe_no,engine) values(?, ?)";
             PreparedStatement p = conn.prepareStatement(sql);
             p.setString(1, oe);
