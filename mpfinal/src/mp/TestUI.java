@@ -1372,14 +1372,13 @@ public class TestUI extends javax.swing.JFrame {
             Connection conn = DriverManager.getConnection(DBURL);
             Statement s = conn.createStatement();
             ResultSet rs = s.executeQuery("select * from oe where oe_no = '"+body_oe.getText()+"'");
-            if(!rs.first()){
+            if(!rs.next()){
                 JOptionPane.showMessageDialog(null, "Invalid OE number!");
                 body_oe.setText("");
                 return;
             }
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Invalid OE number!");
-            return;
+            e.printStackTrace();
         }
         if (!body_body.getText().trim().equals("")) {
             im.addBody(body_oe.getText(), body_body.getText());
@@ -1393,11 +1392,14 @@ public class TestUI extends javax.swing.JFrame {
             im.addModel(body_oe.getText(), car_car.getText());
             oneOfThree = true;
         }
+        body_oe.setText("");
         body_body.setText("");
         car_car.setText("");
         engine_engine.setText("");
         if (!oneOfThree) {
             JOptionPane.showMessageDialog(null, "Please add Body, Engine or Car Series!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Insert successful.");
         }
     }//GEN-LAST:event_InsertBody_btnActionPerformed
 
