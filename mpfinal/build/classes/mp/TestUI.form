@@ -876,10 +876,8 @@
                                                               <Component id="in_bar" alignment="1" min="-2" pref="128" max="-2" attributes="0"/>
                                                               <Component id="in_com" min="-2" pref="128" max="-2" attributes="0"/>
                                                           </Group>
-                                                          <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                                              <Component id="in_oe_no" min="-2" pref="128" max="-2" attributes="0"/>
-                                                              <Component id="in_name" min="-2" pref="128" max="-2" attributes="0"/>
-                                                          </Group>
+                                                          <Component id="in_oe_no" min="-2" pref="128" max="-2" attributes="0"/>
+                                                          <Component id="in_name" min="-2" pref="128" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace min="-2" pref="154" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
