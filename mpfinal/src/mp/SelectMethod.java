@@ -7,8 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Properties;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import static mp.TestUI.DBURL;
+import static mp.TestUI.select_table;
 
 public class SelectMethod {
 
@@ -16,13 +18,23 @@ public class SelectMethod {
         TestUI.select_table.setModel(new DefaultTableModel());
         DefaultTableModel model = (DefaultTableModel) TestUI.select_table.getModel();
         TestUI.select_table.setDefaultEditor(Object.class, null);
+        TestUI.select_table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
         model.addColumn("OE/OEM No.");
         model.addColumn("OE/OEM Name");
         model.addColumn("Capital Price");
-        if(price.equalsIgnoreCase("d_price")) model.addColumn("Dealer Price");
-        else if(price.equalsIgnoreCase("g_price")) model.addColumn("Garage Price");
-        else model.addColumn("Retail Price");
+        if (price.equalsIgnoreCase("d_price")) {
+            model.addColumn("Dealer Price");
+        } else if (price.equalsIgnoreCase("g_price")) {
+            model.addColumn("Garage Price");
+        } else {
+            model.addColumn("Retail Price");
+        }
         model.addColumn("Location.");
+        select_table.getColumnModel().getColumn(0).setPreferredWidth(200);
+        select_table.getColumnModel().getColumn(1).setPreferredWidth(500);
+        select_table.getColumnModel().getColumn(2).setPreferredWidth(100);
+        select_table.getColumnModel().getColumn(3).setPreferredWidth(100);
+        select_table.getColumnModel().getColumn(4).setPreferredWidth(290);
 
         return model;
     }
@@ -39,8 +51,8 @@ public class SelectMethod {
         try {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
-            Connection conn = DriverManager.getConnection(DBURL,props);
-            PreparedStatement p = conn.prepareStatement("select OE_NO,OE_NAME,C_PRICE,"+price+ ",LOCATION from OE");
+            Connection conn = DriverManager.getConnection(DBURL, props);
+            PreparedStatement p = conn.prepareStatement("select OE_NO,OE_NAME,C_PRICE," + price + ",LOCATION from OE");
             ResultSet rs = p.executeQuery();
             DefaultTableModel m = clearTable(price);
             int row = 0;
@@ -48,7 +60,7 @@ public class SelectMethod {
                 m.addRow(new Object[0]);
                 setData(m, row++, rs);
             }
-            p = conn.prepareStatement("select OEM_NO,OEM_NAME,C_PRICE,"+price+ ",LOCATION from OEM");
+            p = conn.prepareStatement("select OEM_NO,OEM_NAME,C_PRICE," + price + ",LOCATION from OEM");
             rs = p.executeQuery();
             while (rs.next()) {
                 m.addRow(new Object[0]);
@@ -61,16 +73,16 @@ public class SelectMethod {
     }
 
     public static void selectPart(String price) {
-        try{
+        try {
             Properties props = new Properties();
             props.put("charSet", "UTF-8");
-            Connection conn = DriverManager.getConnection(DBURL,props);
+            Connection conn = DriverManager.getConnection(DBURL, props);
             DefaultTableModel m = clearTable(price);
             String where = "";
             String realWhere = "";
             String from = "from oe";
             ArrayList<String> arr = new ArrayList<>();
-            String sql = "select OE_NO,OE_NAME,C_PRICE,OE."+price+" ,LOCATION ";
+            String sql = "select OE_NO,OE_NAME,C_PRICE,OE." + price + " ,LOCATION ";
             if (!TestUI.oe_no.getText().equals("")) {
                 where += " and oe.oe_no like ?";
                 arr.add("%" + TestUI.oe_no.getText() + "%");
@@ -117,7 +129,7 @@ public class SelectMethod {
             where = "";
             realWhere = "";
             from = "from oem";
-            String sql2 = "select oem.OEM_NO,oem.OEM_NAME,oem.C_PRICE,OEM."+price+",LOCATION ";
+            String sql2 = "select oem.OEM_NO,oem.OEM_NAME,oem.C_PRICE,OEM." + price + ",LOCATION ";
             if (!TestUI.oe_no.getText().equals("")) {
                 where += " and oem.oem_no like ? or oem.oe_no like ?";
                 arr.add("%" + TestUI.oe_no.getText() + "%");

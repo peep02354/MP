@@ -21,7 +21,7 @@ public class TestUI extends javax.swing.JFrame {
     public TestUI() {
         initComponents();
         sm.clearTable(priceTab);
-        sm.all(priceTab);
+        //sm.all(priceTab);
         select_table.setRowHeight(35);
         TableCellRenderer rendererFromHeader = select_table.getTableHeader().getDefaultRenderer();
         JLabel headerLabel = (JLabel) rendererFromHeader;
@@ -505,6 +505,23 @@ public class TestUI extends javax.swing.JFrame {
         select_table.setShowVerticalLines(false);
         select_table.setSurrendersFocusOnKeystroke(true);
         jScrollPane1.setViewportView(select_table);
+        if (select_table.getColumnModel().getColumnCount() > 0) {
+            select_table.getColumnModel().getColumn(0).setMinWidth(200);
+            select_table.getColumnModel().getColumn(0).setPreferredWidth(200);
+            select_table.getColumnModel().getColumn(0).setMaxWidth(200);
+            select_table.getColumnModel().getColumn(1).setMinWidth(500);
+            select_table.getColumnModel().getColumn(1).setPreferredWidth(500);
+            select_table.getColumnModel().getColumn(1).setMaxWidth(500);
+            select_table.getColumnModel().getColumn(2).setMinWidth(100);
+            select_table.getColumnModel().getColumn(2).setPreferredWidth(100);
+            select_table.getColumnModel().getColumn(2).setMaxWidth(100);
+            select_table.getColumnModel().getColumn(3).setMinWidth(100);
+            select_table.getColumnModel().getColumn(3).setPreferredWidth(100);
+            select_table.getColumnModel().getColumn(3).setMaxWidth(100);
+            select_table.getColumnModel().getColumn(4).setMinWidth(290);
+            select_table.getColumnModel().getColumn(4).setPreferredWidth(290);
+            select_table.getColumnModel().getColumn(4).setMaxWidth(290);
+        }
 
         search_btn.setText("Search");
         search_btn.addMouseListener(new java.awt.event.MouseAdapter() {
